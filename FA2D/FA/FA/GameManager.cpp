@@ -9,4 +9,25 @@ GameManager::GameManager()
 
 GameManager::~GameManager()
 {
+
+}
+
+void GameManager::Update()
+{
+
+}
+
+void GameManager::Render()
+{
+
+}
+
+void GameManager::RenderWorld()
+{
+
+}
+
+void GameManager::RenderEntities()
+{
+
 }

@@ -1,0 +1,7 @@
+Space ship, against robot
+
+Get ship working 
+
+No real weapons, only 2d phsyics
+
+Cheap and chearful robots
