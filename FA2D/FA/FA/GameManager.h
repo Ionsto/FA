@@ -1,12 +1,16 @@
 #pragma once
+#include <stdlib.h>
+#include <iostream>
 #include <SFML\Window.hpp>
+#include <SFML\Graphics.hpp>
 #include "World.h"
 #include "ResourceManager.h"
+#include <Box2D\Box2D.h>
 class GameManager
 {
 public:
 	bool Running;
-	sf::Window Window;
+	sf::RenderWindow Window;
 	World * WorldObj;
 	ResourceManager * ResManager;
 	GameManager();
@@ -14,9 +18,11 @@ public:
 	void MainLoop();
 	void Update();
 	void PollInput();
-	bool Init();
+	void Init();
+	void InitGraphics();
 	void Render();
 	void RenderWorld();
 	void RenderEntities();
+	void Destroy();
 };
 
