@@ -1,5 +1,5 @@
 #include "World.h"
-
+#include "GameManager.h"
 
 World::World()
 {
@@ -13,13 +13,36 @@ World::World()
 
 World::~World()
 {
+	EntityCount = 10;
+	EntityList = new Entity*[EntityCount];
+	for (int i = 0; i < EntityCount; ++i)
+	{
+		EntityList[i] = NULL;
+ 	}
 }
 
-void World::Update()
+void World::Update(GameManager * GM)
 {
+	for (int i = 0; i < EntityCount; ++i)
+	{
+		if (EntityList[i] != NULL)
+		{
+			EntityList[i]->Update(GM);
+		}
+	}
 	PhysicsUpdate();
 }
 void World::PhysicsUpdate()
 {
-	PhysicsWorld->Step(timeStep, velocityIterations, positionIterations);
+	//PhysicsWorld->Step(timeStep, velocityIterations, positionIterations);
+}
+void World::Render()
+{
+	for (int i = 0; i < EntityCount; ++i)
+	{
+		if (EntityList[i] != NULL)
+		{
+
+		}
+	}
 }

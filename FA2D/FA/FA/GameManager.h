@@ -23,6 +23,6 @@ public:
 	void Render();
 	void RenderWorld();
 	void RenderEntities();
-	void Destroy();
+	void Delete();
 };
 

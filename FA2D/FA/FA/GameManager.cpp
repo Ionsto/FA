@@ -18,6 +18,7 @@ void GameManager::Init()
 	//Don't talk about Init
 	std::cout << "Init game \n";
 	InitGraphics();
+	WorldObj = new World();
 }
 void GameManager::InitGraphics()
 {
@@ -37,17 +38,24 @@ void GameManager::MainLoop()
 
 void GameManager::Update()
 {
-	WorldObj->Update();
+	WorldObj->Update(this);
 }
 
 void GameManager::Render()
 {
-
+	Window.clear(sf::Color::Black);
+	Window.display();
 }
 
 void GameManager::RenderWorld()
 {
-
+	for (int i = 0; i < WorldObj->EntityCount; ++i)
+	{
+		if (WorldObj->EntityList[i] != NULL)
+		{
+			
+		}
+	}
 }
 
 void GameManager::RenderEntities()
@@ -68,7 +76,7 @@ void GameManager::PollInput()
 		}
 	}
 }
-void GameManager::Destroy()
+void GameManager::Delete()
 {
 
 }

@@ -1,7 +1,7 @@
-﻿Build started 20/11/2015 16:05:37.
+﻿Build started 21/11/2015 19:53:39.
      1>Project "C:\Users\mpfs\Contacts\Documents\GitHub\FA\FA2D\Box2D-master\Box2D\Build\vs2013\glfw.vcxproj" on node 4 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\x32\Debug\glfw\\" /Fd"bin\x32\Debug\glfw.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\glfw\clipboard.c ..\..\glfw\context.c ..\..\glfw\gamma.c ..\..\glfw\init.c ..\..\glfw\input.c ..\..\glfw\joystick.c ..\..\glfw\monitor.c ..\..\glfw\time.c ..\..\glfw\wgl_context.c ..\..\glfw\win32_clipboard.c ..\..\glfw\win32_gamma.c ..\..\glfw\win32_init.c ..\..\glfw\win32_joystick.c ..\..\glfw\win32_monitor.c ..\..\glfw\win32_time.c ..\..\glfw\win32_window.c ..\..\glfw\window.c
+         I:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"obj\x32\Debug\glfw\\" /Fd"bin\x32\Debug\glfw.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\glfw\clipboard.c ..\..\glfw\context.c ..\..\glfw\gamma.c ..\..\glfw\init.c ..\..\glfw\input.c ..\..\glfw\joystick.c ..\..\glfw\monitor.c ..\..\glfw\time.c ..\..\glfw\wgl_context.c ..\..\glfw\win32_clipboard.c ..\..\glfw\win32_gamma.c ..\..\glfw\win32_init.c ..\..\glfw\win32_joystick.c ..\..\glfw\win32_monitor.c ..\..\glfw\win32_time.c ..\..\glfw\win32_window.c ..\..\glfw\window.c
          window.c
          win32_window.c
          win32_time.c
@@ -21,7 +21,7 @@
          clipboard.c
          Generating Code...
        Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"bin\x32\Debug\glfw.lib" /NOLOGO obj\x32\Debug\glfw\clipboard.obj
+         I:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\Lib.exe /OUT:"bin\x32\Debug\glfw.lib" /NOLOGO obj\x32\Debug\glfw\clipboard.obj
          obj\x32\Debug\glfw\context.obj
          obj\x32\Debug\glfw\gamma.obj
          obj\x32\Debug\glfw\init.obj
@@ -43,4 +43,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:11.32
+Time Elapsed 00:00:06.49
