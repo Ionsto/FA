@@ -21,8 +21,6 @@ public:
 	void Init();
 	void InitGraphics();
 	void Render();
-	void RenderWorld();
-	void RenderEntities();
 	void Delete();
 };
 

@@ -4,8 +4,9 @@
 class EntityPhysical : Entity
 {
 public:
-	//b2Body PhyObject;
-	EntityPhysical();
+	b2Body * PhyObject;
+	EntityPhysical(World * world);
 	~EntityPhysical();
-	void Update(GameManager * GM);
+	void Update();
+	void UpdatePhysics();
 };

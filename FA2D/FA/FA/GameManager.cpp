@@ -44,24 +44,10 @@ void GameManager::Update()
 void GameManager::Render()
 {
 	Window.clear(sf::Color::Black);
+	WorldObj->Render(this);
 	Window.display();
 }
 
-void GameManager::RenderWorld()
-{
-	for (int i = 0; i < WorldObj->EntityCount; ++i)
-	{
-		if (WorldObj->EntityList[i] != NULL)
-		{
-			
-		}
-	}
-}
-
-void GameManager::RenderEntities()
-{
-
-}
 
 void GameManager::PollInput()
 {

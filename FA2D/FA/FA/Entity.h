@@ -1,9 +1,12 @@
 #pragma once
-class GameManager;
+class World;
 class Entity
 {
 public:
-	Entity();
+	World * worldObj;
+	float X, Y, R;//These are independent
+	int Id;
+	Entity(World * world);
 	~Entity();
-	virtual void Update(GameManager * GM);
+	virtual void Update();
 };
