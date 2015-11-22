@@ -2,11 +2,12 @@
 #include "World.h"
 #include "GameManager.h"
 
-EntityPhysical::EntityPhysical(World * world) : EntityPhysical::Entity(world)
+EntityPhysical::EntityPhysical(World * world) : Entity(world)
 {
 	b2BodyDef phyobjDef;
-	phyobjDef.position.Set(0.0f, -10.0f);
+	phyobjDef.position.Set(10.0f, 10.0f);
 	PhyObject = world->PhysicsWorld->CreateBody(&phyobjDef);
+	PhyObject->ApplyForceToCenter(b2Vec2(10,0),true);
 }
 EntityPhysical::~EntityPhysical()
 {

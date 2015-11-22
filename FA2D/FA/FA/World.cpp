@@ -1,7 +1,7 @@
 #include "World.h"
 #include "GameManager.h"
 #include <SFML\Graphics.hpp>
-
+#include "EntityPhysical.h"
 World::World()
 {
 	Gravity = b2Vec2(0, 0);
@@ -17,7 +17,7 @@ World::World()
 	{
 		EntityList[i] = NULL;
  	}
-	AddEntity(new Entity());
+	AddEntity(new EntityPhysical(this));
 }
 
 
@@ -46,7 +46,7 @@ void World::Render(GameManager * gm)
 	{
 		if (EntityList[i] != NULL)
 		{
-			//rectangle.setPosition(sf::Vector2f(EntityList[i]->X, EntityList[i]->Y));
+			rectangle.setPosition(sf::Vector2f(EntityList[i]->X, EntityList[i]->Y));
 			gm->Window.draw(rectangle);
 		}
 	}
