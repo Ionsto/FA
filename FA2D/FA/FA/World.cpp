@@ -35,6 +35,7 @@ void World::Update(GameManager * GM)
 		}
 	}
 	PhysicsUpdate();
+	DestroyPhysics(GM);
 }
 void World::PhysicsUpdate()
 {
@@ -67,4 +68,11 @@ int World::AddEntity(Entity * entity, bool todelete)
 		delete entity;
 	}
 	return -1;
+}
+void World::DestroyPhysics(GameManager * gm)
+{
+	for each (b2Body* var in BodiesToDelete)
+	{
+		PhysicsWorld->DestroyBody(var);
+	}
 }

@@ -15,7 +15,7 @@ EntityPhysical::~EntityPhysical()
 }
 void EntityPhysical::Update()
 {
-	UpdatePhysics();
+ 	UpdatePhysics();
 }
 void EntityPhysical::UpdatePhysics()
 {

@@ -21,5 +21,6 @@ public:
 	void PhysicsUpdate();
 	void Render(GameManager * GM);
 	int AddEntity(Entity * entity, bool ToDelete = true);
+	void DestroyPhysics(GameManager * GM);
 };
 
