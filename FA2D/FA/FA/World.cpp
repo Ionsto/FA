@@ -23,6 +23,7 @@ World::World()
 
 World::~World()
 {
+
 }
 
 void World::Update(GameManager * GM)
@@ -39,7 +40,7 @@ void World::Update(GameManager * GM)
 }
 void World::PhysicsUpdate()
 {
-	//PhysicsWorld->Step(timeStep, velocityIterations, positionIterations);
+	PhysicsWorld->Step(timeStep, velocityIterations, positionIterations);
 }
 void World::Render(GameManager * gm)
 {
