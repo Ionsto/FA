@@ -1,4 +1,5 @@
 #include "GameManager.h"
+#include "EntityPhysical.h"
 
 
 GameManager::GameManager()
@@ -59,6 +60,21 @@ void GameManager::PollInput()
 		{
 			Running = false;
 			Window.close();
+		}
+		if (event.type == sf::Event::KeyPressed) {
+			this->KeyState[event.key.code] = true;
+		}
+		if (event.type == sf::Event::KeyReleased) {
+			this->KeyState[event.key.code] = false;
+		}
+		float Force = 100;
+		if (this->KeyState[sf::Keyboard::Key::D])
+		{
+			((EntityPhysical *)this->WorldObj->EntityList[0])->PhyObject->ApplyForceToCenter(b2Vec2(Force, 0), true);
+		}
+		if (this->KeyState[sf::Keyboard::Key::A])
+		{
+			((EntityPhysical *)this->WorldObj->EntityList[0])->PhyObject->ApplyForceToCenter(b2Vec2(-Force, 0), true);
 		}
 	}
 }

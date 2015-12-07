@@ -7,7 +7,7 @@ EntityPhysical::EntityPhysical(World * world) : Entity(world)
 	b2BodyDef phyobjDef;
 	phyobjDef.position.Set(10.0f, 10.0f);
 	phyobjDef.type = b2_dynamicBody;
-	phyobjDef.linearDamping = 0.1;
+	phyobjDef.linearDamping = 0.05;
 	PhyObject = world->PhysicsWorld->CreateBody(&phyobjDef);
 	b2PolygonShape dynamicBox;
 	dynamicBox.SetAsBox(1.0f, 1.0f);

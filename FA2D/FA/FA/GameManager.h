@@ -13,6 +13,7 @@ public:
 	sf::RenderWindow Window;
 	World * WorldObj;
 	ResourceManager * ResManager;
+	bool KeyState[255];
 	GameManager();
 	~GameManager();
 	void MainLoop();
