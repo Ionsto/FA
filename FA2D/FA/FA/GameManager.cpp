@@ -67,15 +67,28 @@ void GameManager::PollInput()
 		if (event.type == sf::Event::KeyReleased) {
 			this->KeyState[event.key.code] = false;
 		}
-		float Force = 100;
-		if (this->KeyState[sf::Keyboard::Key::D])
-		{
-			((EntityPhysical *)this->WorldObj->EntityList[0])->PhyObject->ApplyForceToCenter(b2Vec2(Force, 0), true);
-		}
-		if (this->KeyState[sf::Keyboard::Key::A])
-		{
-			((EntityPhysical *)this->WorldObj->EntityList[0])->PhyObject->ApplyForceToCenter(b2Vec2(-Force, 0), true);
-		}
+	}
+	float Force = 1;
+	if (this->KeyState[sf::Keyboard::Key::D])
+	{
+		((EntityPhysical *)this->WorldObj->EntityList[0])->PhyObject->ApplyForceToCenter(b2Vec2(Force, 0), true);
+	}
+	if (this->KeyState[sf::Keyboard::Key::A])
+	{
+		((EntityPhysical *)this->WorldObj->EntityList[0])->PhyObject->ApplyForceToCenter(b2Vec2(-Force, 0), true);
+	}
+	if (this->KeyState[sf::Keyboard::Key::S])
+	{
+		((EntityPhysical *)this->WorldObj->EntityList[0])->PhyObject->ApplyForceToCenter(b2Vec2(0, Force), true);
+	}
+	if (this->KeyState[sf::Keyboard::Key::W])
+	{
+		((EntityPhysical *)this->WorldObj->EntityList[0])->PhyObject->ApplyForceToCenter(b2Vec2(0,-Force), true);
+	}
+	if (this->KeyState[sf::Keyboard::Key::Space])
+	{
+		//Create bond between nearest object and self
+		//((EntityPhysical *)this->WorldObj->EntityList[0])->PhyObject->ApplyForceToCenter(b2Vec2(-Force, 0), true);
 	}
 }
 void GameManager::Delete()
