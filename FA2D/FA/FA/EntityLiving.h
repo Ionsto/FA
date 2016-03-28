@@ -1,7 +1,7 @@
 #pragma once
 #include "EntityPhysical.h"
 class EntityLiving :
-	public EntityPhysical
+	public Entity
 {
 public:
 	EntityLiving(World * world);

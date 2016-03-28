@@ -1,14 +1,8 @@
 #include "World.h"
 #include "GameManager.h"
 #include <SFML\Graphics.hpp>
-#include "EntityPhysical.h"
 World::World()
 {
-	Gravity = b2Vec2(0, 0);
-	PhysicsWorld = new b2World(Gravity);
-	timeStep = 1.0f / 60.0f;
-	velocityIterations = 6;
-	positionIterations = 2;
 	this->rectangle = sf::RectangleShape(sf::Vector2f(10,10));
 	rectangle.setFillColor(sf::Color(100, 250, 50));
 	EntityCount = 10;
@@ -17,7 +11,7 @@ World::World()
 	{
 		EntityList[i] = NULL;
  	}
-	AddEntity(new EntityPhysical(this));
+	AddEntity(new EntityLiving(this));
 }
 
 
@@ -36,7 +30,6 @@ void World::Update(GameManager * GM)
 		}
 	}
 	PhysicsUpdate();
-	DestroyPhysics(GM);
 }
 void World::PhysicsUpdate()
 {
@@ -69,11 +62,4 @@ int World::AddEntity(Entity * entity, bool todelete)
 		delete entity;
 	}
 	return -1;
-}
-void World::DestroyPhysics(GameManager * gm)
-{
-	for each (b2Body* var in BodiesToDelete)
-	{
-		PhysicsWorld->DestroyBody(var);
-	}
 }

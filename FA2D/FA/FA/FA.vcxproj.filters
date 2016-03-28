@@ -39,14 +39,11 @@
     <ClCompile Include="Entity.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
-    <ClCompile Include="EntityPhysical.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
     <ClCompile Include="ResourceManager.cpp">
       <Filter>Source Files\Render</Filter>
     </ClCompile>
     <ClCompile Include="EntityLiving.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -59,14 +56,14 @@
     <ClInclude Include="Entity.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
-    <ClInclude Include="EntityPhysical.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
     <ClInclude Include="ResourceManager.h">
       <Filter>Header Files\Render</Filter>
     </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
     <ClInclude Include="EntityLiving.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

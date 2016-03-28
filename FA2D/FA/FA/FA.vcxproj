@@ -73,15 +73,14 @@
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
-    <ClCompile Include="EntityPhysical.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h" />
     <ClInclude Include="EntityLiving.h" />
-    <ClInclude Include="EntityPhysical.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="ResourceManager.h" />
+    <ClInclude Include="Vector.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

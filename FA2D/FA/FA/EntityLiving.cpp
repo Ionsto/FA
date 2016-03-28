@@ -2,7 +2,7 @@
 
 
 
-EntityLiving::EntityLiving(World * world) : EntityPhysical(world)
+EntityLiving::EntityLiving(World * world) : Entity(world)
 {
 }
 
