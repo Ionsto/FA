@@ -1,10 +1,3 @@
-﻿  World.cpp
-  EntityPhysical.cpp
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entityphysical.cpp(10): warning C4305: '=': truncation from 'double' to 'float32'
-  ResourceManager.cpp
-  main.cpp
-  GameManager.cpp
-  EntityLiving.cpp
-  Entity.cpp
-  Generating Code...
+﻿  Entity.cpp
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entity.cpp(11): warning C4305: '=': truncation from 'double' to 'float'
   FA.vcxproj -> C:\Users\mpfs\Contacts\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe

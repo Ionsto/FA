@@ -5,7 +5,6 @@
 #include <SFML\Graphics.hpp>
 #include "World.h"
 #include "ResourceManager.h"
-#include <Box2D\Box2D.h>
 class GameManager
 {
 public:

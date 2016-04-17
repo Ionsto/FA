@@ -11,6 +11,16 @@ public:
 	{
 		return Vector(X + v.X, Y + v.Y);
 	}
+	void operator+=(const Vector v)
+	{
+		this->X += v.X;
+		this->Y += v.Y;
+	}
+	void operator-=(const Vector v)
+	{
+		this->X -= v.X;
+		this->Y -= v.Y;
+	}
 	Vector operator-(const Vector v)
 	{
 		return Vector(X - v.X, Y - v.Y);
@@ -18,5 +28,9 @@ public:
 	Vector operator*(const float v)
 	{
 		return Vector(X * v, Y * v);
+	}
+	Vector operator/(const float v)
+	{
+		return Vector(X / v, Y / v);
 	}
 };

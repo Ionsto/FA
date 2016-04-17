@@ -1,5 +1,4 @@
 #include "GameManager.h"
-#include "EntityPhysical.h"
 
 
 GameManager::GameManager()
@@ -68,22 +67,22 @@ void GameManager::PollInput()
 			this->KeyState[event.key.code] = false;
 		}
 	}
-	float Force = 1;
+	float Force = 10;
 	if (this->KeyState[sf::Keyboard::Key::D])
 	{
-		((EntityPhysical *)this->WorldObj->EntityList[0])->PhyObject->ApplyForceToCenter(b2Vec2(Force, 0), true);
+		(this->WorldObj->EntityList[0])->ApplyForce(Vector(Force, 0));
 	}
 	if (this->KeyState[sf::Keyboard::Key::A])
 	{
-		((EntityPhysical *)this->WorldObj->EntityList[0])->PhyObject->ApplyForceToCenter(b2Vec2(-Force, 0), true);
+		(this->WorldObj->EntityList[0])->ApplyForce(Vector(-Force, 0));
 	}
 	if (this->KeyState[sf::Keyboard::Key::S])
 	{
-		((EntityPhysical *)this->WorldObj->EntityList[0])->PhyObject->ApplyForceToCenter(b2Vec2(0, Force), true);
+		(this->WorldObj->EntityList[0])->ApplyForce(Vector(0, Force));
 	}
 	if (this->KeyState[sf::Keyboard::Key::W])
 	{
-		((EntityPhysical *)this->WorldObj->EntityList[0])->PhyObject->ApplyForceToCenter(b2Vec2(0,-Force), true);
+		(this->WorldObj->EntityList[0])->ApplyForce(Vector(0, -Force));
 	}
 	if (this->KeyState[sf::Keyboard::Key::Space])
 	{

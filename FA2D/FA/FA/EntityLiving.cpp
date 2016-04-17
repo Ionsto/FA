@@ -2,8 +2,9 @@
 
 
 
-EntityLiving::EntityLiving(World * world) : Entity(world)
+EntityLiving::EntityLiving(World * world) : Entity (world)
 {
+
 }
 
 
