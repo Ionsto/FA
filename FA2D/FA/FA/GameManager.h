@@ -12,6 +12,7 @@ public:
 	sf::RenderWindow Window;
 	World * WorldObj;
 	ResourceManager * ResManager;
+	Vector WindowSize;
 	bool KeyState[255];
 	GameManager();
 	~GameManager();

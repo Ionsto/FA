@@ -9,15 +9,18 @@ World::World()
 	this->rectangle = sf::RectangleShape(sf::Vector2f(10,10));
 	rectangle.setFillColor(sf::Color(100, 250, 50));
 	EntityCount = 10;
+	CameraLoc = Vector();
 	EntityList = new Entity*[EntityCount];
 	for (int i = 0; i < EntityCount; ++i)
 	{
 		EntityList[i] = NULL;
  	}
+	Player = NULL;
+	AddEntity(new EntityPlayer(this));
+	Player = (EntityPlayer*)EntityList[0];
 	AddEntity(new EntityLiving(this));
-	AddEntity(new EntityLiving(this));
-	EntityList[1]->Pos = Vector(10, 5);
-	EntityList[1]->PosOld = Vector(10, 5);
+	EntityList[1]->Pos = Vector(20, 20);
+	EntityList[1]->PosOld = Vector(20, 20);
 }
 
 
@@ -53,8 +56,19 @@ void World::Collide()
 			{
 				if (EntityList[j] != NULL)
 				{
+					Vector Distance  = EntityList[i]->Pos - EntityList[j]->Pos;
+					float DistanceDot = Distance.Dot(Distance);
+					float MinDist = EntityList[i]->Size + EntityList[j]->Size;
 					//do collisions
 					//Resolve both I and J
+					if (DistanceDot <= (MinDist*MinDist))
+					{
+						float RealDistance = sqrtf(DistanceDot);
+						const float ResFactor = 0.01;
+						EntityList[i]->PosOld -= Distance * ResFactor * (EntityList[i]->Mass / (EntityList[i]->Mass + EntityList[j]->Mass));
+						EntityList[j]->PosOld += Distance * ResFactor * (EntityList[j]->Mass / (EntityList[i]->Mass + EntityList[j]->Mass));
+						//
+					}
 				}
 			}
 		}
@@ -66,7 +80,8 @@ void World::Render(GameManager * gm)
 	{
 		if (EntityList[i] != NULL)
 		{
-			rectangle.setPosition(sf::Vector2f(EntityList[i]->Pos.X, EntityList[i]->Pos.Y));
+			rectangle.setPosition(sf::Vector2f(EntityList[i]->Pos.X - (EntityList[i]->Size) + CameraLoc.X, EntityList[i]->Pos.Y - (EntityList[i]->Size) + CameraLoc.Y));
+			rectangle.setRotation(EntityList[i]->Rot);
 			gm->Window.draw(rectangle);
 		}
 	}

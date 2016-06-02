@@ -13,6 +13,7 @@ public:
 	float Friction;
 	float FrictionRot;
 	float Mass;
+	float Size;
 	int Id;
 	Entity(World * world);
 	~Entity();

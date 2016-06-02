@@ -4,6 +4,7 @@
 GameManager::GameManager()
 {
 	Running = true;
+	WindowSize = Vector();
 }
 
 
@@ -38,6 +39,13 @@ void GameManager::MainLoop()
 
 void GameManager::Update()
 {
+	if (WorldObj->Player != NULL)
+	{
+		WindowSize.X = Window.getSize().x;
+		WindowSize.Y = Window.getSize().y;
+		WorldObj->Player->MousePosition.X = WindowSize.X - sf::Mouse::getPosition().x;
+		WorldObj->Player->MousePosition.Y = WindowSize.Y - sf::Mouse::getPosition().y;
+	}
 	WorldObj->Update(this);
 }
 
@@ -70,25 +78,26 @@ void GameManager::PollInput()
 	float Force = 10;
 	if (this->KeyState[sf::Keyboard::Key::D])
 	{
-		(this->WorldObj->EntityList[0])->ApplyForce(Vector(Force, 0));
+		(this->WorldObj->Player)->ApplyForce(Vector(Force, 0));
 	}
 	if (this->KeyState[sf::Keyboard::Key::A])
 	{
-		(this->WorldObj->EntityList[0])->ApplyForce(Vector(-Force, 0));
+		(this->WorldObj->Player)->ApplyForce(Vector(-Force, 0));
 	}
 	if (this->KeyState[sf::Keyboard::Key::S])
 	{
-		(this->WorldObj->EntityList[0])->ApplyForce(Vector(0, Force));
+		(this->WorldObj->Player)->ApplyForce(Vector(0, Force));
 	}
 	if (this->KeyState[sf::Keyboard::Key::W])
 	{
-		(this->WorldObj->EntityList[0])->ApplyForce(Vector(0, -Force));
+		(this->WorldObj->Player)->ApplyForce(Vector(0, -Force));
 	}
 	if (this->KeyState[sf::Keyboard::Key::Space])
 	{
 		//Create bond between nearest object and self
 		//((EntityPhysical *)this->WorldObj->EntityList[0])->PhyObject->ApplyForceToCenter(b2Vec2(-Force, 0), true);
 	}
+	WorldObj->CameraLoc = (WindowSize * 0.5) - this->WorldObj->Player->PosOld;
 }
 void GameManager::Delete()
 {
