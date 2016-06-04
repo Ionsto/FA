@@ -6,6 +6,7 @@
 EntityPlayer::EntityPlayer(World * world) : EntityLiving(world)
 {
 	MousePosition = Vector(0, 0);
+	MoveForce = 10;
 }
 
 
@@ -26,13 +27,17 @@ void EntityPlayer::Update()
 }
 void EntityPlayer::MoveForward()
 {
+	this->ApplyForce(Vector(cos((Rot / 180)*3.14) * MoveForce, sin((Rot / 180)*3.14) * MoveForce));
 }
 void EntityPlayer::MoveBackward()
 {
+	this->ApplyForce(Vector(-cos((Rot / 180)*3.14) * MoveForce, -sin((Rot / 180)*3.14) * MoveForce));
 }
 void EntityPlayer::MoveLeft()
 {
+	this->ApplyForce(Vector(cos(((Rot + 90) / 180)*3.14) * MoveForce, sin(((Rot + 90) / 180)*3.14) * MoveForce));
 }
 void EntityPlayer::MoveRight()
 {
+	this->ApplyForce(Vector(cos(((Rot - 90) / 180)*3.14) * MoveForce, sin(((Rot - 90) / 180)*3.14) * MoveForce));
 }

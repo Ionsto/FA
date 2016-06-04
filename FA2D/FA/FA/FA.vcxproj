@@ -40,7 +40,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>C:\Users\mpfs\Contacts\Documents\GitHub\FA\FA2D\SFML-2.3.2\include;C:\Users\mpfs\Contacts\Documents\GitHub\FA\FA2D\Box2D-master\Box2D\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\mpfs\Contacts\Documents\GitHub\FA\FA2D\SFML-2.3.2\lib;C:\Users\mpfs\Contacts\Documents\GitHub\FA\FA2D\Box2D-master\Box2D\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Users\mpfs\Contacts\Documents\GitHub\FA\FA2D\SFML-2.3.2\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -68,19 +68,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Element.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="EntityLiving.cpp" />
     <ClCompile Include="EntityPlayer.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="MenuBase.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Element.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="EntityLiving.h" />
     <ClInclude Include="EntityPlayer.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="MenuBase.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="World.h" />

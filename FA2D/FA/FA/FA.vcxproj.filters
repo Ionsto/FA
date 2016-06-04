@@ -25,6 +25,12 @@
     <Filter Include="Header Files\Render">
       <UniqueIdentifier>{f49f5c2a-5377-457d-b76d-44b83ede92b9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Menu">
+      <UniqueIdentifier>{388a253c-6ca7-4ef5-a152-a854a91d3f2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Menu">
+      <UniqueIdentifier>{20cea82f-b74d-4cef-96db-75285b2f7cc8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -48,6 +54,15 @@
     <ClCompile Include="EntityPlayer.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuBase.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Element.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -70,6 +85,15 @@
     </ClInclude>
     <ClInclude Include="EntityPlayer.h">
       <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuBase.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Element.h">
+      <Filter>Header Files\Menu</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

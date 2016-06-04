@@ -1,6 +1,5 @@
 #include "GameManager.h"
 
-
 GameManager::GameManager()
 {
 	Running = true;
@@ -11,7 +10,8 @@ GameManager::GameManager()
 
 GameManager::~GameManager()
 {
-
+	delete WorldObj;
+	delete Mainmenu;
 }
 
 void GameManager::Init()
@@ -21,15 +21,18 @@ void GameManager::Init()
 	std::cout << "Init game \n";
 	InitGraphics();
 	WorldObj = new World();
+	WindowSize.X = Window.getSize().x;
+	WindowSize.Y = Window.getSize().y;
+	Mainmenu = new MainMenu();
+
 }
 void GameManager::InitGraphics()
 {
 	std::cout << "Init window \n";
-	this->Window.create(sf::VideoMode(800, 600), "My window");
+	this->Window.create(sf::VideoMode(1600, 900), "My window");
 }
 void GameManager::MainLoop()
 {
-	Init();
 	while (Running)
 	{
 		Update();
@@ -40,22 +43,37 @@ void GameManager::MainLoop()
 
 void GameManager::Update()
 {
-	if (WorldObj->Player != NULL)
+	if (GameState == StateMainMenu)
 	{
-		MousePosition.X = sf::Mouse::getPosition(Window).x;
-		MousePosition.Y = sf::Mouse::getPosition(Window).y;
-		WindowSize.X = Window.getSize().x;
-		WindowSize.Y = Window.getSize().y;
-		WorldObj->Player->MousePosition.X = MousePosition.X - (WindowSize.X/2);
-		WorldObj->Player->MousePosition.Y = MousePosition.Y - (WindowSize.Y/2);
+		//web_core->Update();
+		Mainmenu->Update(this);
 	}
-	WorldObj->Update(this);
+	if (GameState == StateGame)
+	{
+		if (WorldObj->Player != NULL)
+		{
+			MousePosition.X = sf::Mouse::getPosition(Window).x;
+			MousePosition.Y = sf::Mouse::getPosition(Window).y;
+			WindowSize.X = Window.getSize().x;
+			WindowSize.Y = Window.getSize().y;
+			WorldObj->Player->MousePosition.X = MousePosition.X - (WindowSize.X / 2);
+			WorldObj->Player->MousePosition.Y = MousePosition.Y - (WindowSize.Y / 2);
+		}
+		WorldObj->Update(this);
+	}
 }
 
 void GameManager::Render()
 {
 	Window.clear(sf::Color::Black);
-	WorldObj->Render(this);
+	if (GameState == StateMainMenu)
+	{
+		Mainmenu->Render(this);
+	}
+	if (GameState == StateGame)
+	{
+		WorldObj->Render(this);
+	}
 	Window.display();
 }
 
@@ -81,19 +99,19 @@ void GameManager::PollInput()
 	float Force = 10;
 	if (this->KeyState[sf::Keyboard::Key::D])
 	{
-		(this->WorldObj->Player)->ApplyForce(Vector(Force, 0));
+		(this->WorldObj->Player)->MoveLeft();
 	}
 	if (this->KeyState[sf::Keyboard::Key::A])
 	{
-		(this->WorldObj->Player)->ApplyForce(Vector(-Force, 0));
+		(this->WorldObj->Player)->MoveRight();
 	}
 	if (this->KeyState[sf::Keyboard::Key::S])
 	{
-		(this->WorldObj->Player)->ApplyForce(Vector(0, Force));
+		(this->WorldObj->Player)->MoveBackward();
 	}
 	if (this->KeyState[sf::Keyboard::Key::W])
 	{
-		(this->WorldObj->Player)->ApplyForce(Vector(0, -Force));
+		(this->WorldObj->Player)->MoveForward();
 	}
 	if (this->KeyState[sf::Keyboard::Key::Space])
 	{
