@@ -13,6 +13,7 @@ public:
 	World * WorldObj;
 	ResourceManager * ResManager;
 	Vector WindowSize;
+	Vector MousePosition;
 	bool KeyState[255];
 	GameManager();
 	~GameManager();

@@ -5,6 +5,7 @@ GameManager::GameManager()
 {
 	Running = true;
 	WindowSize = Vector();
+	MousePosition = Vector();
 }
 
 
@@ -41,10 +42,12 @@ void GameManager::Update()
 {
 	if (WorldObj->Player != NULL)
 	{
+		MousePosition.X = sf::Mouse::getPosition(Window).x;
+		MousePosition.Y = sf::Mouse::getPosition(Window).y;
 		WindowSize.X = Window.getSize().x;
 		WindowSize.Y = Window.getSize().y;
-		WorldObj->Player->MousePosition.X = WindowSize.X - sf::Mouse::getPosition().x;
-		WorldObj->Player->MousePosition.Y = WindowSize.Y - sf::Mouse::getPosition().y;
+		WorldObj->Player->MousePosition.X = MousePosition.X - (WindowSize.X/2);
+		WorldObj->Player->MousePosition.Y = MousePosition.Y - (WindowSize.Y/2);
 	}
 	WorldObj->Update(this);
 }
