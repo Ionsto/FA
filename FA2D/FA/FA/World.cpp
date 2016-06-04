@@ -80,7 +80,11 @@ void World::Render(GameManager * gm)
 	{
 		if (EntityList[i] != NULL)
 		{
-			rectangle.setPosition(sf::Vector2f(EntityList[i]->Pos.X - (EntityList[i]->Size) + CameraLoc.X, EntityList[i]->Pos.Y - (EntityList[i]->Size) + CameraLoc.Y));
+			//rectangle.setTexture();
+			rectangle.setSize(sf::Vector2f(EntityList[i]->Size * 2, EntityList[i]->Size * 2));
+
+			rectangle.setOrigin(sf::Vector2f(EntityList[i]->Size, EntityList[i]->Size));
+			rectangle.setPosition(sf::Vector2f(EntityList[i]->Pos.X + CameraLoc.X, EntityList[i]->Pos.Y  + CameraLoc.Y));
 			rectangle.setRotation(EntityList[i]->Rot);
 			gm->Window.draw(rectangle);
 		}

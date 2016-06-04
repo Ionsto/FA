@@ -9,5 +9,9 @@ public:
 	~EntityPlayer();
 	void UpdatePlayerAngle();
 	virtual void Update();
+	void MoveForward();
+	void MoveBackward();
+	void MoveLeft();
+	void MoveRight();
 };
 

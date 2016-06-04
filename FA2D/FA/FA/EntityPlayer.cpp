@@ -24,3 +24,15 @@ void EntityPlayer::Update()
 {
 	UpdatePlayerAngle();
 }
+void EntityPlayer::MoveForward()
+{
+}
+void EntityPlayer::MoveBackward()
+{
+}
+void EntityPlayer::MoveLeft()
+{
+}
+void EntityPlayer::MoveRight()
+{
+}
