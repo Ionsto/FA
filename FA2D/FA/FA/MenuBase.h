@@ -7,7 +7,7 @@ class GameManager;
 class MenuBase
 {
 public:
-	std::vector<Element> ElementList;
+	std::vector<Element*> ElementList;
 	MenuBase();
 	~MenuBase();
 	void Update(GameManager * gm);

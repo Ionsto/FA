@@ -7,13 +7,13 @@ class Element
 public:
 	bool ShouldRender;
 	bool Centered;
+	//0-1
 	Vector Position;
+	//0-1
 	Vector Size;
-	sf::Texture RenderTexture;
-	sf::RectangleShape RenderFrame;
-	Element(Vector Pos = Vector(), Vector Size = Vector(), std::string texture = "");
+	Element(Vector Pos = Vector(), Vector Size = Vector());
 	~Element();
-	void Update(GameManager * gm);
-	void Render(GameManager * gm);
+	virtual void Update(GameManager * gm);
+	virtual void Render(GameManager * gm);
 };
 

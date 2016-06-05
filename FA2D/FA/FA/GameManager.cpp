@@ -29,7 +29,7 @@ void GameManager::Init()
 void GameManager::InitGraphics()
 {
 	std::cout << "Init window \n";
-	this->Window.create(sf::VideoMode(1600, 900), "My window");
+	this->Window.create(sf::VideoMode(800, 800), "Entry");
 }
 void GameManager::MainLoop()
 {
