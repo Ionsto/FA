@@ -1,7 +1,11 @@
-﻿  main.cpp
+﻿  MenuBase.cpp
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\menubase.cpp(17): warning C4018: '<': signed/unsigned mismatch
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\menubase.cpp(29): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  Compiling...
+  main.cpp
   World.cpp
 c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\world.cpp(67): warning C4305: 'initializing': truncation from 'double' to 'float'
-  MenuBase.cpp
   MainMenu.cpp
   GameManager.cpp
 c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gamemanager.cpp(24): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
@@ -14,5 +18,4 @@ c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gamemanager.cpp(58): warni
 c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entity.cpp(12): warning C4305: '=': truncation from 'double' to 'float'
   Element.cpp
   Generating Code...
-  LINK : C:\Users\mpfs\Contacts\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe not found or not built by the last incremental link; performing full link
   FA.vcxproj -> C:\Users\mpfs\Contacts\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe

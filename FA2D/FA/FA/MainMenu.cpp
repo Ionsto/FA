@@ -2,7 +2,7 @@
 #include "GameManager.h"
 MainMenu::MainMenu()
 {
-
+	ElementList.push_back(new Element(Vector(),Vector(),"./UI/TitleScreen.png"))
 }
 MainMenu::~MainMenu()
 {

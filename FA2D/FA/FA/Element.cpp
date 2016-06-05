@@ -2,8 +2,14 @@
 #include "GameManager.h"
 
 
-Element::Element()
+Element::Element(Vector pos,Vector size,std::string TextureLoc)
 {
+	ShouldRender = true;
+	Centered = false;
+	Position = pos;
+	Size = size;
+	sf::Texture RenderTexture;
+	sf::RectangleShape RenderFrame;
 }
 
 
