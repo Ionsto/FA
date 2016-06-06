@@ -4,7 +4,7 @@
 
 ElementLable::ElementLable(Vector Pos, Vector Size,std::string text)
 {
-	this->Element::Element(Pos,Size);
+	Element::Element(Pos,Size);
 	font.loadFromFile("./UI/gisha.ttf");
 	this->ActualText = text;
 	Text = sf::Text();
@@ -20,7 +20,7 @@ ElementLable::~ElementLable()
 void ElementLable::ChangeText(std::string text)
 {
 	Text.setString(text);
-	Text.setCharacterSize(Size.X / text.length()); // in pixels, not points!
+	Text.setCharacterSize(32);// Size.X / text.length()); // in pixels, not points!
 	Text.setColor(sf::Color::Black);
 }
 void ElementLable::Render(GameManager * gm)
