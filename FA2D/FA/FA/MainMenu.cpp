@@ -2,11 +2,13 @@
 #include "GameManager.h"
 #include "ElementTexture.h"
 #include "ElementLable.h"
+#include "ElementButton.h"
 MainMenu::MainMenu()
 {
 	ElementList = std::vector<Element*>();
-	ElementList.push_back(new ElementTexture(Vector(), Vector(800, 800), "./Textures/Floor.png"));
-	ElementList.push_back(new ElementLable(Vector(100,0), Vector(100, 100), "Entry"));
+	ElementList.push_back(new ElementTexture(Vector(), Vector(800, 800), "./UI/MainMenu.png"));
+	//ElementList.push_back(new ElementLable(Vector(350, 0), Vector(100, 100), "Entry"));
+	ElementList.push_back(new ElementButton(Vector(400,250), Vector(100, 50), "Enter"));
 }
 MainMenu::~MainMenu()
 {

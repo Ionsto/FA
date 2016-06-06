@@ -4,7 +4,7 @@ GameManager::GameManager()
 {
 	Running = true;
 	WindowSize = Vector();
-	MousePosition = Vector();
+	MouseState = MouseData();
 }
 
 
@@ -52,12 +52,12 @@ void GameManager::Update()
 	{
 		if (WorldObj->Player != NULL)
 		{
-			MousePosition.X = sf::Mouse::getPosition(Window).x;
-			MousePosition.Y = sf::Mouse::getPosition(Window).y;
+			MouseState.MousePosition.X = sf::Mouse::getPosition(Window).x;
+			MouseState.MousePosition.Y = sf::Mouse::getPosition(Window).y;
 			WindowSize.X = Window.getSize().x;
 			WindowSize.Y = Window.getSize().y;
-			WorldObj->Player->MousePosition.X = MousePosition.X - (WindowSize.X / 2);
-			WorldObj->Player->MousePosition.Y = MousePosition.Y - (WindowSize.Y / 2);
+			WorldObj->Player->MousePosition.X = MouseState.MousePosition.X - (WindowSize.X / 2);
+			WorldObj->Player->MousePosition.Y = MouseState.MousePosition.Y - (WindowSize.Y / 2);
 		}
 		WorldObj->Update(this);
 	}
@@ -94,6 +94,17 @@ void GameManager::PollInput()
 		}
 		if (event.type == sf::Event::KeyReleased) {
 			this->KeyState[event.key.code] = false;
+		}
+		if (event.type == sf::Event::MouseButtonPressed)
+		{
+			if (event.mouseButton.button == 0)
+			{
+
+			}
+			if (event.mouseButton.button == 0)
+			{
+
+			}
 		}
 	}
 	float Force = 10;

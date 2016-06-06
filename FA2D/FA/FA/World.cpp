@@ -89,7 +89,7 @@ void World::Render(GameManager * gm)
 			gm->Window.draw(rectangle);
 		}
 	}
-	rectangle.setPosition(sf::Vector2f(gm->MousePosition.X,gm->MousePosition.Y));
+	rectangle.setPosition(sf::Vector2f(gm->MouseState.MousePosition.X,gm->MouseState.MousePosition.Y));
 	rectangle.setRotation(0);
 	gm->Window.draw(rectangle);
 }

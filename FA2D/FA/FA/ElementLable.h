@@ -10,5 +10,6 @@ public:
 	~ElementLable();
 	void ChangeText(std::string newdata);
 	void Render(GameManager * gm);
+	virtual void SetTint(sf::Color newtint);
 };
 

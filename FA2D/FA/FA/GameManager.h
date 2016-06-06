@@ -19,7 +19,13 @@ public:
 	ResourceManager * ResManager;
 	MainMenu * Mainmenu;
 	Vector WindowSize;
-	Vector MousePosition;
+	struct MouseData{
+		Vector MousePosition = Vector();
+		//0 = Not active, 1 = Active, 2 = Released this frame 
+		int LeftMouseState = 0;
+		//0 = Not active, 1 = Active, 2 = Released this frame 
+		int RightMouseState = 0;
+	} MouseState;
 	bool KeyState[255];
 	GameManager();
 	~GameManager();

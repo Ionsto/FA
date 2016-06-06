@@ -9,5 +9,7 @@ public:
 	ElementTexture(Vector Pos = Vector(), Vector Size = Vector(), std::string texture = "");
 	~ElementTexture();
 	virtual void Render(GameManager * gm);
+	virtual void SetTint(sf::Color newtint);
+	virtual void SetCentered(bool Center);
 };
 
