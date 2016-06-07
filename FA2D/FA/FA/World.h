@@ -13,12 +13,15 @@ public:
 	sf::RectangleShape rectangle;
 	Vector CameraLoc;
 	int EntityCount;
+	std::vector<Vector[2]> WorldCollision;
 	World();
 	~World();
 	void Update(GameManager * GM);
 	void PhysicsUpdate();
 	void Render(GameManager * GM);
 	void Collide();
+	void CollideEntity(int id);
+	void CollideWorld(int id);
 	int AddEntity(Entity * entity, bool ToDelete = true);
 };
 

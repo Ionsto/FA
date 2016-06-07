@@ -2,9 +2,10 @@
 
 
 
-EntityLiving::EntityLiving(World * world) : Entity (world)
+EntityLiving::EntityLiving(World * world,Vector pos) : Entity (world,pos)
 {
-
+	Health = 100;
+	MoveForce = 8;
 }
 
 

@@ -7,8 +7,8 @@ MainMenu::MainMenu()
 {
 	ElementList = std::vector<Element*>();
 	ElementList.push_back(new ElementTexture(Vector(), Vector(800, 800), "./UI/MainMenu.png"));
-	//ElementList.push_back(new ElementLable(Vector(350, 0), Vector(100, 100), "Entry"));
-	ElementList.push_back(new ElementButton(Vector(400,250), Vector(100, 50), "Enter"));
+	ElementList.push_back(new ElementButton(Vector(400, 250), Vector(100, 50), "./UI/Enter.png"));
+	ElementList.push_back(new ElementButton(Vector(400, 350), Vector(100, 50), "./UI/Quit.png"));
 }
 MainMenu::~MainMenu()
 {
@@ -21,6 +21,14 @@ void MainMenu::Update(GameManager * gm)
 {
 	this->MenuBase::Update(gm);
 	//Fetch info exec it etc
+	if (((ElementButton*)ElementList.at(1))->Enabled)
+	{
+		gm->GameState = GameManager::GameStateEnum::StateGame;
+	}
+	if (((ElementButton*)ElementList.at(2))->Enabled)
+	{
+		gm->Running = false;
+	}
 }
 void MainMenu::Render(GameManager * gm)
 {

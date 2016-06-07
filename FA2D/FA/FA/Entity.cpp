@@ -1,9 +1,9 @@
 #include "Entity.h"
 #include "GameManager.h"
-Entity::Entity(World * world)
+Entity::Entity(World * world,Vector pos)
 {
-	Pos = Vector();
-	PosOld = Vector(-0,0);
+	Pos = pos;
+	PosOld = pos;
 	Acc = Vector();
 	Mass = 100;
 	Rotation = 0;
@@ -55,4 +55,9 @@ float Entity::NormaliseAngle(float x)
 float Entity::AngleDifference(float a, float b)
 {
 	return NormaliseAngle(a - b);
+}
+void Entity::Kill()
+{
+	worldObj->EntityList[Id] = NULL;
+	delete this;
 }

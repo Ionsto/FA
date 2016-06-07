@@ -5,8 +5,7 @@ class EntityPlayer :
 {
 public:
 	Vector MousePosition;//This is the position of the mouse relitive to the center of the screen
-	float MoveForce;
-	EntityPlayer(World * world);
+	EntityPlayer(World * world, Vector pos = Vector());
 	~EntityPlayer();
 	void UpdatePlayerAngle();
 	virtual void Update();

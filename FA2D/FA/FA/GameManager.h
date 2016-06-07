@@ -34,6 +34,7 @@ public:
 	void PollInput();
 	void Init();
 	void InitGraphics();
+	void InitWorld();
 	void Render();
 	void Delete();
 };

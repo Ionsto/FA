@@ -1,2 +1,17 @@
-﻿  Element.cpp
+﻿  World.cpp
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\world.cpp(63): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  main.cpp
+  MenuBase.cpp
+  MainMenu.cpp
+  GunItem.cpp
+  GameManager.cpp
+  EntityPlayer.cpp
+  Entity.cpp
+  ElementTexture.cpp
+  ElementLable.cpp
+  ElementButton.cpp
+  Element.cpp
+  LINK : C:\Users\mpfs\Contacts\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe not found or not built by the last incremental link; performing full link
   FA.vcxproj -> C:\Users\mpfs\Contacts\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe

@@ -16,7 +16,7 @@ public:
 	float Mass;
 	float Size;
 	int Id;
-	Entity(World * world);
+	Entity(World * world,Vector pos = Vector());
 	~Entity();
 	virtual void Update();
 	void Intergrate();
@@ -24,4 +24,5 @@ public:
 	float NormaliseAngle(float x);
 	float AngleDifference(float a,float b);
 	void ApplyForce(Vector v);
+	void Kill();
 };

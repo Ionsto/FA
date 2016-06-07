@@ -4,7 +4,9 @@ class EntityLiving :
 	public Entity
 {
 public:
-	EntityLiving(World * world);
+	int Health;
+	float MoveForce;
+	EntityLiving(World * world, Vector pos = Vector());
 	~EntityLiving();
 };
 

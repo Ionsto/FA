@@ -75,7 +75,9 @@
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="EntityLiving.cpp" />
     <ClCompile Include="EntityPlayer.cpp" />
+    <ClCompile Include="EntityTracerEffect.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="GunItem.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="MenuBase.cpp" />
@@ -90,7 +92,9 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="EntityLiving.h" />
     <ClInclude Include="EntityPlayer.h" />
+    <ClInclude Include="EntityTracerEffect.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="GunItem.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="MenuBase.h" />
     <ClInclude Include="ResourceManager.h" />

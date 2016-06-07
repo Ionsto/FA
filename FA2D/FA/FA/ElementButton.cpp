@@ -2,10 +2,11 @@
 #include "GameManager.h"
 
 
-ElementButton::ElementButton(Vector pos, Vector Size, std::string text) : ElementTexture(pos, Size, "./UI/Button.png")
+ElementButton::ElementButton(Vector pos, Vector Size, std::string text) : ElementTexture(pos, Size, text)
 {
-	this->Text = new ElementLable(pos,Size,text);
+	//this->Text = new ElementLable(pos,Size,text);
 	SetCentered(true);
+	Enabled = false;
 }
 
 
@@ -14,11 +15,13 @@ ElementButton::~ElementButton()
 }
 void ElementButton::SetTint(sf::Color newtint)
 {
-	this->Text->SetTint(newtint);
+	//this->Text->SetTint(newtint);
 	ElementTexture::SetTint(newtint);
 }
 void ElementButton::Update(GameManager * gm)
 {
+	Enabled = false;
+	SetTint(sf::Color::White);
 	if (gm->MouseState.LeftMouseState == 1)
 	{
 		if (PointInsideElement(gm->MouseState.MousePosition))
@@ -31,6 +34,8 @@ void ElementButton::Update(GameManager * gm)
 		if (PointInsideElement(gm->MouseState.MousePosition))
 		{
 			SetTint(sf::Color::Black);
+			Enabled = true;
+			//Activated
 		}
 	}
 }

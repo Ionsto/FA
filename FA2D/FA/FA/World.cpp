@@ -11,16 +11,12 @@ World::World()
 	EntityCount = 10;
 	CameraLoc = Vector();
 	EntityList = new Entity*[EntityCount];
+	WorldCollision = std::vector<Vector[2]>();
 	for (int i = 0; i < EntityCount; ++i)
 	{
 		EntityList[i] = NULL;
  	}
 	Player = NULL;
-	AddEntity(new EntityPlayer(this));
-	Player = (EntityPlayer*)EntityList[0];
-	AddEntity(new EntityLiving(this));
-	EntityList[1]->Pos = Vector(20, 20);
-	EntityList[1]->PosOld = Vector(20, 20);
 }
 
 
@@ -46,31 +42,42 @@ void World::PhysicsUpdate()
 {
 
 }
+void World::CollideEntity(int id)
+{
+	for (int j = id + 1; j < EntityCount; ++j)
+	{
+		if (EntityList[j] != NULL)
+		{
+			Vector Distance  = EntityList[id]->Pos - EntityList[j]->Pos;
+			float DistanceDot = Distance.Dot(Distance);
+			float MinDist = EntityList[id]->Size + EntityList[j]->Size;
+			//do collisions
+			//Resolve both I and J
+			if (DistanceDot <= (MinDist*MinDist))
+			{
+				float RealDistance = sqrtf(DistanceDot);
+				const float ResFactor = 0.01;
+				EntityList[id]->PosOld -= Distance * ResFactor * (EntityList[id]->Mass / (EntityList[id]->Mass + EntityList[j]->Mass));
+				EntityList[j]->PosOld += Distance * ResFactor * (EntityList[j]->Mass / (EntityList[id]->Mass + EntityList[j]->Mass));
+				//
+			}
+		}
+	}
+}
+void World::CollideWorld(int id)
+{
+	for (int i = 0; i < WorldCollision.size(); ++i)
+	{
+	}
+}
 void World::Collide()
 {
 	for (int i = 0; i < EntityCount - 1; ++i)
 	{
 		if (EntityList[i] != NULL)
 		{
-			for (int j = i + 1; j < EntityCount; ++j)
-			{
-				if (EntityList[j] != NULL)
-				{
-					Vector Distance  = EntityList[i]->Pos - EntityList[j]->Pos;
-					float DistanceDot = Distance.Dot(Distance);
-					float MinDist = EntityList[i]->Size + EntityList[j]->Size;
-					//do collisions
-					//Resolve both I and J
-					if (DistanceDot <= (MinDist*MinDist))
-					{
-						float RealDistance = sqrtf(DistanceDot);
-						const float ResFactor = 0.01;
-						EntityList[i]->PosOld -= Distance * ResFactor * (EntityList[i]->Mass / (EntityList[i]->Mass + EntityList[j]->Mass));
-						EntityList[j]->PosOld += Distance * ResFactor * (EntityList[j]->Mass / (EntityList[i]->Mass + EntityList[j]->Mass));
-						//
-					}
-				}
-			}
+			CollideEntity(i);
+			CollideWorld(i);
 		}
 	}
 }

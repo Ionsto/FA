@@ -3,7 +3,7 @@
 
 
 
-EntityPlayer::EntityPlayer(World * world) : EntityLiving(world)
+EntityPlayer::EntityPlayer(World * world,Vector pos) : EntityLiving(world,pos)
 {
 	MousePosition = Vector(0, 0);
 	MoveForce = 10;

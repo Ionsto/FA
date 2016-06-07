@@ -20,7 +20,7 @@ void GameManager::Init()
 	//Don't talk about Init
 	std::cout << "Init game \n";
 	InitGraphics();
-	WorldObj = new World();
+	InitWorld();
 	WindowSize.X = Window.getSize().x;
 	WindowSize.Y = Window.getSize().y;
 	Mainmenu = new MainMenu();
@@ -52,8 +52,6 @@ void GameManager::Update()
 	{
 		if (WorldObj->Player != NULL)
 		{
-			MouseState.MousePosition.X = sf::Mouse::getPosition(Window).x;
-			MouseState.MousePosition.Y = sf::Mouse::getPosition(Window).y;
 			WindowSize.X = Window.getSize().x;
 			WindowSize.Y = Window.getSize().y;
 			WorldObj->Player->MousePosition.X = MouseState.MousePosition.X - (WindowSize.X / 2);
@@ -80,6 +78,14 @@ void GameManager::Render()
 
 void GameManager::PollInput()
 {
+	if (MouseState.LeftMouseState == 2)
+	{
+		MouseState.LeftMouseState = 0;
+	}
+	if (MouseState.RightMouseState == 2)
+	{
+		MouseState.RightMouseState = 0;
+	}
 	sf::Event event;
 	while (Window.pollEvent(event))
 	{
@@ -99,13 +105,26 @@ void GameManager::PollInput()
 		{
 			if (event.mouseButton.button == 0)
 			{
-
+				MouseState.LeftMouseState = 1;
 			}
-			if (event.mouseButton.button == 0)
+			if (event.mouseButton.button == 1)
 			{
-
+				MouseState.RightMouseState = 1;
 			}
 		}
+		if (event.type == sf::Event::MouseButtonReleased)
+		{
+			if (event.mouseButton.button == 0)
+			{
+				MouseState.LeftMouseState = 2;
+			}
+			if (event.mouseButton.button == 1)
+			{
+				MouseState.RightMouseState = 2;
+			}
+		}
+		MouseState.MousePosition.X = sf::Mouse::getPosition(Window).x;
+		MouseState.MousePosition.Y = sf::Mouse::getPosition(Window).y;
 	}
 	float Force = 10;
 	if (this->KeyState[sf::Keyboard::Key::D])
@@ -134,4 +153,13 @@ void GameManager::PollInput()
 void GameManager::Delete()
 {
 
+}
+void GameManager::InitWorld()
+{
+	WorldObj = new World();
+	WorldObj->AddEntity(new EntityPlayer(WorldObj));
+	WorldObj->Player = (EntityPlayer*)WorldObj->EntityList[0];
+	WorldObj->AddEntity(new EntityLiving(WorldObj));
+	WorldObj->EntityList[1]->Pos = Vector(20, 20);
+	WorldObj->EntityList[1]->PosOld = Vector(20, 20);
 }
