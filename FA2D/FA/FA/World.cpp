@@ -11,7 +11,12 @@ World::World()
 	EntityCount = 10;
 	CameraLoc = Vector();
 	EntityList = new Entity*[EntityCount];
-	WorldCollision = std::vector<Vector[2]>();
+	WorldCollision = std::vector<Vector*>();
+	FloorTexture = sf::Texture();
+	FloorTexture.loadFromFile("./Textures/Floor.png");
+	Floor = sf::RectangleShape(sf::Vector2f(FloorTexture.getSize()));
+	Floor.setTexture(&FloorTexture);
+	Floor.setPosition(sf::Vector2f(0, 0));
 	for (int i = 0; i < EntityCount; ++i)
 	{
 		EntityList[i] = NULL;
@@ -56,7 +61,7 @@ void World::CollideEntity(int id)
 			if (DistanceDot <= (MinDist*MinDist))
 			{
 				float RealDistance = sqrtf(DistanceDot);
-				const float ResFactor = 0.01;
+				const float ResFactor = 0.005 * RealDistance/ MinDist;
 				EntityList[id]->PosOld -= Distance * ResFactor * (EntityList[id]->Mass / (EntityList[id]->Mass + EntityList[j]->Mass));
 				EntityList[j]->PosOld += Distance * ResFactor * (EntityList[j]->Mass / (EntityList[id]->Mass + EntityList[j]->Mass));
 				//
@@ -66,8 +71,42 @@ void World::CollideEntity(int id)
 }
 void World::CollideWorld(int id)
 {
+	Entity * myEnt = EntityList[id];
 	for (int i = 0; i < WorldCollision.size(); ++i)
 	{
+		Vector LesserPos = WorldCollision.at(i)[0] - Vector(myEnt->Size, myEnt->Size);
+		Vector GreaterPos = WorldCollision.at(i)[0]+ WorldCollision.at(i)[1] + Vector(myEnt->Size, myEnt->Size);
+		if (myEnt->Pos.X > LesserPos.X &&
+			myEnt->Pos.X < GreaterPos.X &&
+			myEnt->Pos.Y > LesserPos.Y &&
+			myEnt->Pos.Y < GreaterPos.Y)
+		{
+			//Resolve
+			float ResXLess = myEnt->Pos.X - LesserPos.X;
+			float ResYLess = myEnt->Pos.Y - LesserPos.Y;
+			float ResXGreat = GreaterPos.X - myEnt->Pos.X;
+			float ResYGreat = GreaterPos.Y - myEnt->Pos.Y;
+			if (ResXLess < ResYLess && ResXLess < ResXGreat && ResXLess < ResYGreat)
+			{
+				myEnt->Pos.X -= ResXLess;
+				myEnt->PosOld.X -= ResXLess;
+			}
+			if (ResXGreat < ResXLess && ResXGreat < ResYLess && ResXGreat < ResYGreat)
+			{
+				myEnt->Pos.X += ResXGreat;
+				myEnt->PosOld.X += ResXGreat;
+			}
+			if (ResYLess < ResXLess && ResYLess < ResXGreat && ResYLess < ResYGreat)
+			{
+				myEnt->Pos.Y -= ResYLess;
+				myEnt->PosOld.Y -= ResYLess;
+			}
+			if (ResYGreat < ResXLess && ResYGreat < ResYLess && ResYGreat < ResXGreat)
+			{
+				myEnt->Pos.Y += ResYGreat;
+				myEnt->PosOld.Y += ResYGreat;
+			}
+		}
 	}
 }
 void World::Collide()
@@ -83,6 +122,8 @@ void World::Collide()
 }
 void World::Render(GameManager * gm)
 {
+	Floor.setPosition(CameraLoc.X, CameraLoc.Y);
+	gm->Window.draw(Floor);
 	for (int i = 0; i < EntityCount; ++i)
 	{
 		if (EntityList[i] != NULL)
@@ -116,4 +157,16 @@ int World::AddEntity(Entity * entity, bool todelete)
 		delete entity;
 	}
 	return -1;
+}
+void World::AddWorldCollision(Vector pos, Vector size)
+{
+	if (size.X < 0) {
+		pos.X += size.X;
+		size.X = -size.X;
+	}
+	if (size.Y < 0) {
+		pos.Y += size.Y;
+		size.Y = -size.Y;
+	}
+	this->WorldCollision.push_back(new Vector[2]{ pos,size });
 }

@@ -45,11 +45,13 @@ void GameManager::Update()
 {
 	if (GameState == StateMainMenu)
 	{
+		Window.setMouseCursorVisible(true);
 		//web_core->Update();
 		Mainmenu->Update(this);
 	}
 	if (GameState == StateGame)
 	{
+		Window.setMouseCursorVisible(false);
 		if (WorldObj->Player != NULL)
 		{
 			WindowSize.X = Window.getSize().x;
@@ -143,6 +145,18 @@ void GameManager::PollInput()
 	{
 		(this->WorldObj->Player)->MoveForward();
 	}
+	if (this->KeyState[sf::Keyboard::Key::LShift])
+	{
+		(this->WorldObj->Player)->SetSpeed(25);
+	}
+	else
+	{
+		(this->WorldObj->Player)->SetSpeed(10);
+	}
+	if (this->MouseState.LeftMouseState == 1)
+	{
+		(this->WorldObj->Player)->UseWeapon();
+	}
 	if (this->KeyState[sf::Keyboard::Key::Space])
 	{
 		//Create bond between nearest object and self
@@ -157,9 +171,16 @@ void GameManager::Delete()
 void GameManager::InitWorld()
 {
 	WorldObj = new World();
+	//Entrance
+	WorldObj->AddWorldCollision(Vector(0, 0), Vector(20, 200));
+	WorldObj->AddWorldCollision(Vector(0, 0), Vector(200, 20));
+	WorldObj->AddWorldCollision(Vector(0, 180), Vector(200, 20));
+	WorldObj->AddWorldCollision(Vector(178, 20), Vector(20, 20));
+	WorldObj->AddWorldCollision(Vector(178, 160), Vector(20, 20));
+	//Corridor
 	WorldObj->AddEntity(new EntityPlayer(WorldObj));
 	WorldObj->Player = (EntityPlayer*)WorldObj->EntityList[0];
 	WorldObj->AddEntity(new EntityLiving(WorldObj));
-	WorldObj->EntityList[1]->Pos = Vector(20, 20);
-	WorldObj->EntityList[1]->PosOld = Vector(20, 20);
+	WorldObj->EntityList[0]->SetPosition(Vector(50, 50));
+	WorldObj->EntityList[1]->SetPosition(Vector(50, 90));
 }

@@ -15,14 +15,17 @@ public:
 	float FrictionRot;
 	float Mass;
 	float Size;
+	int Health;
 	int Id;
 	Entity(World * world,Vector pos = Vector());
 	~Entity();
 	virtual void Update();
+	void SetPosition(Vector Pos);
 	void Intergrate();
 	void NormaliseRots();
 	float NormaliseAngle(float x);
 	float AngleDifference(float a,float b);
 	void ApplyForce(Vector v);
 	void Kill();
+	void DoDamage(int hp);
 };

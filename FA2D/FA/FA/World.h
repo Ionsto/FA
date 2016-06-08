@@ -6,6 +6,8 @@ class GameManager;
 class World
 {
 public:
+	sf::Texture FloorTexture;
+	sf::RectangleShape Floor;
 	float DeltaTime;
 	float DeltaTimeSqrd;
 	EntityPlayer * Player;
@@ -13,7 +15,7 @@ public:
 	sf::RectangleShape rectangle;
 	Vector CameraLoc;
 	int EntityCount;
-	std::vector<Vector[2]> WorldCollision;
+	std::vector<Vector*> WorldCollision;
 	World();
 	~World();
 	void Update(GameManager * GM);
@@ -23,5 +25,6 @@ public:
 	void CollideEntity(int id);
 	void CollideWorld(int id);
 	int AddEntity(Entity * entity, bool ToDelete = true);
+	void AddWorldCollision(Vector pos, Vector size);
 };
 

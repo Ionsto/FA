@@ -10,7 +10,7 @@ Entity::Entity(World * world,Vector pos)
 	Rot = 0;
 	RotOld = 0;
 	Friction = 0.98;
-	FrictionRot = 1;
+	FrictionRot = 0.5;
 	Id = -1;
 	Size = 8;
 	worldObj = world;
@@ -27,9 +27,12 @@ void Entity::Intergrate()
 	Vector NewPos = this->Pos;
 	Pos += ((Pos - PosOld) * Friction) + (Acc * worldObj->DeltaTimeSqrd);
 	PosOld = NewPos;
-	//NormaliseRots();
+	NormaliseRots();
+	float tempRot = Rot;
 	Rot += (Rot - RotOld) * FrictionRot;
-	Rotation = NormaliseAngle(Rot);
+	RotOld = tempRot;
+	NormaliseRots();
+	//Rotation = NormaliseAngle(Rot);
 	Acc = Vector();
 	if (abs((Pos - PosOld).X) < 0.0001) { PosOld.X = Pos.X; }
 	if (abs((Pos - PosOld).Y) < 0.0001) { PosOld.Y = Pos.Y; }
@@ -54,10 +57,23 @@ float Entity::NormaliseAngle(float x)
 }
 float Entity::AngleDifference(float a, float b)
 {
-	return NormaliseAngle(a - b);
+	float x = NormaliseAngle(a - b);
+	//extra level
+	if (x > 90) { x -= 90; }
+	if (x < -90) { x += 90; }
+	return x;
 }
 void Entity::Kill()
 {
 	worldObj->EntityList[Id] = NULL;
 	delete this;
+}
+void Entity::SetPosition(Vector pos)
+{
+	Pos = pos;
+	PosOld = pos;
+}
+void Entity::DoDamage(int hp)
+{
+	Health -= hp;
 }
