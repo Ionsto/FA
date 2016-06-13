@@ -1,2 +1,10 @@
-﻿  LINK : C:\Users\mpfs\Contacts\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe not found or not built by the last incremental link; performing full link
-  FA.vcxproj -> C:\Users\mpfs\Contacts\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe
+﻿  GunItem.cpp
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gunitem.cpp(46): warning C4018: '<': signed/unsigned mismatch
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gunitem.cpp(70): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gunitem.cpp(96): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gunitem.cpp(110): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gunitem.cpp(137): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gunitem.cpp(141): warning C4800: 'Entity *': forcing value to bool 'true' or 'false' (performance warning)
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gunitem.cpp(169): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gunitem.cpp(170): warning C4305: 'argument': truncation from 'double' to 'const float'
+LINK : fatal error LNK1168: cannot open C:\Users\mpfs\Contacts\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe for writing

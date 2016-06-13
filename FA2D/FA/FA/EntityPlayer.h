@@ -11,7 +11,7 @@ public:
 	EntityPlayer(World * world, Vector pos = Vector());
 	~EntityPlayer();
 	void UpdatePlayerAngle();
-	virtual void Update();
+	void Update() override;
 	void MoveForward();
 	void MoveBackward();
 	void MoveLeft();

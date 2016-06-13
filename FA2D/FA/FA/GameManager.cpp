@@ -128,41 +128,44 @@ void GameManager::PollInput()
 		MouseState.MousePosition.X = sf::Mouse::getPosition(Window).x;
 		MouseState.MousePosition.Y = sf::Mouse::getPosition(Window).y;
 	}
-	float Force = 10;
-	if (this->KeyState[sf::Keyboard::Key::D])
+	if (this->GameState = StateGame)
 	{
-		(this->WorldObj->Player)->MoveLeft();
+		float Force = 10;
+		if (this->KeyState[sf::Keyboard::Key::D])
+		{
+			(this->WorldObj->Player)->MoveLeft();
+		}
+		if (this->KeyState[sf::Keyboard::Key::A])
+		{
+			(this->WorldObj->Player)->MoveRight();
+		}
+		if (this->KeyState[sf::Keyboard::Key::S])
+		{
+			(this->WorldObj->Player)->MoveBackward();
+		}
+		if (this->KeyState[sf::Keyboard::Key::W])
+		{
+			(this->WorldObj->Player)->MoveForward();
+		}
+		if (this->KeyState[sf::Keyboard::Key::LShift])
+		{
+			(this->WorldObj->Player)->SetSpeed(25);
+		}
+		else
+		{
+			(this->WorldObj->Player)->SetSpeed(10);
+		}
+		if (this->MouseState.LeftMouseState == 1)
+		{
+			(this->WorldObj->Player)->UseWeapon();
+		}
+		if (this->KeyState[sf::Keyboard::Key::Space])
+		{
+			//Create bond between nearest object and self
+			//((EntityPhysical *)this->WorldObj->EntityList[0])->PhyObject->ApplyForceToCenter(b2Vec2(-Force, 0), true);
+		}
+		WorldObj->CameraLoc = (WindowSize * 0.5) - this->WorldObj->Player->PosOld;
 	}
-	if (this->KeyState[sf::Keyboard::Key::A])
-	{
-		(this->WorldObj->Player)->MoveRight();
-	}
-	if (this->KeyState[sf::Keyboard::Key::S])
-	{
-		(this->WorldObj->Player)->MoveBackward();
-	}
-	if (this->KeyState[sf::Keyboard::Key::W])
-	{
-		(this->WorldObj->Player)->MoveForward();
-	}
-	if (this->KeyState[sf::Keyboard::Key::LShift])
-	{
-		(this->WorldObj->Player)->SetSpeed(25);
-	}
-	else
-	{
-		(this->WorldObj->Player)->SetSpeed(10);
-	}
-	if (this->MouseState.LeftMouseState == 1)
-	{
-		(this->WorldObj->Player)->UseWeapon();
-	}
-	if (this->KeyState[sf::Keyboard::Key::Space])
-	{
-		//Create bond between nearest object and self
-		//((EntityPhysical *)this->WorldObj->EntityList[0])->PhyObject->ApplyForceToCenter(b2Vec2(-Force, 0), true);
-	}
-	WorldObj->CameraLoc = (WindowSize * 0.5) - this->WorldObj->Player->PosOld;
 }
 void GameManager::Delete()
 {

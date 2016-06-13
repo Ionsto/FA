@@ -4,18 +4,17 @@
 #include "EntityLiving.h"
 World::World()
 {
+	ResManager = new ResourceManager();
 	DeltaTime = 0.1F;
 	DeltaTimeSqrd = DeltaTime*DeltaTime;
 	this->rectangle = sf::RectangleShape(sf::Vector2f(10,10));
 	rectangle.setFillColor(sf::Color(100, 250, 50));
-	EntityCount = 10;
+	EntityCount = 200;
 	CameraLoc = Vector();
 	EntityList = new Entity*[EntityCount];
 	WorldCollision = std::vector<Vector*>();
-	FloorTexture = sf::Texture();
-	FloorTexture.loadFromFile("./Textures/Floor.png");
-	Floor = sf::RectangleShape(sf::Vector2f(FloorTexture.getSize()));
-	Floor.setTexture(&FloorTexture);
+	Floor = sf::RectangleShape(sf::Vector2f(ResManager->FloorTexture.getSize()));
+	Floor.setTexture(&ResManager->FloorTexture);
 	Floor.setPosition(sf::Vector2f(0, 0));
 	for (int i = 0; i < EntityCount; ++i)
 	{
@@ -38,7 +37,11 @@ void World::Update(GameManager * GM)
 		if (EntityList[i] != NULL)
 		{
 			EntityList[i]->Update();
-			EntityList[i]->Intergrate();
+			if (EntityList[i] != NULL)
+			{
+				//Entity comitted suicide :'(
+				EntityList[i]->Intergrate();
+			}
 		}
 	}
 	PhysicsUpdate();
@@ -49,22 +52,26 @@ void World::PhysicsUpdate()
 }
 void World::CollideEntity(int id)
 {
-	for (int j = id + 1; j < EntityCount; ++j)
-	{
-		if (EntityList[j] != NULL)
+	if (EntityList[id]->Size != 0) {
+		for (int j = id + 1; j < EntityCount; ++j)
 		{
-			Vector Distance  = EntityList[id]->Pos - EntityList[j]->Pos;
-			float DistanceDot = Distance.Dot(Distance);
-			float MinDist = EntityList[id]->Size + EntityList[j]->Size;
-			//do collisions
-			//Resolve both I and J
-			if (DistanceDot <= (MinDist*MinDist))
+			if (EntityList[j] != NULL)
 			{
-				float RealDistance = sqrtf(DistanceDot);
-				const float ResFactor = 0.005 * RealDistance/ MinDist;
-				EntityList[id]->PosOld -= Distance * ResFactor * (EntityList[id]->Mass / (EntityList[id]->Mass + EntityList[j]->Mass));
-				EntityList[j]->PosOld += Distance * ResFactor * (EntityList[j]->Mass / (EntityList[id]->Mass + EntityList[j]->Mass));
-				//
+				if (EntityList[j]->Size != 0) {
+					Vector Distance = EntityList[id]->Pos - EntityList[j]->Pos;
+					float DistanceDot = Distance.Dot(Distance);
+					float MinDist = EntityList[id]->Size + EntityList[j]->Size;
+					//do collisions
+					//Resolve both I and J
+					if (DistanceDot <= (MinDist*MinDist))
+					{
+						float RealDistance = sqrtf(DistanceDot);
+						const float ResFactor = 0.005 * RealDistance / MinDist;
+						EntityList[id]->PosOld -= Distance * ResFactor * (EntityList[id]->Mass / (EntityList[id]->Mass + EntityList[j]->Mass));
+						EntityList[j]->PosOld += Distance * ResFactor * (EntityList[j]->Mass / (EntityList[id]->Mass + EntityList[j]->Mass));
+						//
+					}
+				}
 			}
 		}
 	}
@@ -128,13 +135,15 @@ void World::Render(GameManager * gm)
 	{
 		if (EntityList[i] != NULL)
 		{
+			EntityList[i]->Render(gm);
 			//rectangle.setTexture();
+			/*
 			rectangle.setSize(sf::Vector2f(EntityList[i]->Size * 2, EntityList[i]->Size * 2));
 
 			rectangle.setOrigin(sf::Vector2f(EntityList[i]->Size, EntityList[i]->Size));
 			rectangle.setPosition(sf::Vector2f(EntityList[i]->Pos.X + CameraLoc.X, EntityList[i]->Pos.Y  + CameraLoc.Y));
 			rectangle.setRotation(EntityList[i]->Rot);
-			gm->Window.draw(rectangle);
+			gm->Window.draw(rectangle);*/
 		}
 	}
 	rectangle.setPosition(sf::Vector2f(gm->MouseState.MousePosition.X,gm->MouseState.MousePosition.Y));

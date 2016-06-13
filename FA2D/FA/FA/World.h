@@ -2,12 +2,13 @@
 #include <SFML\Graphics.hpp>
 #include "Entity.h"
 #include "EntityPlayer.h"
+#include "ResourceManager.h"
 class GameManager;
 class World
 {
 public:
-	sf::Texture FloorTexture;
 	sf::RectangleShape Floor;
+	ResourceManager * ResManager;
 	float DeltaTime;
 	float DeltaTimeSqrd;
 	EntityPlayer * Player;

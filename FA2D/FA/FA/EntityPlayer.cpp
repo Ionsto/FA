@@ -22,14 +22,17 @@ void EntityPlayer::UpdatePlayerAngle()
 	float RotSpeed = 0.1;
 	Vector LookVector = MousePosition;
 	float Angle = 180/3.14 * atan2f(LookVector.Y, LookVector.X);
-	//Rot = Angle;
-	//RotOld = Angle;
+	if (Rot < 170 && Angle > 170)
+	{
+		int i = 0;
+	}
 	RotOld += 0.01 * AngleDifference(Rot,Angle);
 	//RotOld -= 0.1;
 }
 void EntityPlayer::Update()
 {
 	UpdatePlayerAngle();
+	Weapon->Update();
 }
 void EntityPlayer::MoveForward()
 {
@@ -59,9 +62,6 @@ void EntityPlayer::UseWeapon()
 {
 	if (Weapon != NULL)
 	{
-		if (Weapon->Ammo > 0)
-		{
-			Weapon->FireFrom(worldObj, Pos + Vector(Size * 1.5 * cosf(Rot), Size * 1.5 * sinf(Rot)), Rot);
-		}
+		Weapon->FireFrom(worldObj, Pos + Vector(Size * 1.5 * cosf(Rot/180 * 3.14), Size * 1.5 * sinf(Rot / 180 * 3.14)), Rot);
 	}
 }

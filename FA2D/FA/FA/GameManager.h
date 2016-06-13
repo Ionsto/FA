@@ -16,7 +16,6 @@ public:
 	bool Running;
 	sf::RenderWindow Window;
 	World * WorldObj;
-	ResourceManager * ResManager;
 	MainMenu * Mainmenu;
 	Vector WindowSize;
 	struct MouseData{

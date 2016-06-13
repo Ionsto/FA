@@ -1,6 +1,7 @@
 #pragma once
 class World;
 #include "Vector.h"
+class GameManager;
 class Entity
 {
 public:
@@ -15,7 +16,7 @@ public:
 	float FrictionRot;
 	float Mass;
 	float Size;
-	int Health;
+	float Health;
 	int Id;
 	Entity(World * world,Vector pos = Vector());
 	~Entity();
@@ -28,4 +29,6 @@ public:
 	void ApplyForce(Vector v);
 	void Kill();
 	void DoDamage(int hp);
+	virtual void Render(GameManager * gm);
+	virtual void SetSize(float size);
 };
