@@ -8,7 +8,7 @@ GunItem::GunItem()
 {
 	Damage = 0;
 	CoolDownTime = 700;
-	ResetTime = 2000;
+	ResetTime = 600;
 	Time = 0;
 	CoolDownTimer = 0;
 	Ammo = 100;
@@ -89,26 +89,22 @@ void GunItem::Update()
 	{
 		CoolDownTimer = 0;
 	}
-	Inaccuracy = 5 + (Speed) + (10*(Time/ResetTime));
+	Inaccuracy = 4 + (Speed*1000) + (10*(Time/ResetTime));
 }
 Vector * GunItem::RayIntersectsEntity(Entity * entity, Vector pos, float rot)
 {
-	Vector D = Vector(MaxDistance * cosf(rot / 180 * 3.14), MaxDistance * sinf(rot / 180 * 3.14));
-	float a = D.Dot(D);
-	Vector F = pos - entity->Pos;
-	float b = 2 * F.Dot(D);
-	float c = F.Dot(F) - (entity->Size * entity->Size);
-	float discrim = (b * b) - (4 * a * c);
-	if (discrim < 0) {
-		return NULL;
-	}
-	else {
-		discrim = sqrtf(discrim);
-		float t1 = (-b + discrim) / (2 * a);
-		float t2 = (-b - discrim) / (2 * a);
-		if (t1 >= 0 && t1 <= 1) {
-			return new Vector(t1, (t1 * sinf(rot / 180 * 3.14) + pos.Y));
-		}
+	Vector RayComp = Vector(cosf(rot / 180 * 3.14), sinf(rot / 180 * 3.14));
+	Vector Ray = RayComp * MaxDistance;
+	Vector AC = entity->Pos - pos;
+	float DDistance = AC.Dot(Ray) / MaxDistance;
+	Vector DPos = RayComp * DDistance;
+	Vector Distance = AC - DPos;
+	float DistanceSquared = Distance.Dot(Distance);
+	if (DistanceSquared < entity->Size * entity->Size)
+	{
+		//Within circle
+		float NewDistance = DDistance - sqrtf((entity->Size * entity->Size) - DistanceSquared);
+		return new Vector(RayComp.X * NewDistance,RayComp.Y * NewDistance);
 	}
 	return NULL;
 }

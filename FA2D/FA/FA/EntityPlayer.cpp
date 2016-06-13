@@ -6,8 +6,8 @@
 EntityPlayer::EntityPlayer(World * world,Vector pos) : EntityLiving(world,pos)
 {
 	MousePosition = Vector(0, 0);
-	MoveForce = 10;
 	Weapon = new GunItem();
+	SetSpeed(10);
 	//RotOld -= 1;
 }
 
@@ -33,6 +33,8 @@ void EntityPlayer::Update()
 {
 	UpdatePlayerAngle();
 	Weapon->Update();
+	Vector diff = Pos - PosOld;
+	Weapon->ChangeSpeed(diff.Dot(diff));
 }
 void EntityPlayer::MoveForward()
 {
@@ -55,13 +57,12 @@ void EntityPlayer::SetSpeed(float speed)
 	if (MoveForce != speed)
 	{
 		MoveForce = speed;
-		Weapon->ChangeSpeed(speed);
 	}
 }
 void EntityPlayer::UseWeapon()
 {
 	if (Weapon != NULL)
 	{
-		Weapon->FireFrom(worldObj, Pos + Vector(Size * 1.5 * cosf(Rot/180 * 3.14), Size * 1.5 * sinf(Rot / 180 * 3.14)), Rot);
+		Weapon->FireFrom(worldObj, Pos + Vector(Size * 2 * cosf(Rot/180 * 3.14), Size * 2 * sinf(Rot / 180 * 3.14)), Rot);
 	}
 }
