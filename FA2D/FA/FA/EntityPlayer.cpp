@@ -1,6 +1,7 @@
 #include "EntityPlayer.h"
 #include "World.h"
 #include <math.h>
+#include <iostream>
 
 
 EntityPlayer::EntityPlayer(World * world,Vector pos) : EntityLiving(world,pos)
@@ -32,7 +33,7 @@ void EntityPlayer::UpdatePlayerAngle()
 void EntityPlayer::Update()
 {
 	UpdatePlayerAngle();
-	Weapon->Update();
+	Weapon->Update(worldObj);
 	Vector diff = Pos - PosOld;
 	Weapon->ChangeSpeed(diff.Dot(diff));
 }
@@ -63,6 +64,8 @@ void EntityPlayer::UseWeapon()
 {
 	if (Weapon != NULL)
 	{
-		Weapon->FireFrom(worldObj, Pos + Vector(Size * 2 * cosf(Rot/180 * 3.14), Size * 2 * sinf(Rot / 180 * 3.14)), Rot);
+		float GunSize = Size * 1.5;
+		Vector FireFrom = Pos +Vector(GunSize * cosf(Rot / 180 * 3.14), GunSize * sinf(Rot / 180 * 3.14));
+		Weapon->FireFrom(worldObj, FireFrom, Rot);
 	}
 }

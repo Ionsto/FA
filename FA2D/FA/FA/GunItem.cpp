@@ -7,9 +7,9 @@
 GunItem::GunItem()
 {
 	Damage = 0;
-	CoolDownTime = 700;
-	ResetTime = 600;
-	Time = 0;
+	CoolDownTime = 70;
+	ResetTime = 90;
+	ResetTimer = 0;
 	CoolDownTimer = 0;
 	Ammo = 100;
 	Inaccuracy = 1;
@@ -64,7 +64,7 @@ void GunItem::FireFrom(World * world, Vector pos, float Rot)
 		if (CoolDownTimer < 1)
 		{
 			Rot += (rand() % (int)Inaccuracy) - (Inaccuracy/2);
-			std::cout << Inaccuracy << "\n";
+			std::cout << Inaccuracy <<" Time:"<< ResetTimer << " InnacTime:"<< InnTime(ResetTimer)<< "\n";
 			Vector * hitpos = RayCasting(world, pos, Rot);
 			if (hitpos == NULL) {
 				hitpos = new Vector(MaxDistance * cosf(Rot / 180 * 3.14), MaxDistance * sinf(Rot / 180 * 3.14));
@@ -73,38 +73,53 @@ void GunItem::FireFrom(World * world, Vector pos, float Rot)
 			delete hitpos;
 			Ammo -= 1;
 			CoolDownTimer += CoolDownTime;
-			Time += CoolDownTime;
+			ResetTimer += ResetTime;
 		}
 	}
 }
-void GunItem::Update()
+void GunItem::Update(World * worldObj)
 {
-	Time -= 1;
-	CoolDownTimer -= 1;
-	if (Time < 0)
+	ResetTimer -= 1 * worldObj->DeltaTime;
+	CoolDownTimer -= 1 * worldObj->DeltaTime;
+	if (ResetTimer > 300)
 	{
-		Time = 0;
+		ResetTimer = 300;
+	}
+	if (ResetTimer < 0)
+	{
+		ResetTimer = 0;
 	}
 	if (CoolDownTimer < 0)
 	{
 		CoolDownTimer = 0;
 	}
-	Inaccuracy = 4 + (Speed*1000) + (10*(Time/ResetTime));
+	Inaccuracy = 4 + InnSpeed(Speed) + InnTime(ResetTimer);
+	Inaccuracy = fminf(180, Inaccuracy);
+}
+float GunItem::InnSpeed(float speed)
+{
+	return speed * 1000;
+}
+float GunItem::InnTime(float time)
+{
+	return 0.5*time;
 }
 Vector * GunItem::RayIntersectsEntity(Entity * entity, Vector pos, float rot)
 {
-	Vector RayComp = Vector(cosf(rot / 180 * 3.14), sinf(rot / 180 * 3.14));
+	Vector RayComp = Vector(cosf((rot / 180) * 3.14), sinf((rot / 180) * 3.14));
 	Vector Ray = RayComp * MaxDistance;
 	Vector AC = entity->Pos - pos;
 	float DDistance = AC.Dot(Ray) / MaxDistance;
-	Vector DPos = RayComp * DDistance;
-	Vector Distance = AC - DPos;
-	float DistanceSquared = Distance.Dot(Distance);
-	if (DistanceSquared < entity->Size * entity->Size)
-	{
-		//Within circle
-		float NewDistance = DDistance - sqrtf((entity->Size * entity->Size) - DistanceSquared);
-		return new Vector(RayComp.X * NewDistance,RayComp.Y * NewDistance);
+	if (DDistance >= 0) {
+		Vector DPos = RayComp * DDistance;
+		Vector Distance = DPos - AC;
+		float DistanceSquared = Distance.Dot(Distance);
+		if (DistanceSquared < entity->Size * entity->Size)
+		{
+			//Within circle
+			float NewDistance = DDistance - sqrtf((entity->Size * entity->Size) - DistanceSquared);
+			return new Vector(RayComp.X * NewDistance, RayComp.Y * NewDistance);
+		}
 	}
 	return NULL;
 }

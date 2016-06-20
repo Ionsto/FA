@@ -5,8 +5,8 @@ class World;
 class GunItem {
 public:
 	float Damage;
-	float Time;
 	float Speed;
+	float ResetTimer;
 	float CoolDownTimer;
 	float ResetTime;
 	float CoolDownTime;
@@ -18,7 +18,9 @@ public:
 	void FireFrom(World * world,Vector pos,float rot);
 	void ChangeSpeed(float speed);
 	void DamageEntity(Entity * entity,Vector bulletpos);
-	void Update();
+	void Update(World * worldobj);
+	float InnSpeed(float speed);
+	float InnTime(float speed);
 	Vector * RayIntersectsEntity(Entity * entity, Vector pos, float rot);
 	Vector * RayCasting(World * world, Vector pos, float rot);
 	void RayStepping(World * world, Vector pos, float rot);

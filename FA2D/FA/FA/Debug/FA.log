@@ -1,20 +1,2 @@
-﻿  GunItem.cpp
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gunitem.cpp(46): warning C4018: '<': signed/unsigned mismatch
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gunitem.cpp(70): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gunitem.cpp(96): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gunitem.cpp(133): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gunitem.cpp(137): warning C4800: 'Entity *': forcing value to bool 'true' or 'false' (performance warning)
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gunitem.cpp(165): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gunitem.cpp(166): warning C4305: 'argument': truncation from 'double' to 'const float'
-  EntityPlayer.cpp
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(22): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(24): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(29): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(45): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(53): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(66): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  Generating Code...
-  LINK : C:\Users\mpfs\Contacts\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe not found or not built by the last incremental link; performing full link
+﻿  LINK : C:\Users\mpfs\Contacts\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe not found or not built by the last incremental link; performing full link
   FA.vcxproj -> C:\Users\mpfs\Contacts\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe
