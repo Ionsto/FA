@@ -9,6 +9,7 @@ World::World()
 	DeltaTimeSqrd = DeltaTime*DeltaTime;
 	this->rectangle = sf::RectangleShape(sf::Vector2f(10,10));
 	rectangle.setFillColor(sf::Color(100, 250, 50));
+	rectangle.setOrigin(sf::Vector2f(5, 5));
 	EntityCount = 200;
 	CameraLoc = Vector();
 	EntityList = new Entity*[EntityCount];

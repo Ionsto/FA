@@ -6,7 +6,7 @@
 #include <iostream>
 GunItem::GunItem()
 {
-	Damage = 0;
+	Damage = 10;
 	CoolDownTime = 70;
 	ResetTime = 90;
 	ResetTimer = 0;
@@ -67,9 +67,9 @@ void GunItem::FireFrom(World * world, Vector pos, float Rot)
 			std::cout << Inaccuracy <<" Time:"<< ResetTimer << " InnacTime:"<< InnTime(ResetTimer)<< "\n";
 			Vector * hitpos = RayCasting(world, pos, Rot);
 			if (hitpos == NULL) {
-				hitpos = new Vector(MaxDistance * cosf(Rot / 180 * 3.14), MaxDistance * sinf(Rot / 180 * 3.14));
+				hitpos = new Vector((MaxDistance * cosf(Rot / 180 * 3.14)) + pos.X , (MaxDistance * sinf(Rot / 180 * 3.14)) + pos.Y);
 			}
-			world->AddEntity(new EntityTracerEffect(world, pos, pos + *hitpos));
+			world->AddEntity(new EntityTracerEffect(world, pos, *hitpos));
 			delete hitpos;
 			Ammo -= 1;
 			CoolDownTimer += CoolDownTime;
@@ -94,7 +94,7 @@ void GunItem::Update(World * worldObj)
 		CoolDownTimer = 0;
 	}
 	Inaccuracy = 4 + InnSpeed(Speed) + InnTime(ResetTimer);
-	Inaccuracy = fminf(180, Inaccuracy);
+	Inaccuracy = fminf(90, Inaccuracy);
 }
 float GunItem::InnSpeed(float speed)
 {
@@ -117,8 +117,8 @@ Vector * GunItem::RayIntersectsEntity(Entity * entity, Vector pos, float rot)
 		if (DistanceSquared < entity->Size * entity->Size)
 		{
 			//Within circle
-			float NewDistance = DDistance - sqrtf((entity->Size * entity->Size) - DistanceSquared);
-			return new Vector(RayComp.X * NewDistance, RayComp.Y * NewDistance);
+			float NewDistance = DDistance -sqrtf((entity->Size * entity->Size) - DistanceSquared);
+			return new Vector((RayComp.X * NewDistance) + pos.X, (RayComp.Y * NewDistance) + pos.Y);
 		}
 	}
 	return NULL;
@@ -178,5 +178,5 @@ void GunItem::ChangeSpeed(float speed)
 void GunItem::DamageEntity(Entity * entity, Vector pos)
 {
 	entity->DoDamage(Damage);
-	entity->PosOld -= (entity->Pos - pos) * 0.001;
+	entity->Acc += (entity->Pos - pos) * 5;
 }
