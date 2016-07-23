@@ -31,6 +31,18 @@
     <Filter Include="Source Files\Menu">
       <UniqueIdentifier>{20cea82f-b74d-4cef-96db-75285b2f7cc8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Game\AI">
+      <UniqueIdentifier>{90f5663c-d3ec-46d6-9d46-d5e404174f99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Items">
+      <UniqueIdentifier>{c52f7e4a-ddf4-4c38-8254-8408193b27bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\AI">
+      <UniqueIdentifier>{773cfdcc-ccd2-4c62-bb4f-69cebe4bf00d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\Items">
+      <UniqueIdentifier>{0e2f1809-8f68-422d-bbe0-a74467d71978}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -42,17 +54,8 @@
     <ClCompile Include="World.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
     <ClCompile Include="ResourceManager.cpp">
       <Filter>Source Files\Render</Filter>
-    </ClCompile>
-    <ClCompile Include="EntityLiving.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="EntityPlayer.cpp">
-      <Filter>Source Files\Game</Filter>
     </ClCompile>
     <ClCompile Include="MainMenu.cpp">
       <Filter>Source Files\Menu</Filter>
@@ -75,7 +78,28 @@
     <ClCompile Include="EntityTracerEffect.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
-    <ClCompile Include="GunItem.cpp">
+    <ClCompile Include="EntityGuard.cpp">
+      <Filter>Source Files\Game\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityLiving.cpp">
+      <Filter>Source Files\Game\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityPlayer.cpp">
+      <Filter>Source Files\Game\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Source Files\Game\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemRifle.cpp">
+      <Filter>Source Files\Game\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files\Game\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemSword.cpp">
+      <Filter>Source Files\Game\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="EntitySwordEffect.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
   </ItemGroup>
@@ -86,19 +110,10 @@
     <ClInclude Include="World.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
     <ClInclude Include="ResourceManager.h">
       <Filter>Header Files\Render</Filter>
     </ClInclude>
     <ClInclude Include="Vector.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="EntityLiving.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="EntityPlayer.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="MainMenu.h">
@@ -119,10 +134,31 @@
     <ClInclude Include="ElementButton.h">
       <Filter>Header Files\Menu</Filter>
     </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files\Game\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityGuard.h">
+      <Filter>Header Files\Game\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityLiving.h">
+      <Filter>Header Files\Game\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityPlayer.h">
+      <Filter>Header Files\Game\AI</Filter>
+    </ClInclude>
     <ClInclude Include="EntityTracerEffect.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
-    <ClInclude Include="GunItem.h">
+    <ClInclude Include="Item.h">
+      <Filter>Header Files\Game\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemRifle.h">
+      <Filter>Header Files\Game\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemSword.h">
+      <Filter>Header Files\Game\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="EntitySwordEffect.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
   </ItemGroup>

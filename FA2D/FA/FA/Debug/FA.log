@@ -1,9 +1,2 @@
-﻿  GunItem.cpp
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gunitem.cpp(46): warning C4018: '<': signed/unsigned mismatch
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gunitem.cpp(70): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gunitem.cpp(105): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gunitem.cpp(109): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gunitem.cpp(148): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gunitem.cpp(152): warning C4800: 'Entity *': forcing value to bool 'true' or 'false' (performance warning)
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gunitem.cpp(180): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+﻿  EntityGuard.cpp
   FA.vcxproj -> C:\Users\mpfs\Contacts\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe

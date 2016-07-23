@@ -5,6 +5,7 @@ class ResourceManager
 public:
 	sf::Texture FloorTexture;
 	sf::Texture PlayerTexture;
+	sf::Texture SwordTexture;
 	sf::Texture TracerTexture;
 	sf::Texture TracerTerminationTexture;
 	ResourceManager();

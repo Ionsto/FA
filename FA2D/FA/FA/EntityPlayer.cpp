@@ -2,12 +2,13 @@
 #include "World.h"
 #include <math.h>
 #include <iostream>
+#include "ItemSword.h"
 
 
 EntityPlayer::EntityPlayer(World * world,Vector pos) : EntityLiving(world,pos)
 {
 	MousePosition = Vector(0, 0);
-	Weapon = new GunItem();
+	Weapon = new ItemSword();
 	SetSpeed(10);
 	//RotOld -= 1;
 }

@@ -1,13 +1,13 @@
 #pragma once
 #include "EntityLiving.h"
-#include "GunItem.h"
+#include "Item.h"
 
 class EntityPlayer :
 	public EntityLiving
 {
 public:
 	Vector MousePosition;//This is the position of the mouse relitive to the center of the screen
-	GunItem * Weapon;
+	Item * Weapon;
 	EntityPlayer(World * world, Vector pos = Vector());
 	~EntityPlayer();
 	void UpdatePlayerAngle();

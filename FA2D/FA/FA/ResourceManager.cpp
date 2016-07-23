@@ -16,4 +16,6 @@ void ResourceManager::InitTextures()
 	FloorTexture.loadFromFile("./Textures/Floor.png");
 	TracerTexture = sf::Texture();
 	TracerTexture.loadFromFile("./Textures/Ray.png");
+	SwordTexture = sf::Texture();
+	SwordTexture.loadFromFile("./Textures/Sword.png");
 }
