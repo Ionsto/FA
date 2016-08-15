@@ -1,6 +1,6 @@
 #include "ItemSword.h"
 #include <stdlib.h>
-#include "EntityTracerEffect.h"
+#include "EntitySwordEffect.h"
 #include "World.h"
 
 ItemSword::ItemSword() : Item()
@@ -27,11 +27,13 @@ void ItemSword::FireFrom(World * world, Vector pos, float Rot)
 	{
 		//Rot += (rand() % (int)Inaccuracy) - (Inaccuracy / 2);
 		//std::cout << Inaccuracy << " Time:" << ResetTimer << " InnacTime:" << InnTime(ResetTimer) << "\n";
-		Vector * hitpos = RayCasting(world, pos, Rot);
+		HitStructure * hitpos = RayCasting(world, pos, Rot);
 		if (hitpos == NULL) {
-			hitpos = new Vector((MaxDistance * cosf(Rot / 180 * 3.14)) + pos.X, (MaxDistance * sinf(Rot / 180 * 3.14)) + pos.Y);
+			hitpos = new HitStructure();
+			hitpos->HitDistance = MaxDistance;
+			hitpos->HitPosistion = Vector((MaxDistance * cosf(Rot / 180 * 3.14)) + pos.X, (MaxDistance * sinf(Rot / 180 * 3.14)) + pos.Y);
 		}
-		world->AddEntity(new EntityTracerEffect(world, pos, *hitpos));
+		world->AddEntity(new EntitySwordEffect(world, pos, hitpos->HitPosistion));
 		delete hitpos;
 		CoolDownTimer += CoolDownTime;
 		ResetTimer += ResetTime;

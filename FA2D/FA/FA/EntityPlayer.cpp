@@ -3,13 +3,22 @@
 #include <math.h>
 #include <iostream>
 #include "ItemSword.h"
+#include "ItemRifle.h"
+#include "ItemSMG.h"
 
 
 EntityPlayer::EntityPlayer(World * world,Vector pos) : EntityLiving(world,pos)
 {
 	MousePosition = Vector(0, 0);
-	Weapon = new ItemSword();
-	SetSpeed(10);
+	ItemList[0] = new ItemSword();
+	ItemList[1] = new ItemRifle();
+	ItemList[2] = new ItemSMG();
+	Weapon = ItemList[0];
+	this->MaxForce = 25;
+	this->WalkForce = 10;
+	this->CurrentMaxForce = MaxForce * (Health / 100);
+	this->CurrentWalkForce = WalkForce * (Health / 100);
+	SetSpeed(MaxForce);
 	//RotOld -= 1;
 }
 
@@ -37,6 +46,13 @@ void EntityPlayer::Update()
 	Weapon->Update(worldObj);
 	Vector diff = Pos - PosOld;
 	Weapon->ChangeSpeed(diff.Dot(diff));
+	this->CurrentMaxForce = MaxForce * (Health / 100);
+	this->CurrentWalkForce = CurrentWalkForce * (Health / 100);
+	this->CurrentMaxForce = MaxForce * (Health / 100);
+}
+void EntityPlayer::ChangeWeapon(int number)
+{
+	Weapon = ItemList[number];
 }
 void EntityPlayer::MoveForward()
 {

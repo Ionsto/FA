@@ -11,3 +11,7 @@ EntityGuard::EntityGuard(World * world, Vector pos) : EntityLiving(world,pos)
 EntityGuard::~EntityGuard()
 {
 }
+void EntityGuard::Update()
+{
+
+}

@@ -6,6 +6,7 @@ class EntityLiving :
 {
 public:
 	sf::RectangleShape RenderCanvas;
+	float MaxSpeed;
 	float MoveForce;
 	EntityLiving(World * world, Vector pos = Vector());
 	~EntityLiving();

@@ -43,6 +43,12 @@
     <Filter Include="Header Files\Game\Items">
       <UniqueIdentifier>{0e2f1809-8f68-422d-bbe0-a74467d71978}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Game\AI\CBR">
+      <UniqueIdentifier>{c7832bb5-efd3-47e0-9c47-da2691f40805}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\AI\CBR">
+      <UniqueIdentifier>{e73de8b4-73bd-4f05-9e73-b52d144b0c0b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -102,6 +108,18 @@
     <ClCompile Include="EntitySwordEffect.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
+    <ClCompile Include="ItemSMG.cpp">
+      <Filter>Source Files\Game\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="AIAction.cpp">
+      <Filter>Source Files\Game\AI\CBR</Filter>
+    </ClCompile>
+    <ClCompile Include="AIActionMove.cpp">
+      <Filter>Source Files\Game\AI\CBR</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityAI.cpp">
+      <Filter>Source Files\Game\AI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -152,14 +170,26 @@
     <ClInclude Include="Item.h">
       <Filter>Header Files\Game\Items</Filter>
     </ClInclude>
-    <ClInclude Include="ItemRifle.h">
-      <Filter>Header Files\Game\Items</Filter>
-    </ClInclude>
     <ClInclude Include="ItemSword.h">
       <Filter>Header Files\Game\Items</Filter>
     </ClInclude>
     <ClInclude Include="EntitySwordEffect.h">
       <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemRifle.h">
+      <Filter>Header Files\Game\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemSMG.h">
+      <Filter>Header Files\Game\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="AIAction.h">
+      <Filter>Header Files\Game\AI\CBR</Filter>
+    </ClInclude>
+    <ClInclude Include="AIActionMove.h">
+      <Filter>Header Files\Game\AI\CBR</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityAI.h">
+      <Filter>Header Files\Game\AI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

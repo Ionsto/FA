@@ -1,2 +1,16 @@
-﻿  EntityGuard.cpp
-  FA.vcxproj -> C:\Users\mpfs\Contacts\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe
+﻿  ItemSword.cpp
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\itemsword.cpp(30): error C2440: 'initializing': cannot convert from 'HitStructure *' to 'Vector *'
+  c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\itemsword.cpp(30): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\itemsword.cpp(32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Item.cpp
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(32): warning C4101: 't': unreferenced local variable
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(66): error C2440: 'initializing': cannot convert from 'HitStructure *' to 'Vector *'
+  c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(66): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(68): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(103): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(107): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(154): warning C4018: '<': signed/unsigned mismatch
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(184): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Generating Code...

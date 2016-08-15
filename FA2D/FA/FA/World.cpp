@@ -83,7 +83,7 @@ void World::CollideWorld(int id)
 	for (int i = 0; i < WorldCollision.size(); ++i)
 	{
 		Vector LesserPos = WorldCollision.at(i)[0] - Vector(myEnt->Size, myEnt->Size);
-		Vector GreaterPos = WorldCollision.at(i)[0]+ WorldCollision.at(i)[1] + Vector(myEnt->Size, myEnt->Size);
+		Vector GreaterPos = WorldCollision.at(i)[0] + WorldCollision.at(i)[1] + Vector(myEnt->Size, myEnt->Size);
 		if (myEnt->Pos.X > LesserPos.X &&
 			myEnt->Pos.X < GreaterPos.X &&
 			myEnt->Pos.Y > LesserPos.Y &&

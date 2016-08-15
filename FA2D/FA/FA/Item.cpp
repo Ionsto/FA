@@ -14,48 +14,46 @@ Item::Item()
 	Ammo = 100;
 	Inaccuracy = 1;
 	Speed = 0;
+	BaseInaccuracy = 4;
 	MaxDistance = 500;
 }
 Item::~Item()
 {
 
 }
-Entity * Item::CheckCollisionEntities(World * world,Vector pos)
+//Negitive values show nonhit
+HitStructure * Item::RayIntersectsWall(Vector * WorldCollision, Vector Pos,float rot)
 {
-	for (int entid = 0; entid < world->EntityCount; ++entid)
+	Vector LesserPos = WorldCollision[0];
+	Vector GreaterPos = WorldCollision[0] + WorldCollision[1];
+	Vector RayComp = Vector(1/cosf((rot / 180) * 3.14), 1/sinf((rot / 180) * 3.14));
+	// lb is the corner of AABB with minimal coordinates - left bottom, rt is maximal corner
+	// r.org is origin of ray
+	float t;
+	float t1 = (LesserPos.X - Pos.X)*RayComp.X;
+	float t2 = (GreaterPos.X - Pos.X)*RayComp.X;
+	float t3 = (LesserPos.Y - Pos.Y)*RayComp.Y;
+	float t4 = (GreaterPos.Y - Pos.Y)*RayComp.Y;
+
+	float tmin = fmaxf(fminf(t1, t2), fminf(t3, t4));
+	float tmax = fminf(fmaxf(t1, t2), fmaxf(t3, t4));
+
+	// if tmax < 0, ray (line) is intersecting AABB, but whole AABB is behing us
+	if (tmax < 0)
 	{
-		Entity * CollEnt = world->EntityList[entid];
-		if (CollEnt != NULL)
-		{
-			Vector Distance = CollEnt->Pos - pos;
-			float DistanceDot = Distance.Dot(Distance);
-			float MinDist = CollEnt->Size;
-			//do collisions
-			//Resolve both I and J
-			if (DistanceDot <= (MinDist*MinDist))
-			{
-				//Collision
-				return CollEnt;
-			}
-		}
+		return NULL;
 	}
+
+	// if tmin > tmax, ray doesn't intersect AABB
+	if (tmin > tmax)
+	{
+		return NULL;
+	}
+	HitStructure * hitPos = new HitStructure();
+	hitPos->HitDistance = tmin;
+	hitPos->HitPosistion = Vector(tmin * cosf((rot / 180) * 3.14), tmin * sinf((rot / 180) * 3.14));
+	return hitPos;
 	return NULL;
-}
-bool Item::CheckCollisionWall(World * world, Vector Pos)
-{
-	for (int i = 0; i < world->WorldCollision.size(); ++i)
-	{
-		Vector LesserPos = world->WorldCollision.at(i)[0];
-		Vector GreaterPos = world->WorldCollision.at(i)[0] + world->WorldCollision.at(i)[1];
-		if (Pos.X > LesserPos.X &&
-			Pos.X < GreaterPos.X &&
-			Pos.Y > LesserPos.Y &&
-			Pos.Y < GreaterPos.Y)
-		{
-			return true;
-		}
-	}
-	return false;
 }
 void Item::FireFrom(World * world, Vector pos, float Rot)
 {
@@ -64,7 +62,7 @@ void Item::FireFrom(World * world, Vector pos, float Rot)
 		if (CoolDownTimer < 1)
 		{
 			Rot += (rand() % (int)Inaccuracy) - (Inaccuracy/2);
-			std::cout << Inaccuracy <<" Time:"<< ResetTimer << " InnacTime:"<< InnTime(ResetTimer)<< "\n";
+			//std::cout << Inaccuracy <<" Time:"<< ResetTimer << " InnacTime:"<< InnTime(ResetTimer)<< "\n";
 			Vector * hitpos = RayCasting(world, pos, Rot);
 			if (hitpos == NULL) {
 				hitpos = new Vector((MaxDistance * cosf(Rot / 180 * 3.14)) + pos.X , (MaxDistance * sinf(Rot / 180 * 3.14)) + pos.Y);
@@ -93,7 +91,7 @@ void Item::Update(World * worldObj)
 	{
 		CoolDownTimer = 0;
 	}
-	Inaccuracy = 4 + InnSpeed(Speed) + InnTime(ResetTimer);
+	Inaccuracy = BaseInaccuracy + InnSpeed(Speed) + InnTime(ResetTimer);
 	Inaccuracy = fminf(90, Inaccuracy);
 }
 float Item::InnSpeed(float speed)
@@ -104,7 +102,7 @@ float Item::InnTime(float time)
 {
 	return 0.5*time;
 }
-Vector * Item::RayIntersectsEntity(Entity * entity, Vector pos, float rot)
+HitStructure * Item::RayIntersectsEntity(Entity * entity, Vector pos, float rot)
 {
 	Vector RayComp = Vector(cosf((rot / 180) * 3.14), sinf((rot / 180) * 3.14));
 	Vector Ray = RayComp * MaxDistance;
@@ -118,58 +116,64 @@ Vector * Item::RayIntersectsEntity(Entity * entity, Vector pos, float rot)
 		{
 			//Within circle
 			float NewDistance = DDistance -sqrtf((entity->Size * entity->Size) - DistanceSquared);
-			return new Vector((RayComp.X * NewDistance) + pos.X, (RayComp.Y * NewDistance) + pos.Y);
+			HitStructure * hit = new HitStructure();
+			hit->HitDistance = NewDistance;
+			hit->HitPosistion = Vector((RayComp.X * NewDistance) + pos.X, (RayComp.Y * NewDistance) + pos.Y);
+			return hit ;
 		}
 	}
 	return NULL;
 }
-Vector * Item::RayCasting(World * world, Vector pos, float Rot)
+HitStructure * Item::RayCasting(World * world, Vector pos, float Rot)
 {
+	Entity * HitEntity = NULL;
+	HitStructure * LesserHitData = NULL;
 	for (int i = 0; i < world->EntityCount; ++i)
 	{
 		if (world->EntityList[i] != NULL)
 		{
-			Vector * hitData = RayIntersectsEntity(world->EntityList[i], pos, Rot);
+			HitStructure * hitData = RayIntersectsEntity(world->EntityList[i], pos, Rot);
 			if (hitData != NULL)
 			{
-				this->DamageEntity(world->EntityList[i], *hitData);
-				return hitData;
+				if (LesserHitData == NULL)
+				{
+					LesserHitData = hitData;
+					HitEntity = world->EntityList[i];
+				}
+				else
+				{
+					if (hitData->HitDistance < LesserHitData->HitDistance) {
+						HitEntity = world->EntityList[i];
+						LesserHitData = hitData;
+					}
+
+				}
 			}
 		}
 	}
-	return NULL;
-}
-void Item::RayStepping(World * world, Vector pos, float Rot)
-{
-	int const MaxDistance = 500;
-	int const StepCount = 1000;
-	float const StepDistance = MaxDistance / StepCount;
-	Vector CurrentLocation = pos;
-	Vector Step = Vector(StepDistance * cosf(Rot/180* 3.14),StepDistance * sinf(Rot / 180 * 3.14));
-	for (int i = 0; i < StepCount;++i)
+	for (int i = 0; i < world->WorldCollision.size(); ++i)
 	{
-		Entity * HitEntity = CheckCollisionEntities(world, CurrentLocation);
-		bool HitPos = CheckCollisionEntities(world, CurrentLocation);
-		if (!HitPos && HitEntity == NULL)
+		HitStructure * hitData = RayIntersectsWall(world->WorldCollision.at(i), pos, Rot);
+		if (hitData != NULL)
 		{
-			CurrentLocation += Step;
-		}
-		else
-		{
-			if (HitEntity != NULL)
+			if (LesserHitData == NULL)
 			{
-				//Damage this entity
-				this->DamageEntity(HitEntity, CurrentLocation);
+				LesserHitData = hitData;
 			}
-			if (HitPos)
+			else
 			{
-				int i = 0;
+				if (hitData->HitDistance < LesserHitData->HitDistance) {
+					HitEntity = NULL;
+					LesserHitData = hitData;
+				}
+
 			}
-			break;
 		}
 	}
-	//Generate texture 
-	//world->AddEntity(new EntityTracerEffect(world, pos, CurrentLocation));
+	if (HitEntity != NULL) {
+		this->DamageEntity(HitEntity, LesserHitData->HitPosistion);
+	}
+	return LesserHitData;
 }
 void Item::ChangeSpeed(float speed)
 {

@@ -147,13 +147,20 @@ void GameManager::PollInput()
 		{
 			(this->WorldObj->Player)->MoveForward();
 		}
+		for (int i = 0; i < 9; ++i) {
+			if (this->KeyState[sf::Keyboard::Key::Num1 + i])
+			{
+				(this->WorldObj->Player)->ChangeWeapon(i);
+			}
+		}
+
 		if (this->KeyState[sf::Keyboard::Key::LShift])
 		{
-			(this->WorldObj->Player)->SetSpeed(25);
+			(this->WorldObj->Player)->SetSpeed(((EntityPlayer*)(WorldObj->Player))->CurrentMaxForce);
 		}
 		else
 		{
-			(this->WorldObj->Player)->SetSpeed(10);
+			(this->WorldObj->Player)->SetSpeed(((EntityPlayer*)(WorldObj->Player))->CurrentWalkForce);
 		}
 		if (this->MouseState.LeftMouseState == 1)
 		{

@@ -12,9 +12,9 @@ EntitySwordEffect::EntitySwordEffect(World * world, Vector pos, Vector end) : En
 	line = sf::RectangleShape();
 	/*line.setSize(sf::Vector2f(sqrtf(Length), 20));
 	line.setOrigin(0, -10);*/
-	line.setSize(sf::Vector2f(20, sqrtf(Length)));
+	line.setSize(sf::Vector2f(50,50));
 	line.setOrigin(10, 0);
-	Rot = (180 / 3.14 * atan2f(LookVec.Y, LookVec.X)) - 90;
+	Rot = (180 / 3.14 * atan2f(LookVec.Y, LookVec.X)) - 100;
 	RotOld = Rot;
 	line.setRotation(Rot);
 	world->ResManager->SwordTexture.setRepeated(true);
