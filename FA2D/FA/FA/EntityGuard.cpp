@@ -2,7 +2,7 @@
 #include "World.h"
 
 
-EntityGuard::EntityGuard(World * world, Vector pos) : EntityLiving(world,pos)
+EntityGuard::EntityGuard(World * world, Vector pos) : EntityAI(world,pos)
 {
 
 }
@@ -13,5 +13,5 @@ EntityGuard::~EntityGuard()
 }
 void EntityGuard::Update()
 {
-
+	//this->EntityAI::Update();
 }

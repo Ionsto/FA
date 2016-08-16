@@ -1,8 +1,8 @@
 #include "AIActionMove.h"
+#include <math.h>
 
 
-
-AIActionMove::AIActionMove(EntityLiving * owner, Vector pos)
+AIActionMove::AIActionMove(EntityLiving * owner, Vector pos) : AIAction(owner)
 {
 
 }

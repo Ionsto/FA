@@ -1,16 +1,54 @@
-﻿  ItemSword.cpp
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\itemsword.cpp(30): error C2440: 'initializing': cannot convert from 'HitStructure *' to 'Vector *'
-  c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\itemsword.cpp(30): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\itemsword.cpp(32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  Item.cpp
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(32): warning C4101: 't': unreferenced local variable
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(66): error C2440: 'initializing': cannot convert from 'HitStructure *' to 'Vector *'
-  c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(66): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(68): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(103): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(107): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(154): warning C4018: '<': signed/unsigned mismatch
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(184): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Generating Code...
+﻿Build started 16/08/2016 17:29:41.
+     1>Project "C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\FA\FA.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt AIAction.cpp AIActionMove.cpp Element.cpp ElementButton.cpp ElementLable.cpp ElementTexture.cpp Entity.cpp EntityAI.cpp EntityGuard.cpp EntityLiving.cpp EntityPlayer.cpp EntitySwordEffect.cpp EntityTracerEffect.cpp GameManager.cpp Item.cpp ItemSword.cpp MainMenu.cpp MenuBase.cpp ResourceManager.cpp World.cpp main.cpp
+         main.cpp
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\gamemanager.h(4): fatal error C1083: Cannot open include file: 'SFML\Window.hpp': No such file or directory
+         World.cpp
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\world.h(2): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
+         ResourceManager.cpp
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\resourcemanager.h(2): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
+         MenuBase.cpp
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\element.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
+         MainMenu.cpp
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\element.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
+         ItemSword.cpp
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityswordeffect.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
+         Item.cpp
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\world.h(2): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
+         GameManager.cpp
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\gamemanager.h(4): fatal error C1083: Cannot open include file: 'SFML\Window.hpp': No such file or directory
+         EntityTracerEffect.cpp
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entitytracereffect.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
+         EntitySwordEffect.cpp
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityswordeffect.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
+         EntityPlayer.cpp
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityliving.h(3): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+         EntityLiving.cpp
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityliving.h(3): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+         EntityGuard.cpp
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityliving.h(3): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+         EntityAI.cpp
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityliving.h(3): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+         Entity.cpp
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\gamemanager.h(4): fatal error C1083: Cannot open include file: 'SFML\Window.hpp': No such file or directory
+         ElementTexture.cpp
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\element.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
+         ElementLable.cpp
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\element.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
+         ElementButton.cpp
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\element.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
+         Element.cpp
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\element.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
+         AIActionMove.cpp
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityliving.h(3): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+         Generating Code...
+         Compiling...
+         AIAction.cpp
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityliving.h(3): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+         Generating Code...
+     1>Done Building Project "C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\FA\FA.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:04.88

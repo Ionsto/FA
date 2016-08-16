@@ -1,5 +1,6 @@
 #pragma once
 #include "EntityLiving.h"
+#include "EntityAI.h"
 class EntityGuard :
 	public EntityAI
 {
