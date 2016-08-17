@@ -17,6 +17,7 @@ EntityAI::~EntityAI()
 
 void EntityAI::Update()
 {
+	this->EntityLiving::Update();
 	if (++AIUpdateCounter >= AIUpdateMax)
 	{
 		if (AIStack.size() > 0) {

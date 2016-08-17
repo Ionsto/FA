@@ -1,10 +1,12 @@
 #include "GameManager.h"
+#include "EntityGuard.h"
 
 GameManager::GameManager()
 {
 	Running = true;
 	WindowSize = Vector();
 	MouseState = MouseData();
+	WorldObj = NULL;
 }
 
 
@@ -131,6 +133,10 @@ void GameManager::PollInput()
 	if (this->GameState = StateGame)
 	{
 		float Force = 10;
+		if (this->KeyState[sf::Keyboard::Key::R])
+		{
+			this->InitWorld();
+		}
 		if (this->KeyState[sf::Keyboard::Key::D])
 		{
 			(this->WorldObj->Player)->MoveLeft();
@@ -180,6 +186,10 @@ void GameManager::Delete()
 }
 void GameManager::InitWorld()
 {
+	if (WorldObj != NULL)
+	{
+		delete WorldObj;
+	}
 	WorldObj = new World();
 	//Entrance
 	WorldObj->AddWorldCollision(Vector(0, 0), Vector(20, 200));
@@ -193,4 +203,5 @@ void GameManager::InitWorld()
 	WorldObj->AddEntity(new EntityLiving(WorldObj));
 	WorldObj->EntityList[0]->SetPosition(Vector(50, 50));
 	WorldObj->EntityList[1]->SetPosition(Vector(50, 90));
+	WorldObj->AddEntity(new EntityGuard(WorldObj,Vector(80,80)));
 }

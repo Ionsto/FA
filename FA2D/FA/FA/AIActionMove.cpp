@@ -4,7 +4,7 @@
 
 AIActionMove::AIActionMove(EntityLiving * owner, Vector pos) : AIAction(owner)
 {
-
+	Position = pos;
 }
 
 
@@ -15,8 +15,11 @@ AIActionMove::~AIActionMove()
 void AIActionMove::Execute()
 {
 	//Calculate 
-	Vector distance = Position - Owner->Pos;
-	distance = distance / sqrtf(distance.Dot(distance));
-	Owner->Acc += distance * Owner->MoveForce;
-	//Owner->Acc;
+	Vector Distance = Position - Owner->Pos;
+	float DistanceSqrd = Distance.Dot(Distance);
+	if (DistanceSqrd > 10) {
+		Distance = Distance / sqrtf(DistanceSqrd);
+		Owner->ApplyForce(Distance * Owner->MoveForce);
+		//Owner->Acc;
+	}
 }

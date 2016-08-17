@@ -1,54 +1,33 @@
-﻿Build started 16/08/2016 17:29:41.
+﻿Build started 17/08/2016 20:02:17.
      1>Project "C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\FA\FA.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt AIAction.cpp AIActionMove.cpp Element.cpp ElementButton.cpp ElementLable.cpp ElementTexture.cpp Entity.cpp EntityAI.cpp EntityGuard.cpp EntityLiving.cpp EntityPlayer.cpp EntitySwordEffect.cpp EntityTracerEffect.cpp GameManager.cpp Item.cpp ItemSword.cpp MainMenu.cpp MenuBase.cpp ResourceManager.cpp World.cpp main.cpp
-         main.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\gamemanager.h(4): fatal error C1083: Cannot open include file: 'SFML\Window.hpp': No such file or directory
-         World.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\world.h(2): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
-         ResourceManager.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\resourcemanager.h(2): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
-         MenuBase.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\element.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
-         MainMenu.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\element.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
-         ItemSword.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityswordeffect.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
-         Item.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\world.h(2): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
-         GameManager.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\gamemanager.h(4): fatal error C1083: Cannot open include file: 'SFML\Window.hpp': No such file or directory
-         EntityTracerEffect.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entitytracereffect.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
-         EntitySwordEffect.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityswordeffect.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
-         EntityPlayer.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityliving.h(3): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
-         EntityLiving.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityliving.h(3): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
-         EntityGuard.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityliving.h(3): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
-         EntityAI.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityliving.h(3): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
-         Entity.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\gamemanager.h(4): fatal error C1083: Cannot open include file: 'SFML\Window.hpp': No such file or directory
-         ElementTexture.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\element.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
-         ElementLable.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\element.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
-         ElementButton.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\element.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
-         Element.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\element.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
-         AIActionMove.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityliving.h(3): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
-         Generating Code...
-         Compiling...
-         AIAction.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityliving.h(3): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
-         Generating Code...
-     1>Done Building Project "C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\FA\FA.vcxproj" (Build target(s)) -- FAILED.
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe" /INCREMENTAL /NOLOGO openal32.lib "sfml-main-d.lib" "sfml-system-d.lib" "sfml-window-d.lib" "sfml-graphics-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\Debug\FA.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\Debug\FA.lib" /MACHINE:X86 Debug\AIAction.obj
+         Debug\AIActionMove.obj
+         Debug\Element.obj
+         Debug\ElementButton.obj
+         Debug\ElementLable.obj
+         Debug\ElementTexture.obj
+         Debug\Entity.obj
+         Debug\EntityAI.obj
+         Debug\EntityGuard.obj
+         Debug\EntityLiving.obj
+         Debug\EntityPlayer.obj
+         Debug\EntitySwordEffect.obj
+         Debug\EntityTracerEffect.obj
+         Debug\GameManager.obj
+         Debug\Item.obj
+         Debug\ItemRifle.obj
+         Debug\ItemSMG.obj
+         Debug\ItemSword.obj
+         Debug\main.obj
+         Debug\MainMenu.obj
+         Debug\MenuBase.obj
+         Debug\ResourceManager.obj
+         Debug\World.obj
+         LINK : C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe not found or not built by the last incremental link; performing full link
+         FA.vcxproj -> C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe
+     1>Done Building Project "C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\FA\FA.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:04.88
+Time Elapsed 00:00:00.80

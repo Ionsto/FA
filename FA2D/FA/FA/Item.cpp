@@ -51,7 +51,7 @@ HitStructure * Item::RayIntersectsWall(Vector * WorldCollision, Vector Pos,float
 	}
 	HitStructure * hitPos = new HitStructure();
 	hitPos->HitDistance = tmin;
-	hitPos->HitPosistion = Vector(tmin * cosf((rot / 180) * 3.14), tmin * sinf((rot / 180) * 3.14));
+	hitPos->HitPosistion = Pos + Vector(tmin * cosf((rot / 180) * 3.14), tmin * sinf((rot / 180) * 3.14));
 	return hitPos;
 	return NULL;
 }
@@ -63,11 +63,13 @@ void Item::FireFrom(World * world, Vector pos, float Rot)
 		{
 			Rot += (rand() % (int)Inaccuracy) - (Inaccuracy/2);
 			//std::cout << Inaccuracy <<" Time:"<< ResetTimer << " InnacTime:"<< InnTime(ResetTimer)<< "\n";
-			Vector * hitpos = RayCasting(world, pos, Rot);
+			HitStructure * hitpos = RayCasting(world, pos, Rot);
 			if (hitpos == NULL) {
-				hitpos = new Vector((MaxDistance * cosf(Rot / 180 * 3.14)) + pos.X , (MaxDistance * sinf(Rot / 180 * 3.14)) + pos.Y);
+				hitpos = new HitStructure();
+				hitpos->HitDistance = MaxDistance;
+				hitpos->HitPosistion = Vector((MaxDistance * cosf(Rot / 180 * 3.14)) + pos.X , (MaxDistance * sinf(Rot / 180 * 3.14)) + pos.Y);
 			}
-			world->AddEntity(new EntityTracerEffect(world, pos, *hitpos));
+			world->AddEntity(new EntityTracerEffect(world, pos, hitpos->HitPosistion));
 			delete hitpos;
 			Ammo -= 1;
 			CoolDownTimer += CoolDownTime;

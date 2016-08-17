@@ -6,7 +6,7 @@ ItemRifle::ItemRifle() : Item()
 {
 	Damage = 10;
 	CoolDownTime = 70;
-	ResetTime = 90;
+	ResetTime = 80;
 	ResetTimer = 0;
 	CoolDownTimer = 0;
 	Ammo = 100;
@@ -18,4 +18,5 @@ ItemRifle::ItemRifle() : Item()
 
 ItemRifle::~ItemRifle()
 {
+
 }
