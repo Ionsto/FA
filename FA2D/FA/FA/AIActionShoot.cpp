@@ -2,7 +2,7 @@
 #include "Item.h"
 
 
-AIActionShoot::AIActionShoot(EntityLiving * owner, int weapon, int count) : AIAction(owner)
+AIActionShoot::AIActionShoot(EntityAI * owner, int weapon, int count) : AIAction(owner)
 {
 	this->Weapon = weapon;
 	this->ShotCount = count;

@@ -2,7 +2,7 @@
 
 
 
-AIActionLook::AIActionLook(EntityLiving * owner,Vector ShotLoc) : AIAction(owner)
+AIActionLook::AIActionLook(EntityAI * owner,Vector ShotLoc) : AIAction(owner)
 {
 	ShotLocation = ShotLoc;
 }

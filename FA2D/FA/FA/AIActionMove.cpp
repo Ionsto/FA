@@ -2,7 +2,7 @@
 #include <math.h>
 
 
-AIActionMove::AIActionMove(EntityLiving * owner, Vector pos) : AIAction(owner)
+AIActionMove::AIActionMove(EntityAI * owner, Vector pos) : AIAction(owner)
 {
 	Position = pos;
 }
@@ -21,5 +21,10 @@ void AIActionMove::Execute()
 		Distance = Distance / sqrtf(DistanceSqrd);
 		Owner->ApplyForce(Distance * Owner->MoveForce);
 		//Owner->Acc;
+	}
+	else
+	{
+		Owner->AIStack.front() = std::move(Owner->AIStack.back());
+		Owner->AIStack.pop_back();
 	}
 }

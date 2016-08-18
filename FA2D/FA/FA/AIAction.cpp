@@ -2,7 +2,7 @@
 
 
 
-AIAction::AIAction(EntityLiving * owner)
+AIAction::AIAction(EntityAI * owner)
 {
 	this->Owner = owner;
 }

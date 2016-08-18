@@ -5,7 +5,7 @@ class AIActionLook :
 {
 public:
 	Vector ShotLocation;
-	AIActionLook(EntityLiving * owner,Vector ShotLoc);
+	AIActionLook(EntityAI * owner,Vector ShotLoc);
 	~AIActionLook();
 	virtual void Execute();
 };
