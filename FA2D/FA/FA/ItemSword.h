@@ -6,6 +6,6 @@ class ItemSword :
 public:
 	ItemSword();
 	~ItemSword();
-	void FireFrom(World * world, Vector pos, float rot) override;
+	bool FireFrom(World * world, Vector pos, float rot) override;
 };
 

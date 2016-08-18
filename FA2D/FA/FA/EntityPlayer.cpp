@@ -13,7 +13,7 @@ EntityPlayer::EntityPlayer(World * world,Vector pos) : EntityLiving(world,pos)
 	ItemList[0] = new ItemSword();
 	ItemList[1] = new ItemRifle();
 	ItemList[2] = new ItemSMG();
-	Weapon = ItemList[0];
+	ItemCurrent = ItemList[0];
 	this->MaxForce = 25;
 	this->WalkForce = 10;
 	this->CurrentMaxForce = MaxForce * (Health / 100);
@@ -43,16 +43,16 @@ void EntityPlayer::UpdatePlayerAngle()
 void EntityPlayer::Update()
 {
 	UpdatePlayerAngle();
-	Weapon->Update(worldObj);
+	ItemCurrent->Update(worldObj);
 	Vector diff = Pos - PosOld;
-	Weapon->ChangeSpeed(diff.Dot(diff));
+	ItemCurrent->ChangeSpeed(diff.Dot(diff));
 	this->CurrentMaxForce = MaxForce * (Health / 100);
 	this->CurrentWalkForce = CurrentWalkForce * (Health / 100);
 	this->CurrentMaxForce = MaxForce * (Health / 100);
 }
-void EntityPlayer::ChangeWeapon(int number)
+void EntityPlayer::ChangeItemCurrent(int number)
 {
-	Weapon = ItemList[number];
+	ItemCurrent = ItemList[number];
 }
 void EntityPlayer::MoveForward()
 {
@@ -75,14 +75,5 @@ void EntityPlayer::SetSpeed(float speed)
 	if (MoveForce != speed)
 	{
 		MoveForce = speed;
-	}
-}
-void EntityPlayer::UseWeapon()
-{
-	if (Weapon != NULL)
-	{
-		float GunSize = Size * 1.5;
-		Vector FireFrom = Pos +Vector(GunSize * cosf(Rot / 180 * 3.14), GunSize * sinf(Rot / 180 * 3.14));
-		Weapon->FireFrom(worldObj, FireFrom, Rot);
 	}
 }

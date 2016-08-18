@@ -55,7 +55,7 @@ HitStructure * Item::RayIntersectsWall(Vector * WorldCollision, Vector Pos,float
 	return hitPos;
 	return NULL;
 }
-void Item::FireFrom(World * world, Vector pos, float Rot)
+bool Item::FireFrom(World * world, Vector pos, float Rot)
 {
 	if (Ammo > 0)
 	{
@@ -74,8 +74,10 @@ void Item::FireFrom(World * world, Vector pos, float Rot)
 			Ammo -= 1;
 			CoolDownTimer += CoolDownTime;
 			ResetTimer += ResetTime;
+			return true;
 		}
 	}
+	return false;
 }
 void Item::Update(World * worldObj)
 {

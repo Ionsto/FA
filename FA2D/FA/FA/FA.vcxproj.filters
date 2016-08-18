@@ -120,6 +120,9 @@
     <ClCompile Include="EntityAI.cpp">
       <Filter>Source Files\Game\AI</Filter>
     </ClCompile>
+    <ClCompile Include="AIActionLook.cpp">
+      <Filter>Source Files\Game\AI\CBR</Filter>
+    </ClCompile>
     <ClCompile Include="AIActionShoot.cpp">
       <Filter>Source Files\Game\AI\CBR</Filter>
     </ClCompile>
@@ -193,6 +196,9 @@
     </ClInclude>
     <ClInclude Include="EntityAI.h">
       <Filter>Header Files\Game\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="AIActionLook.h">
+      <Filter>Header Files\Game\AI\CBR</Filter>
     </ClInclude>
     <ClInclude Include="AIActionShoot.h">
       <Filter>Header Files\Game\AI\CBR</Filter>

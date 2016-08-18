@@ -26,3 +26,13 @@ void EntityLiving::SetSize(float size)
 	RenderCanvas.setSize(sf::Vector2f(Size * 2, Size * 2));
 	RenderCanvas.setOrigin(sf::Vector2f(Size, Size));
 }
+bool EntityLiving::UseItemCurrent()
+{
+	if (ItemCurrent != NULL)
+	{
+		float GunSize = Size * 1.5;
+		Vector FireFrom = Pos + Vector(GunSize * cosf(Rot / 180 * 3.14), GunSize * sinf(Rot / 180 * 3.14));
+		return ItemCurrent->FireFrom(worldObj, FireFrom, Rot);
+	}
+	return false;
+}

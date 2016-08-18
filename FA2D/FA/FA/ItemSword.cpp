@@ -21,7 +21,7 @@ ItemSword::~ItemSword()
 {
 }
 
-void ItemSword::FireFrom(World * world, Vector pos, float Rot)
+bool ItemSword::FireFrom(World * world, Vector pos, float Rot)
 {
 	if (CoolDownTimer < 1)
 	{
@@ -37,5 +37,7 @@ void ItemSword::FireFrom(World * world, Vector pos, float Rot)
 		delete hitpos;
 		CoolDownTimer += CoolDownTime;
 		ResetTimer += ResetTime;
+		return true;
 	}
+	return false;
 }

@@ -4,8 +4,9 @@ class AIActionShoot :
 	public AIAction
 {
 public:
-	Vector ShotLocation;
-	AIActionShoot(EntityLiving * owner,Vector ShotLoc);
+	int Weapon;
+	int ShotCount;
+	AIActionShoot(EntityLiving * owner, int Weapon, int Count);
 	~AIActionShoot();
 	virtual void Execute();
 };

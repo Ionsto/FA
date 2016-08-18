@@ -1,10 +1,11 @@
 #include "AIActionShoot.h"
+#include "Item.h"
 
 
-
-AIActionShoot::AIActionShoot(EntityLiving * owner,Vector ShotLoc) : AIAction(owner)
+AIActionShoot::AIActionShoot(EntityLiving * owner, int weapon, int count) : AIAction(owner)
 {
-	ShotLocation = ShotLoc;
+	this->Weapon = weapon;
+	this->ShotCount = count;
 }
 
 
@@ -15,8 +16,7 @@ AIActionShoot::~AIActionShoot()
 void AIActionShoot::Execute()
 {
 	//Get angle to look at
-	Vector Delta = ShotLocation - Owner->Pos;
-	float RotSpeed = 0.1;
-	float Angle = 180 / 3.14 * atan2f(Delta.Y, Delta.X);
-	Owner->RotOld += 0.01 * Owner->AngleDifference(Owner->Rot, Angle);
+	Owner->ItemCurrent = Owner->ItemList[Weapon];
+	//if(Owner->Item->)
+	Owner->UseItemCurrent();
 }

@@ -156,7 +156,7 @@ void GameManager::PollInput()
 		for (int i = 0; i < 9; ++i) {
 			if (this->KeyState[sf::Keyboard::Key::Num1 + i])
 			{
-				(this->WorldObj->Player)->ChangeWeapon(i);
+				(this->WorldObj->Player)->ChangeItemCurrent(i);
 			}
 		}
 
@@ -170,7 +170,7 @@ void GameManager::PollInput()
 		}
 		if (this->MouseState.LeftMouseState == 1)
 		{
-			(this->WorldObj->Player)->UseWeapon();
+			(this->WorldObj->Player)->UseItemCurrent();
 		}
 		if (this->KeyState[sf::Keyboard::Key::Space])
 		{

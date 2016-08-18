@@ -23,7 +23,7 @@ public:
 	int Ammo;
 	Item();
 	~Item();
-	virtual void FireFrom(World * world,Vector pos,float rot);
+	virtual bool FireFrom(World * world,Vector pos,float rot);
 	void ChangeSpeed(float speed);
 	void DamageEntity(Entity * entity,Vector bulletpos);
 	void Update(World * worldobj);

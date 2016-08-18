@@ -68,9 +68,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AIActionShoot.cpp" />
     <ClCompile Include="AIAction.cpp" />
     <ClCompile Include="AIActionMove.cpp" />
-    <ClCompile Include="AIActionShoot.cpp" />
+    <ClCompile Include="AIActionLook.cpp" />
     <ClCompile Include="Element.cpp" />
     <ClCompile Include="ElementButton.cpp" />
     <ClCompile Include="ElementLable.cpp" />
@@ -96,6 +97,7 @@
   <ItemGroup>
     <ClInclude Include="AIAction.h" />
     <ClInclude Include="AIActionMove.h" />
+    <ClInclude Include="AIActionLook.h" />
     <ClInclude Include="AIActionShoot.h" />
     <ClInclude Include="Element.h" />
     <ClInclude Include="ElementButton.h" />
