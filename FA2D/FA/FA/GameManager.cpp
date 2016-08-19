@@ -172,6 +172,11 @@ void GameManager::PollInput()
 		{
 			(this->WorldObj->Player)->UseItemCurrent();
 		}
+		if (this->MouseState.RightMouseState == 2)
+		{
+			(this->WorldObj->Player);
+			std::cout << "X:" << (this->WorldObj->Player->Pos.X + MouseState.MousePosition.X - (WindowSize.X / 2)) << " Y:" << (this->WorldObj->Player->Pos.Y + MouseState.MousePosition.Y - (WindowSize.Y / 2)) << std::endl;
+		}
 		if (this->KeyState[sf::Keyboard::Key::Space])
 		{
 			//Create bond between nearest object and self
@@ -200,8 +205,8 @@ void GameManager::InitWorld()
 	//Corridor
 	WorldObj->AddEntity(new EntityPlayer(WorldObj));
 	WorldObj->Player = (EntityPlayer*)WorldObj->EntityList[0];
-	WorldObj->AddEntity(new EntityLiving(WorldObj));
+	//WorldObj->AddEntity(new EntityLiving(WorldObj));
 	WorldObj->EntityList[0]->SetPosition(Vector(50, 50));
-	WorldObj->EntityList[1]->SetPosition(Vector(50, 90));
+	//WorldObj->EntityList[1]->SetPosition(Vector(50, 90));
 	WorldObj->AddEntity(new EntityGuard(WorldObj,Vector(80,80)));
 }

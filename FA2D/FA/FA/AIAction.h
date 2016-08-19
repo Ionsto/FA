@@ -8,5 +8,6 @@ public:
 	AIAction(EntityAI * owner);
 	~AIAction();
 	virtual void Execute();
+	void RemoveSelf();
 };
 

@@ -1,5 +1,5 @@
 #include "AIActionLook.h"
-
+#include <iostream>
 
 
 AIActionLook::AIActionLook(EntityAI * owner,Vector ShotLoc) : AIAction(owner)
@@ -16,7 +16,12 @@ void AIActionLook::Execute()
 {
 	//Get angle to look at
 	Vector Delta = ShotLocation - Owner->Pos;
-	float RotSpeed = 0.1;
+	float RotSpeed = 0.001;
 	float Angle = 180 / 3.14 * atan2f(Delta.Y, Delta.X);
-	Owner->RotOld += 0.01 * Owner->AngleDifference(Owner->Rot, Angle);
+	Owner->RotOld += RotSpeed * Owner->AngleDifference(Owner->Rot, Angle);
+	if (abs(Owner->AngleDifference(Owner->Rot, Angle)) < 5)
+	{
+		std::cout << "Looked" << std::endl;
+		RemoveSelf();
+	}
 }

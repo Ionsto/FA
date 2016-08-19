@@ -120,10 +120,12 @@ HitStructure * Item::RayIntersectsEntity(Entity * entity, Vector pos, float rot)
 		{
 			//Within circle
 			float NewDistance = DDistance -sqrtf((entity->Size * entity->Size) - DistanceSquared);
-			HitStructure * hit = new HitStructure();
-			hit->HitDistance = NewDistance;
-			hit->HitPosistion = Vector((RayComp.X * NewDistance) + pos.X, (RayComp.Y * NewDistance) + pos.Y);
-			return hit ;
+			if (NewDistance <= MaxDistance) {
+				HitStructure * hit = new HitStructure();
+				hit->HitDistance = NewDistance;
+				hit->HitPosistion = Vector((RayComp.X * NewDistance) + pos.X, (RayComp.Y * NewDistance) + pos.Y);
+				return hit;
+			}
 		}
 	}
 	return NULL;

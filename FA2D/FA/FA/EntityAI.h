@@ -1,5 +1,5 @@
 #pragma once
-#include <vector>
+#include <queue>
 #include "EntityLiving.h"
 class AIAction;
 class EntityAI :
@@ -8,7 +8,7 @@ class EntityAI :
 public:
 	int AIUpdateCounter;
 	int AIUpdateMax;
-	std::vector<AIAction *> AIStack;
+	std::queue<AIAction *> AIStack;
 	EntityAI(World * world, Vector pos = Vector());
 	~EntityAI();
 	void Update() override;

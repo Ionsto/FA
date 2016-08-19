@@ -6,6 +6,7 @@ class AIActionShoot :
 public:
 	int Weapon;
 	int ShotCount;
+	int ShotCounter;
 	AIActionShoot(EntityAI * owner, int Weapon, int Count);
 	~AIActionShoot();
 	virtual void Execute();

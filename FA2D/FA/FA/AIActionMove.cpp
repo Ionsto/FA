@@ -5,6 +5,9 @@
 AIActionMove::AIActionMove(EntityAI * owner, Vector pos) : AIAction(owner)
 {
 	Position = pos;
+	EvalCount = 0;
+	EvalTime = 200;
+	OldPosition = Vector(-FP_INFINITE,-FP_INFINITE);
 }
 
 
@@ -21,10 +24,21 @@ void AIActionMove::Execute()
 		Distance = Distance / sqrtf(DistanceSqrd);
 		Owner->ApplyForce(Distance * Owner->MoveForce);
 		//Owner->Acc;
+		/*if (EvalCount++ >= EvalTime)
+		{
+			EvalCount = 0;
+			//Evaluate if we are actualy moving at all
+			Vector Distance = OldPosition - Owner->Pos;
+			if (Distance.Dot(Distance) < 1) {
+				//We are not moving, so self terminate
+				//RemoveSelf();
+			}
+			OldPosition = Owner->Pos;
+		}*/
 	}
 	else
 	{
-		Owner->AIStack.front() = std::move(Owner->AIStack.back());
-		Owner->AIStack.pop_back();
+		//Remove from AI stack
+		RemoveSelf();
 	}
 }
