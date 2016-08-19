@@ -29,5 +29,5 @@ EntityGuard::~EntityGuard()
 }
 void EntityGuard::Update()
 {
-	this->EntityAI::Update();
+	EntityAI::Update();
 }

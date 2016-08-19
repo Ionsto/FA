@@ -27,7 +27,10 @@ EntityTracerEffect::~EntityTracerEffect()
 }
 void EntityTracerEffect::Update()
 {
-	this->Entity::Update();
+	Entity::Update();
+	if (!Alive) { 
+		return;
+	}
 	Health -= 0.1;
 }
 

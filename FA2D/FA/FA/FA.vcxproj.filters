@@ -129,6 +129,12 @@
     <ClCompile Include="CBRDiskManager.cpp">
       <Filter>Source Files\Game\AI\CBR</Filter>
     </ClCompile>
+    <ClCompile Include="CBRInstance.cpp">
+      <Filter>Source Files\Game\AI\CBR</Filter>
+    </ClCompile>
+    <ClCompile Include="CBRCase.cpp">
+      <Filter>Source Files\Game\AI\CBR</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -207,6 +213,12 @@
       <Filter>Header Files\Game\AI\CBR</Filter>
     </ClInclude>
     <ClInclude Include="CBRDiskManager.h">
+      <Filter>Header Files\Game\AI\CBR</Filter>
+    </ClInclude>
+    <ClInclude Include="CBRCase.h">
+      <Filter>Header Files\Game\AI\CBR</Filter>
+    </ClInclude>
+    <ClInclude Include="CBRInstance.h">
       <Filter>Header Files\Game\AI\CBR</Filter>
     </ClInclude>
   </ItemGroup>

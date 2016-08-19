@@ -27,7 +27,8 @@ EntitySwordEffect::~EntitySwordEffect()
 }
 void EntitySwordEffect::Update()
 {
-	this->Entity::Update();
+	Entity::Update();
+	if (!Alive) { return; }
 	Health -= 0.5;
 }
 

@@ -2,6 +2,7 @@
 #include "GameManager.h"
 Entity::Entity(World * world,Vector pos)
 {
+	Alive = true;
 	Pos = pos;
 	PosOld = pos;
 	Acc = Vector();
@@ -74,8 +75,8 @@ float Entity::AngleDifference(float a, float b)
 }
 void Entity::Kill()
 {
-	worldObj->EntityList[Id] = NULL;
-	delete this;
+	//Entity will actually get killed by world later
+	Alive = false;
 }
 void Entity::SetPosition(Vector pos)
 {

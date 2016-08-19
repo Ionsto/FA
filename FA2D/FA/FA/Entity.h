@@ -9,6 +9,7 @@ public:
 	Vector Pos;
 	Vector PosOld;
 	Vector Acc;
+	bool Alive;
 	float Rotation;//This is where it is looking - -180 to 180
 	float Rot;//This is its rotation -inf to inf
 	float RotOld;//These are independent

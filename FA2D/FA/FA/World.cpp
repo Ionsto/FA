@@ -10,6 +10,8 @@ World::World()
 	this->rectangle = sf::RectangleShape(sf::Vector2f(10,10));
 	rectangle.setFillColor(sf::Color(100, 250, 50));
 	rectangle.setOrigin(sf::Vector2f(5, 5));
+	DeleteCounter = 0;
+	DeleteCountMax = 10;
 	EntityCount = 200;
 	CameraLoc = Vector();
 	EntityList = new Entity*[EntityCount];
@@ -49,15 +51,33 @@ void World::Update(GameManager * GM)
 	{
 		if (EntityList[i] != NULL)
 		{
-			EntityList[i]->Update();
-			if (EntityList[i] != NULL)
+			if (EntityList[i]->Alive)
 			{
-				//Entity comitted suicide :'(
+				EntityList[i]->Update();
 				EntityList[i]->Intergrate();
 			}
 		}
 	}
 	PhysicsUpdate();
+	if (DeleteCounter++ >= DeleteCountMax)
+	{
+		DeleteEntities();
+	}
+}
+void World::DeleteEntities()
+{
+	//This finds the bodies and deletes them, this is called less frames as the deleting takes ages
+	for (int i = 0; i < EntityCount; ++i)
+	{
+		if (EntityList[i] != NULL)
+		{
+			if (!EntityList[i]->Alive)
+			{
+				delete EntityList[i];
+				EntityList[i] = NULL;
+			}
+		}
+	}
 }
 void World::PhysicsUpdate()
 {
@@ -70,19 +90,22 @@ void World::CollideEntity(int id)
 		{
 			if (EntityList[j] != NULL)
 			{
-				if (EntityList[j]->Size != 0) {
-					Vector Distance = EntityList[id]->Pos - EntityList[j]->Pos;
-					float DistanceDot = Distance.Dot(Distance);
-					float MinDist = EntityList[id]->Size + EntityList[j]->Size;
-					//do collisions
-					//Resolve both I and J
-					if (DistanceDot <= (MinDist*MinDist))
-					{
-						float RealDistance = sqrtf(DistanceDot);
-						const float ResFactor = 0.005 * RealDistance / MinDist;
-						EntityList[id]->PosOld -= Distance * ResFactor * (EntityList[id]->Mass / (EntityList[id]->Mass + EntityList[j]->Mass));
-						EntityList[j]->PosOld += Distance * ResFactor * (EntityList[j]->Mass / (EntityList[id]->Mass + EntityList[j]->Mass));
-						//
+				if (EntityList[j]->Alive)
+				{
+					if (EntityList[j]->Size != 0) {
+						Vector Distance = EntityList[id]->Pos - EntityList[j]->Pos;
+						float DistanceDot = Distance.Dot(Distance);
+						float MinDist = EntityList[id]->Size + EntityList[j]->Size;
+						//do collisions
+						//Resolve both I and J
+						if (DistanceDot <= (MinDist*MinDist))
+						{
+							float RealDistance = sqrtf(DistanceDot);
+							const float ResFactor = 0.005 * RealDistance / MinDist;
+							EntityList[id]->PosOld -= Distance * ResFactor * (EntityList[id]->Mass / (EntityList[id]->Mass + EntityList[j]->Mass));
+							EntityList[j]->PosOld += Distance * ResFactor * (EntityList[j]->Mass / (EntityList[id]->Mass + EntityList[j]->Mass));
+							//
+						}
 					}
 				}
 			}
@@ -135,8 +158,11 @@ void World::Collide()
 	{
 		if (EntityList[i] != NULL)
 		{
-			CollideEntity(i);
-			CollideWorld(i);
+			if (EntityList[i]->Alive)
+			{
+				CollideEntity(i);
+				CollideWorld(i);
+			}
 		}
 	}
 }
@@ -148,7 +174,11 @@ void World::Render(GameManager * gm)
 	{
 		if (EntityList[i] != NULL)
 		{
-			EntityList[i]->Render(gm);
+
+			if (EntityList[i]->Alive)
+			{
+				EntityList[i]->Render(gm);
+			}
 			//rectangle.setTexture();
 			/*
 			rectangle.setSize(sf::Vector2f(EntityList[i]->Size * 2, EntityList[i]->Size * 2));

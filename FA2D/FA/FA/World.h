@@ -11,6 +11,7 @@ public:
 	ResourceManager * ResManager;
 	float DeltaTime;
 	float DeltaTimeSqrd;
+	int DeleteCounter, DeleteCountMax;
 	EntityPlayer * Player;
 	Entity ** EntityList; 
 	sf::RectangleShape rectangle;
@@ -22,6 +23,7 @@ public:
 	void Update(GameManager * GM);
 	void PhysicsUpdate();
 	void Render(GameManager * GM);
+	void DeleteEntities();
 	void Collide();
 	void CollideEntity(int id);
 	void CollideWorld(int id);

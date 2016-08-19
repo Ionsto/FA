@@ -28,7 +28,10 @@ EntityAI::~EntityAI()
 
 void EntityAI::Update()
 {
-	this->EntityLiving::Update();
+	EntityLiving::Update();
+	if (!Alive) { 
+		return; 
+	}
 	if (ItemCurrent != NULL)
 	{
 		ItemCurrent->Update(worldObj);

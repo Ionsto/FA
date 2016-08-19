@@ -72,6 +72,8 @@
     <ClCompile Include="AIAction.cpp" />
     <ClCompile Include="AIActionMove.cpp" />
     <ClCompile Include="AIActionLook.cpp" />
+    <ClCompile Include="CBRCase.cpp" />
+    <ClCompile Include="CBRInstance.cpp" />
     <ClCompile Include="CBRDiskManager.cpp" />
     <ClCompile Include="Element.cpp" />
     <ClCompile Include="ElementButton.cpp" />
@@ -100,6 +102,8 @@
     <ClInclude Include="AIActionMove.h" />
     <ClInclude Include="AIActionLook.h" />
     <ClInclude Include="AIActionShoot.h" />
+    <ClInclude Include="CBRCase.h" />
+    <ClInclude Include="CBRInstance.h" />
     <ClInclude Include="CBRDiskManager.h" />
     <ClInclude Include="Element.h" />
     <ClInclude Include="ElementButton.h" />
