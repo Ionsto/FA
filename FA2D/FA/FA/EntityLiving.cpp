@@ -4,6 +4,9 @@
 
 EntityLiving::EntityLiving(World * world,Vector pos) : Entity (world,pos)
 {
+	for (int i = 0; i < 3; ++i) {
+		ItemList[i] = NULL;
+	}
 	Health = 100;
 	MoveForce = 8;
 	this->RenderCanvas = sf::RectangleShape(sf::Vector2f(10, 10));
@@ -14,6 +17,11 @@ EntityLiving::EntityLiving(World * world,Vector pos) : Entity (world,pos)
 
 EntityLiving::~EntityLiving()
 {
+	for (int i = 0; i < 3; ++i) {
+		if (ItemList[i] != NULL) {
+			delete ItemList[i];
+		}
+	}
 }
 void EntityLiving::Render(GameManager * gm)
 {

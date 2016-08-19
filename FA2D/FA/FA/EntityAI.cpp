@@ -14,12 +14,16 @@ EntityAI::EntityAI(World * world, Vector pos) : EntityLiving(world,pos)
 	AIStack.push(new AIActionMove(this, Vector(200, 200)));
 	AIStack.push(new AIActionMove(this, Vector(100, 200)));
 	AIStack.push(new AIActionMove(this, Vector(150, 150)));
-	//AIStack.push_back(new AIActionMove(this, Vector(100, 100)));
 }
 
 
 EntityAI::~EntityAI()
 {
+	while(AIStack.size() > 0)
+	{
+		delete AIStack.front();
+		AIStack.pop();
+	}
 }
 
 void EntityAI::Update()

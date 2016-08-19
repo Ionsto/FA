@@ -19,4 +19,5 @@ void AIAction::Execute()
 void AIAction::RemoveSelf()
 {
 	Owner->AIStack.pop();
+	delete this;
 }

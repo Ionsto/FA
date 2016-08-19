@@ -27,7 +27,19 @@ World::World()
 
 World::~World()
 {
-
+	for (int i = 0; i < EntityCount; ++i)
+	{
+		if (EntityList[i] == NULL)
+		{
+			delete EntityList[i];
+		}
+	}
+	delete EntityList;
+	for (int i = 0; i < WorldCollision.size(); ++i)
+	{
+		delete WorldCollision.at(i);
+	}
+	WorldCollision.clear();
 }
 
 void World::Update(GameManager * GM)
