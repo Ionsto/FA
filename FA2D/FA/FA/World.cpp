@@ -2,9 +2,9 @@
 #include "GameManager.h"
 #include <SFML\Graphics.hpp>
 #include "EntityLiving.h"
-World::World()
+World::World(GameManager * gm)
 {
-	ResManager = new ResourceManager();
+	ResManager = gm->ResManager;
 	DeltaTime = 0.1F;
 	DeltaTimeSqrd = DeltaTime*DeltaTime;
 	this->rectangle = sf::RectangleShape(sf::Vector2f(10,10));
@@ -132,25 +132,33 @@ void World::CollideWorld(int id)
 			float ResYLess = myEnt->Pos.Y - LesserPos.Y;
 			float ResXGreat = GreaterPos.X - myEnt->Pos.X;
 			float ResYGreat = GreaterPos.Y - myEnt->Pos.Y;
+			//Left wall
 			if (ResXLess < ResYLess && ResXLess < ResXGreat && ResXLess < ResYGreat)
 			{
 				myEnt->Pos.X -= ResXLess;
 				myEnt->PosOld.X -= ResXLess;
+				myEnt->PosOld.X += (myEnt->Pos.X - myEnt->PosOld.X) * myEnt->Elasticity * 2;
 			}
+			//Right wall?
 			if (ResXGreat < ResXLess && ResXGreat < ResYLess && ResXGreat < ResYGreat)
 			{
 				myEnt->Pos.X += ResXGreat;
 				myEnt->PosOld.X += ResXGreat;
+				myEnt->PosOld.X += (myEnt->Pos.X - myEnt->PosOld.X) * myEnt->Elasticity * 2;
 			}
+			//Bottom wall
 			if (ResYLess < ResXLess && ResYLess < ResXGreat && ResYLess < ResYGreat)
 			{
 				myEnt->Pos.Y -= ResYLess;
 				myEnt->PosOld.Y -= ResYLess;
+				myEnt->PosOld.Y += (myEnt->Pos.Y - myEnt->PosOld.Y) * myEnt->Elasticity * 2;
 			}
+			//Top wall
 			if (ResYGreat < ResXLess && ResYGreat < ResYLess && ResYGreat < ResXGreat)
 			{
 				myEnt->Pos.Y += ResYGreat;
 				myEnt->PosOld.Y += ResYGreat;
+				myEnt->PosOld.Y += (myEnt->Pos.Y - myEnt->PosOld.Y) * myEnt->Elasticity * 2;
 			}
 		}
 	}
@@ -195,6 +203,7 @@ void World::Render(GameManager * gm)
 	rectangle.setPosition(sf::Vector2f(gm->MouseState.MousePosition.X,gm->MouseState.MousePosition.Y));
 	rectangle.setRotation(0);
 	gm->Window.draw(rectangle);
+	//if()
 }
 int World::AddEntity(Entity * entity, bool todelete)
 {

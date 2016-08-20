@@ -8,6 +8,7 @@ Entity::Entity(World * world,Vector pos)
 	Acc = Vector();
 	Mass = 100;
 	Rotation = 0;
+	Elasticity = 0;
 	Rot = 0;
 	RotOld = 0;
 	Friction = 0.98;

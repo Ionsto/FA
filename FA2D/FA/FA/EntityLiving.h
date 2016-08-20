@@ -8,7 +8,7 @@ class EntityLiving :
 public:
 	sf::RectangleShape RenderCanvas;
 	Item * ItemCurrent;
-	Item * ItemList[3];
+	Item * ItemList[4];
 	enum class EntityType{
 	Living,Player,Guard,Flashbang
 	} Type;
@@ -20,5 +20,6 @@ public:
 	void Render(GameManager * gm);
 	void SetSize(float size);
 	bool UseItemCurrent();
+	virtual void Flash();
 };
 

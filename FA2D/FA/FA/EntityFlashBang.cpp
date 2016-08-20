@@ -7,9 +7,10 @@ EntityFlashBang::EntityFlashBang(World * world,Vector pos) : EntityLiving(world,
 {
 	Friction = 0.998;
 	FlightTimeCurrent = 0;
-	FlightTimeMax = 100;
+	FlightTimeMax = 500;
 	ItemList[0] = new ItemBlinder();
 	ItemCurrent = ItemList[0];
+	Elasticity = 1;
 }
 
 

@@ -5,6 +5,7 @@
 #include <SFML\Graphics.hpp>
 #include "World.h"
 #include "ResourceManager.h"
+#include "RenderFlashBang.h"
 #include "MainMenu.h"
 class GameManager
 {
@@ -15,6 +16,8 @@ public:
 	} GameState = StateMainMenu;
 	bool Running;
 	sf::RenderWindow Window;
+	ResourceManager * ResManager;
+	RenderFlashBang * FlashBangRenderer;
 	World * WorldObj;
 	MainMenu * Mainmenu;
 	Vector WindowSize;

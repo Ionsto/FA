@@ -5,6 +5,7 @@
 #include "ItemSword.h"
 #include "ItemRifle.h"
 #include "ItemSMG.h"
+#include "ItemFlashBang.h"
 
 
 EntityPlayer::EntityPlayer(World * world,Vector pos) : EntityLiving(world,pos)
@@ -13,6 +14,7 @@ EntityPlayer::EntityPlayer(World * world,Vector pos) : EntityLiving(world,pos)
 	ItemList[0] = new ItemSword();
 	ItemList[1] = new ItemRifle();
 	ItemList[2] = new ItemSMG();
+	ItemList[3] = new ItemFlashBang();
 	ItemCurrent = ItemList[0];
 	this->MaxForce = 25;
 	this->WalkForce = 10;
@@ -52,7 +54,9 @@ void EntityPlayer::Update()
 }
 void EntityPlayer::ChangeItemCurrent(int number)
 {
-	ItemCurrent = ItemList[number];
+	if (number < 4) {
+		ItemCurrent = ItemList[number];
+	}
 }
 void EntityPlayer::MoveForward()
 {
@@ -76,4 +80,9 @@ void EntityPlayer::SetSpeed(float speed)
 	{
 		MoveForce = speed;
 	}
+}
+void EntityPlayer::Flash()
+{
+	Flashed = true;
+	//Make entire screen white
 }

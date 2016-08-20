@@ -1,5 +1,6 @@
 #include "ItemBlinder.h"
 #include <stdlib.h>
+#include "World.h"
 
 
 ItemBlinder::ItemBlinder()
@@ -58,7 +59,10 @@ HitStructure * ItemBlinder::RayCasting(World * world, Vector pos, float Rot)
 		}
 	}
 	if (HitEntity != NULL) {
-		this->DamageEntity(HitEntity, LesserHitData->HitPosistion);
+		if (dynamic_cast<EntityLiving*>(HitEntity) != NULL) {
+			((EntityLiving*)HitEntity)->Flash();
+		}
+		//this->DamageEntity(HitEntity, LesserHitData->HitPosistion);
 	}
 	return LesserHitData;
 }
@@ -72,7 +76,7 @@ bool ItemBlinder::FireFrom(World * world, Vector pos, float Rot)
 		hitpos->HitDistance = MaxDistance;
 		hitpos->HitPosistion = Vector((MaxDistance * cosf(Rot / 180 * 3.14)) + pos.X, (MaxDistance * sinf(Rot / 180 * 3.14)) + pos.Y);
 	}
-	world->AddEntity(new EntityTracerEffect(world, pos, hitpos->HitPosistion));
+	//world->AddEntity(new EntityTracerEffect(world, pos, hitpos->HitPosistion));
 	delete hitpos;
 	Ammo -= 1;
 	CoolDownTimer += CoolDownTime;

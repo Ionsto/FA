@@ -4,12 +4,14 @@
 ResourceManager::ResourceManager()
 {
 	InitTextures();
+	InitShaders();
 }
 
 
 ResourceManager::~ResourceManager()
 {
 }
+
 void ResourceManager::InitTextures()
 {
 	FloorTexture = sf::Texture();
@@ -18,4 +20,8 @@ void ResourceManager::InitTextures()
 	TracerTexture.loadFromFile("./Textures/Ray.png");
 	SwordTexture = sf::Texture();
 	SwordTexture.loadFromFile("./Textures/Sword.png");
+}
+void ResourceManager::InitShaders()
+{
+	FlashBangFrag.loadFromFile("./Shaders/Flashbang.frag", sf::Shader::Fragment);
 }

@@ -15,6 +15,7 @@ public:
 	float RotOld;//These are independent
 	float Friction;
 	float FrictionRot;
+	float Elasticity;
 	float Mass;
 	float Size;
 	float Health;

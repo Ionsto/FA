@@ -44,3 +44,7 @@ bool EntityLiving::UseItemCurrent()
 	}
 	return false;
 }
+void EntityLiving::Flash()
+{
+	Flashed = true;
+}

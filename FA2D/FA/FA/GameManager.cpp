@@ -14,6 +14,8 @@ GameManager::~GameManager()
 {
 	delete WorldObj;
 	delete Mainmenu;
+	delete ResManager;
+	delete FlashBangRenderer;
 }
 
 void GameManager::Init()
@@ -32,6 +34,7 @@ void GameManager::InitGraphics()
 {
 	std::cout << "Init window \n";
 	this->Window.create(sf::VideoMode(800, 800), "Entry");
+	ResManager = new ResourceManager();
 }
 void GameManager::MainLoop()
 {
@@ -62,6 +65,7 @@ void GameManager::Update()
 			WorldObj->Player->MousePosition.Y = MouseState.MousePosition.Y - (WindowSize.Y / 2);
 		}
 		WorldObj->Update(this);
+		FlashBangRenderer->Update(this);
 	}
 }
 
@@ -75,6 +79,7 @@ void GameManager::Render()
 	if (GameState == StateGame)
 	{
 		WorldObj->Render(this);
+		FlashBangRenderer->Render(this);
 	}
 	Window.display();
 }
@@ -195,7 +200,7 @@ void GameManager::InitWorld()
 	{
 		delete WorldObj;
 	}
-	WorldObj = new World();
+	WorldObj = new World(this);
 	//Entrance
 	WorldObj->AddWorldCollision(Vector(0, 0), Vector(20, 200));
 	WorldObj->AddWorldCollision(Vector(0, 0), Vector(200, 20));

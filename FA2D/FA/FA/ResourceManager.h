@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML\Graphics.hpp>
+#include <SFML\OpenGL.hpp>
 class ResourceManager
 {
 public:
@@ -8,8 +9,10 @@ public:
 	sf::Texture SwordTexture;
 	sf::Texture TracerTexture;
 	sf::Texture TracerTerminationTexture;
+	sf::Shader FlashBangFrag;
 	ResourceManager();
 	~ResourceManager();
 	void InitTextures();
+	void InitShaders();
 };
 

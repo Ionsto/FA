@@ -98,6 +98,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="MenuBase.cpp" />
+    <ClCompile Include="RenderFlashBang.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
@@ -131,6 +132,7 @@
     <ClInclude Include="ItemSword.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="MenuBase.h" />
+    <ClInclude Include="RenderFlashBang.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="World.h" />

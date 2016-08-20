@@ -9,18 +9,18 @@ class World
 {
 public:
 	sf::RectangleShape Floor;
-	ResourceManager * ResManager;
 	float DeltaTime;
 	float DeltaTimeSqrd;
 	int DeleteCounter, DeleteCountMax;
 	EntityPlayer * Player;
-	Entity ** EntityList; 
+	Entity ** EntityList;
 	sf::RectangleShape rectangle;
+	ResourceManager * ResManager;
 	Vector CameraLoc;
 	int EntityCount;
 	std::vector<Vector*> WorldCollision;
 	CBRInstance * AIInstance;
-	World();
+	World(GameManager * gm);
 	~World();
 	void Update(GameManager * GM);
 	void PhysicsUpdate();

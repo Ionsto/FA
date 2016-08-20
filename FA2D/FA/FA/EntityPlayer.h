@@ -21,5 +21,6 @@ public:
 	void MoveLeft();
 	void MoveRight();
 	void SetSpeed(float Speed);
+	void Flash() override;
 };
 
