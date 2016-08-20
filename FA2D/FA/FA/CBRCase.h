@@ -6,6 +6,9 @@ class CBRCase
 public:
 	//case should contain the Situation
 	//IDK, positions of Entities, types, health and 
+	///Self
+
+	//Enviroment
 	//case should contain the Solution
 	std::queue<AIAction*> Moves;
 	//case should contain the Result

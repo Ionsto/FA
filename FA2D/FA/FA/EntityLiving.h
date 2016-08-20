@@ -9,6 +9,10 @@ public:
 	sf::RectangleShape RenderCanvas;
 	Item * ItemCurrent;
 	Item * ItemList[3];
+	enum class EntityType{
+	Living,Player,Guard,Flashbang
+	} Type;
+	bool Flashed;
 	float MaxSpeed;
 	float MoveForce;
 	EntityLiving(World * world, Vector pos = Vector());
