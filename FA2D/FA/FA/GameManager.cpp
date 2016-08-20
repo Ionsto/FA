@@ -25,8 +25,6 @@ void GameManager::Init()
 	std::cout << "Init game \n";
 	InitGraphics();
 	InitWorld();
-	WindowSize.X = Window.getSize().x;
-	WindowSize.Y = Window.getSize().y;
 	Mainmenu = new MainMenu();
 
 }
@@ -34,7 +32,10 @@ void GameManager::InitGraphics()
 {
 	std::cout << "Init window \n";
 	this->Window.create(sf::VideoMode(800, 800), "Entry");
+	WindowSize.X = Window.getSize().x;
+	WindowSize.Y = Window.getSize().y;
 	ResManager = new ResourceManager();
+	FlashBangRenderer = new RenderFlashBang(this);
 }
 void GameManager::MainLoop()
 {

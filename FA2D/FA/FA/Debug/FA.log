@@ -1,15 +1,14 @@
-﻿Build started 20/08/2016 18:18:00.
+﻿Build started 20/08/2016 20:48:46.
      1>Project "C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\FA\FA.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt CBRDiskManager.cpp Element.cpp ElementButton.cpp ElementLable.cpp ElementTexture.cpp Entity.cpp EntityFlashBang.cpp EntityGuard.cpp EntityLiving.cpp EntityPlayer.cpp EntitySwordEffect.cpp EntityTracerEffect.cpp GameManager.cpp Item.cpp ItemBlinder.cpp ItemFlashBang.cpp ItemSword.cpp MainMenu.cpp MenuBase.cpp RenderFlashBang.cpp World.cpp main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt AIAction.cpp AIActionLook.cpp AIActionMove.cpp AIActionShoot.cpp CBRCase.cpp CBREnvironment.cpp CBRInstance.cpp Element.cpp ElementButton.cpp ElementLable.cpp ElementTexture.cpp Entity.cpp EntityAI.cpp EntityFlashBang.cpp EntityGuard.cpp EntityLiving.cpp EntityPlayer.cpp EntitySwordEffect.cpp EntityTracerEffect.cpp GameManager.cpp Item.cpp ItemBlinder.cpp ItemFlashBang.cpp ItemRifle.cpp ItemSMG.cpp ItemSword.cpp MainMenu.cpp MenuBase.cpp RenderFlashBang.cpp World.cpp main.cpp
          main.cpp
          World.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\world.cpp(43): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\world.cpp(107): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\world.cpp(107): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\world.cpp(121): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\world.cpp(44): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\world.cpp(109): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\world.cpp(109): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\world.cpp(123): warning C4018: '<': signed/unsigned mismatch
          RenderFlashBang.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\renderflashbang.cpp(17): warning C4018: '<': signed/unsigned mismatch
          MenuBase.cpp
      1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\menubase.cpp(17): warning C4018: '<': signed/unsigned mismatch
      1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\menubase.cpp(29): warning C4018: '<': signed/unsigned mismatch
@@ -17,11 +16,13 @@
      1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\mainmenu.cpp(15): warning C4018: '<': signed/unsigned mismatch
          ItemSword.cpp
      1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\itemsword.cpp(34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+         ItemSMG.cpp
+         ItemRifle.cpp
          ItemFlashBang.cpp
      1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\itemflashbang.cpp(33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
          ItemBlinder.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\itemblinder.cpp(42): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\itemblinder.cpp(77): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\itemblinder.cpp(43): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\itemblinder.cpp(78): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
          Item.cpp
      1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\item.cpp(29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
      1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\item.cpp(54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
@@ -32,12 +33,12 @@
      1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\item.cpp(160): warning C4018: '<': signed/unsigned mismatch
      1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\item.cpp(190): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
          GameManager.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\gamemanager.cpp(28): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\gamemanager.cpp(29): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\gamemanager.cpp(62): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\gamemanager.cpp(35): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\gamemanager.cpp(36): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
      1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\gamemanager.cpp(63): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\gamemanager.cpp(135): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\gamemanager.cpp(64): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
      1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\gamemanager.cpp(136): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\gamemanager.cpp(137): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
          EntityTracerEffect.cpp
      1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entitytracereffect.cpp(17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
      1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entitytracereffect.cpp(34): warning C4305: '-=': truncation from 'double' to 'float'
@@ -46,69 +47,47 @@
      1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityswordeffect.cpp(17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
      1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityswordeffect.cpp(39): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
          EntityPlayer.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(35): warning C4305: 'initializing': truncation from 'double' to 'float'
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(37): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(42): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(63): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(71): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(75): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(36): warning C4305: 'initializing': truncation from 'double' to 'float'
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(38): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(43): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(64): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(68): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(72): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(76): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
          EntityLiving.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityliving.cpp(41): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityliving.cpp(42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityliving.cpp(42): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityliving.cpp(43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
          EntityGuard.cpp
          EntityFlashBang.cpp
      1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityflashbang.cpp(8): warning C4305: '=': truncation from 'double' to 'float'
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityflashbang.cpp(41): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityflashbang.cpp(42): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityflashbang.cpp(43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityflashbang.cpp(41): error C2838: 'Entity': illegal qualified name in member declaration
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityflashbang.cpp(41): error C2275: 'Entity': illegal use of this type as an expression
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityflashbang.cpp(41): error C2838: 'Flashbang': illegal qualified name in member declaration
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityflashbang.cpp(41): error C2065: 'Flashbang': undeclared identifier
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityflashbang.cpp(45): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityflashbang.cpp(46): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityflashbang.cpp(47): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+         EntityAI.cpp
          Entity.cpp
      1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entity.cpp(14): warning C4305: '=': truncation from 'double' to 'float'
+         Generating Code...
+         Compiling...
          ElementTexture.cpp
          ElementLable.cpp
          ElementButton.cpp
-         Generating Code...
-         Skipping... (no relevant changes detected)
-         CBRDiskManager.cpp
          Element.cpp
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe" /INCREMENTAL /NOLOGO openal32.lib "sfml-main-d.lib" "sfml-system-d.lib" "sfml-window-d.lib" "sfml-graphics-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\Debug\FA.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\Debug\FA.lib" /MACHINE:X86 Debug\AIActionShoot.obj
-         Debug\AIAction.obj
-         Debug\AIActionMove.obj
-         Debug\AIActionLook.obj
-         Debug\CBREnvironment.obj
-         Debug\CBRCase.obj
-         Debug\CBRInstance.obj
-         Debug\CBRDiskManager.obj
-         Debug\Element.obj
-         Debug\ElementButton.obj
-         Debug\ElementLable.obj
-         Debug\ElementTexture.obj
-         Debug\Entity.obj
-         Debug\EntityAI.obj
-         Debug\EntityFlashBang.obj
-         Debug\EntityGuard.obj
-         Debug\EntityLiving.obj
-         Debug\EntityPlayer.obj
-         Debug\EntitySwordEffect.obj
-         Debug\EntityTracerEffect.obj
-         Debug\GameManager.obj
-         Debug\Item.obj
-         Debug\ItemBlinder.obj
-         Debug\ItemFlashBang.obj
-         Debug\ItemRifle.obj
-         Debug\ItemSMG.obj
-         Debug\ItemSword.obj
-         Debug\main.obj
-         Debug\MainMenu.obj
-         Debug\MenuBase.obj
-         Debug\RenderFlashBang.obj
-         Debug\ResourceManager.obj
-         Debug\World.obj
-         LINK : C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe not found or not built by the last incremental link; performing full link
-         FA.vcxproj -> C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe
-     1>Done Building Project "C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\FA\FA.vcxproj" (Build target(s)).
+         CBRInstance.cpp
+         CBREnvironment.cpp
+         CBRCase.cpp
+         AIActionShoot.cpp
+         AIActionMove.cpp
+         AIActionLook.cpp
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\aiactionlook.cpp(19): warning C4305: 'initializing': truncation from 'double' to 'float'
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\aiactionlook.cpp(20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+         AIAction.cpp
+         Generating Code...
+     1>Done Building Project "C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\FA\FA.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:43.18
+Time Elapsed 00:00:55.62

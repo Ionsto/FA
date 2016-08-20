@@ -23,6 +23,7 @@ EntityGuard::EntityGuard(World * world, Vector pos) : EntityAI(world,pos)
 	AIStack.push(new AIActionShoot(this, 0, 3));
 	AIStack.push(new AIActionLook(this, Vector(56, 381)));
 	AIStack.push(new AIActionShoot(this, 1, 5));
+	Type = EntityType::TypeGuard;
 }
 
 

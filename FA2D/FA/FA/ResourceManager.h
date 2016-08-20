@@ -9,7 +9,7 @@ public:
 	sf::Texture SwordTexture;
 	sf::Texture TracerTexture;
 	sf::Texture TracerTerminationTexture;
-	sf::Shader FlashBangFrag;
+	sf::Shader FlashBangShaderFrag;
 	ResourceManager();
 	~ResourceManager();
 	void InitTextures();

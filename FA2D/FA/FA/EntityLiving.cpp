@@ -12,6 +12,7 @@ EntityLiving::EntityLiving(World * world,Vector pos) : Entity (world,pos)
 	this->RenderCanvas = sf::RectangleShape(sf::Vector2f(10, 10));
 	RenderCanvas.setFillColor(sf::Color(100, 250, 50));
 	SetSize(8);
+	Type = EntityType::TypeLiving;
 }
 
 
@@ -44,7 +45,7 @@ bool EntityLiving::UseItemCurrent()
 	}
 	return false;
 }
-void EntityLiving::Flash()
+void EntityLiving::Flash(Vector position)
 {
-	Flashed = true;
+	FlashTime = 5;
 }

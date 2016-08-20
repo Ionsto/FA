@@ -5,6 +5,7 @@
 World::World(GameManager * gm)
 {
 	ResManager = gm->ResManager;
+	FlashManager = gm->FlashBangRenderer;
 	DeltaTime = 0.1F;
 	DeltaTimeSqrd = DeltaTime*DeltaTime;
 	this->rectangle = sf::RectangleShape(sf::Vector2f(10,10));
@@ -65,6 +66,7 @@ void World::Update(GameManager * GM)
 	if (DeleteCounter++ >= DeleteCountMax)
 	{
 		DeleteEntities();
+		DeleteCounter = 0;
 	}
 }
 void World::DeleteEntities()

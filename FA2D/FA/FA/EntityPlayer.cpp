@@ -22,6 +22,7 @@ EntityPlayer::EntityPlayer(World * world,Vector pos) : EntityLiving(world,pos)
 	this->CurrentWalkForce = WalkForce * (Health / 100);
 	SetSpeed(MaxForce);
 	//RotOld -= 1;
+	Type = EntityType::TypePlayer;
 }
 
 
@@ -81,8 +82,9 @@ void EntityPlayer::SetSpeed(float speed)
 		MoveForce = speed;
 	}
 }
-void EntityPlayer::Flash()
+void EntityPlayer::Flash(Vector Position)
 {
-	Flashed = true;
+	FlashTime = 5;
 	//Make entire screen white
+	worldObj->FlashManager->AddFlashBangEvent(Position);
 }

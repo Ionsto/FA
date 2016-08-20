@@ -11,6 +11,7 @@ EntityFlashBang::EntityFlashBang(World * world,Vector pos) : EntityLiving(world,
 	ItemList[0] = new ItemBlinder();
 	ItemCurrent = ItemList[0];
 	Elasticity = 1;
+	Type = EntityType::TypeFlashbang;
 }
 
 
@@ -21,6 +22,7 @@ EntityFlashBang::~EntityFlashBang()
 void EntityFlashBang::Update()
 {
 	EntityLiving::Update();
+	if (!Alive) { return; }
 	if (FlightTimeCurrent++ > FlightTimeMax)
 	{
 		//Detonate
@@ -36,12 +38,15 @@ void EntityFlashBang::Detonate()
 		{
 			if (worldObj->EntityList[i]->Alive)
 			{
-				//Attempt to flash it
-				Vector dist = worldObj->EntityList[i]->Pos - Pos;
-				float Angle = 180 / 3.14 * atan2f(dist.Y, dist.X);
-				float GunSize = Size * 1.5;
-				Vector FireFrom = Pos + Vector(GunSize * cosf(Rot / 180 * 3.14), GunSize * sinf(Rot / 180 * 3.14));
-				(ItemCurrent)->FireFrom(worldObj, FireFrom, Angle);
+				if (worldObj->EntityList[i]->Type != EntityType::Entity && worldObj->EntityList[i]->Type != EntityType::Flashbang)
+				{
+					//Attempt to flash it
+					Vector dist = worldObj->EntityList[i]->Pos - Pos;
+					float Angle = 180 / 3.14 * atan2f(dist.Y, dist.X);
+					float GunSize = Size * 1.5;
+					Vector FireFrom = Pos + Vector(GunSize * cosf(Rot / 180 * 3.14), GunSize * sinf(Rot / 180 * 3.14));
+					(ItemCurrent)->FireFrom(worldObj, FireFrom, Angle);
+				}
 			}
 		}
 	}

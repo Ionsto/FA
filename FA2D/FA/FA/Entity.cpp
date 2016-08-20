@@ -17,6 +17,7 @@ Entity::Entity(World * world,Vector pos)
 	Id = -1;
 	SetSize(8);
 	worldObj = world;
+	Type = EntityType::TypeEntity;
 }
 Entity::~Entity()
 {

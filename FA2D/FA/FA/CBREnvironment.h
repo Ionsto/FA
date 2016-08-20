@@ -6,7 +6,7 @@ struct EntityInfo
 	enum Type {
 
 	} Type;
-	bool Flashed;
+	float FlashTime;
 	float Health;
 	float Rot;
 	Vector Position;

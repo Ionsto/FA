@@ -20,6 +20,9 @@ public:
 	float Size;
 	float Health;
 	int Id;
+	enum class EntityType {
+		TypeLiving, TypePlayer, TypeGuard, TypeFlashbang,TypeEntity
+	} Type;
 	Entity(World * world,Vector pos = Vector());
 	~Entity();
 	virtual void Update();

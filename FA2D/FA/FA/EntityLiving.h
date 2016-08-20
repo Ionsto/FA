@@ -9,10 +9,7 @@ public:
 	sf::RectangleShape RenderCanvas;
 	Item * ItemCurrent;
 	Item * ItemList[4];
-	enum class EntityType{
-	Living,Player,Guard,Flashbang
-	} Type;
-	bool Flashed;
+	float FlashTime;
 	float MaxSpeed;
 	float MoveForce;
 	EntityLiving(World * world, Vector pos = Vector());
@@ -20,6 +17,6 @@ public:
 	void Render(GameManager * gm);
 	void SetSize(float size);
 	bool UseItemCurrent();
-	virtual void Flash();
+	virtual void Flash(Vector Position);
 };
 

@@ -23,5 +23,5 @@ void ResourceManager::InitTextures()
 }
 void ResourceManager::InitShaders()
 {
-	FlashBangFrag.loadFromFile("./Shaders/Flashbang.frag", sf::Shader::Fragment);
+	FlashBangShaderFrag.loadFromFile("./Shaders/Flashbang.frag", sf::Shader::Fragment);
 }
