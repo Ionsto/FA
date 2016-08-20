@@ -82,6 +82,7 @@
     <ClCompile Include="ElementTexture.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="EntityAI.cpp" />
+    <ClCompile Include="EntityFlashBang.cpp" />
     <ClCompile Include="EntityGuard.cpp" />
     <ClCompile Include="EntityLiving.cpp" />
     <ClCompile Include="EntityPlayer.cpp" />
@@ -89,6 +90,8 @@
     <ClCompile Include="EntityTracerEffect.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="ItemBlinder.cpp" />
+    <ClCompile Include="ItemFlashBang.cpp" />
     <ClCompile Include="ItemRifle.cpp" />
     <ClCompile Include="ItemSMG.cpp" />
     <ClCompile Include="ItemSword.cpp" />
@@ -113,6 +116,7 @@
     <ClInclude Include="ElementTexture.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="EntityAI.h" />
+    <ClInclude Include="EntityFlashBang.h" />
     <ClInclude Include="EntityGuard.h" />
     <ClInclude Include="EntityLiving.h" />
     <ClInclude Include="EntityPlayer.h" />
@@ -120,6 +124,8 @@
     <ClInclude Include="EntityTracerEffect.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="ItemBlinder.h" />
+    <ClInclude Include="ItemFlashBang.h" />
     <ClInclude Include="ItemRifle.h" />
     <ClInclude Include="ItemSMG.h" />
     <ClInclude Include="ItemSword.h" />
