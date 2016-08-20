@@ -1,6 +1,7 @@
 #include "EntityGuard.h"
 #include "World.h"
 #include "ItemRifle.h"
+#include "ItemSMG.h"
 #include "AIActionLook.h"
 #include "AIActionMove.h"
 #include "AIActionShoot.h"
@@ -9,6 +10,7 @@ EntityGuard::EntityGuard(World * world, Vector pos) : EntityAI(world,pos)
 {
 	MoveForce = 10;
 	ItemList[0] = new ItemRifle();
+	ItemList[1] = new ItemSMG();
 	ItemCurrent = ItemList[0];
 	AIStack = std::queue<AIAction*>();
 	AIStack.push(new AIActionMove(this, Vector(49, 92)));
@@ -18,9 +20,9 @@ EntityGuard::EntityGuard(World * world, Vector pos) : EntityAI(world,pos)
 	AIStack.push(new AIActionMove(this, Vector(217, 266)));
 	AIStack.push(new AIActionMove(this, Vector(72, 262)));
 	AIStack.push(new AIActionLook(this, Vector(202, 240)));
-	AIStack.push(new AIActionShoot(this, 0, 1));
+	AIStack.push(new AIActionShoot(this, 0, 3));
 	AIStack.push(new AIActionLook(this, Vector(56, 381)));
-	AIStack.push(new AIActionShoot(this, 0, 1));
+	AIStack.push(new AIActionShoot(this, 1, 5));
 }
 
 

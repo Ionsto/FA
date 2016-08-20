@@ -3,6 +3,7 @@
 #include "Entity.h"
 #include "EntityPlayer.h"
 #include "ResourceManager.h"
+#include "CBRInstance.h"
 class GameManager;
 class World
 {
@@ -18,6 +19,7 @@ public:
 	Vector CameraLoc;
 	int EntityCount;
 	std::vector<Vector*> WorldCollision;
+	CBRInstance * AIInstance;
 	World();
 	~World();
 	void Update(GameManager * GM);

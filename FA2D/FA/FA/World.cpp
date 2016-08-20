@@ -24,11 +24,14 @@ World::World()
 		EntityList[i] = NULL;
  	}
 	Player = NULL;
+	AIInstance = new CBRInstance();
+	AIInstance->Load("./Data/AI/Guard.txt");
 }
 
 
 World::~World()
 {
+
 	for (int i = 0; i < EntityCount; ++i)
 	{
 		if (EntityList[i] == NULL)
