@@ -38,13 +38,13 @@ void EntityFlashBang::Detonate()
 		{
 			if (worldObj->EntityList[i]->Alive)
 			{
-				if (worldObj->EntityList[i]->Type != EntityType::Entity && worldObj->EntityList[i]->Type != EntityType::Flashbang)
+				if (worldObj->EntityList[i]->Type != EntityType::TypeEntity && worldObj->EntityList[i]->Type != EntityType::TypeFlashbang)
 				{
 					//Attempt to flash it
 					Vector dist = worldObj->EntityList[i]->Pos - Pos;
 					float Angle = 180 / 3.14 * atan2f(dist.Y, dist.X);
 					float GunSize = Size * 1.5;
-					Vector FireFrom = Pos + Vector(GunSize * cosf(Rot / 180 * 3.14), GunSize * sinf(Rot / 180 * 3.14));
+					Vector FireFrom = Pos + Vector(GunSize * cosf(Angle / 180 * 3.14), GunSize * sinf(Angle / 180 * 3.14));
 					(ItemCurrent)->FireFrom(worldObj, FireFrom, Angle);
 				}
 			}

@@ -84,7 +84,9 @@ void EntityPlayer::SetSpeed(float speed)
 }
 void EntityPlayer::Flash(Vector Position)
 {
-	FlashTime = 5;
+	Vector dist = Position - Pos;
+	float Angle = 180 / 3.14 * atan2f(dist.Y, dist.X);
+	FlashTime = worldObj->FlashManager->MaxFlashTime * (1 - (fminf(90,abs(AngleDifference(Rot,Angle)))/90));
 	//Make entire screen white
-	worldObj->FlashManager->AddFlashBangEvent(Position);
+	worldObj->FlashManager->AddFlashBangEvent(this,Position);
 }

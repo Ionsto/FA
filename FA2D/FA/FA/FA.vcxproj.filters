@@ -252,4 +252,9 @@
       <Filter>Header Files\Render</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Debug\Shaders\FlashBang.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>

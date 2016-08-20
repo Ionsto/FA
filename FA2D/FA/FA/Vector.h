@@ -25,6 +25,10 @@ public:
 		this->X -= v.X;
 		this->Y -= v.Y;
 	}
+	Vector operator/(const Vector v)
+	{
+		return Vector(X / v.X, Y / v.Y);
+	}
 	Vector operator-(const Vector v)
 	{
 		return Vector(X - v.X, Y - v.Y);

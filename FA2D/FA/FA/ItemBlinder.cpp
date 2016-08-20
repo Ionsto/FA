@@ -77,7 +77,7 @@ bool ItemBlinder::FireFrom(World * world, Vector pos, float Rot)
 		hitpos->HitDistance = MaxDistance;
 		hitpos->HitPosistion = Vector((MaxDistance * cosf(Rot / 180 * 3.14)) + pos.X, (MaxDistance * sinf(Rot / 180 * 3.14)) + pos.Y);
 	}
-	world->AddEntity(new EntityTracerEffect(world, pos, hitpos->HitPosistion));
+	//world->AddEntity(new EntityTracerEffect(world, pos, hitpos->HitPosistion));
 	delete hitpos;
 	Ammo -= 1;
 	CoolDownTimer += CoolDownTime;
