@@ -35,7 +35,7 @@ World::~World()
 
 	for (int i = 0; i < EntityCount; ++i)
 	{
-		if (EntityList[i] == NULL)
+		if (EntityList[i] != NULL)
 		{
 			delete EntityList[i];
 		}
@@ -46,6 +46,7 @@ World::~World()
 		delete WorldCollision.at(i);
 	}
 	WorldCollision.clear();
+	delete AIInstance;
 }
 
 void World::Update(GameManager * GM)

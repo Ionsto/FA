@@ -4,7 +4,7 @@
 
 EntityLiving::EntityLiving(World * world,Vector pos) : Entity (world,pos)
 {
-	for (int i = 0; i < 3; ++i) {
+	for (int i = 0; i < 4; ++i) {
 		ItemList[i] = NULL;
 	}
 	Health = 100;
@@ -18,7 +18,7 @@ EntityLiving::EntityLiving(World * world,Vector pos) : Entity (world,pos)
 
 EntityLiving::~EntityLiving()
 {
-	for (int i = 0; i < 3; ++i) {
+	for (int i = 0; i < 4; ++i) {
 		if (ItemList[i] != NULL) {
 			delete ItemList[i];
 		}

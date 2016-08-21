@@ -1,29 +1,34 @@
-uniform vec3 FlashEvent;
+uniform vec3 FlashEventA;
+uniform vec3 FlashEventB;
+uniform vec3 FlashEventC;
 //in vec2 fragCoord;
-void main()
-{
-	//for(int i = 0;i < 5;++i)
-	//{
-	if(FlashEvent.z >= 0){
+void Flash(vec3 point){
+	if(point.z >= 0){
 		//fragCoord = fragCoord;
-		vec2 dist = gl_FragCoord - vec2(1,1);//FlashEvent.xy;
-		float intensity = (sqrt(dot(dist,dist)));
-		float Changeover = 3.0;
-		if(FlashEvent.z < Changeover)
+		vec2 dist = gl_FragCoord.xy - point.xy;
+		float intensity = length(dist);
+		float Changeover = 2.0;
+		if(point.z < Changeover)
 		{
-			intensity = (intensity * 1.0) / (80*FlashEvent.z);
+			intensity = (intensity * 1.0) / (80*point.z);
 			intensity = min(intensity,1.0);
 		}
 		else
 		{
-			float Temptime = FlashEvent.z - Changeover;
-			intensity = (0.05 * Temptime * Temptime);
+			float Temptime = point.z - Changeover;
+			intensity = (0.01 * Temptime * Temptime);
 			intensity = min(intensity,1.0);
 		}
 		intensity = 1.0 - intensity;
-		gl_FragColor = vec4(1,1,1,intensity);
+		gl_FragColor += vec4(1,1,1,intensity);
 	}
 	else{
-		gl_FragColor = vec4(1,1,1,0);
+		gl_FragColor += vec4(1,1,1,0);
 	}
+}
+void main()
+{
+	Flash(FlashEventA);
+	Flash(FlashEventB);
+	Flash(FlashEventC);
 }

@@ -18,7 +18,7 @@ class GameManager;
 class RenderFlashBang
 {
 public:
-	static const int MaxFlashes = 1;
+	static const int MaxFlashes = 3;
 	float MaxFlashTime;
 	sf::RectangleShape FlashBang;
 	FlashIncident PlayerFlashedList[MaxFlashes];

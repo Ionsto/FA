@@ -136,59 +136,61 @@ void GameManager::PollInput()
 		MouseState.MousePosition.X = sf::Mouse::getPosition(Window).x;
 		MouseState.MousePosition.Y = sf::Mouse::getPosition(Window).y;
 	}
-	if (this->GameState = StateGame)
+	if (this->GameState == StateGame)
 	{
 		float Force = 10;
 		if (this->KeyState[sf::Keyboard::Key::R])
 		{
 			this->InitWorld();
 		}
-		if (this->KeyState[sf::Keyboard::Key::D])
-		{
-			(this->WorldObj->Player)->MoveLeft();
-		}
-		if (this->KeyState[sf::Keyboard::Key::A])
-		{
-			(this->WorldObj->Player)->MoveRight();
-		}
-		if (this->KeyState[sf::Keyboard::Key::S])
-		{
-			(this->WorldObj->Player)->MoveBackward();
-		}
-		if (this->KeyState[sf::Keyboard::Key::W])
-		{
-			(this->WorldObj->Player)->MoveForward();
-		}
-		for (int i = 0; i < 9; ++i) {
-			if (this->KeyState[sf::Keyboard::Key::Num1 + i])
+		if (this->WorldObj->Player != NULL) {
+			if (this->KeyState[sf::Keyboard::Key::D])
 			{
-				(this->WorldObj->Player)->ChangeItemCurrent(i);
+				(this->WorldObj->Player)->MoveLeft();
 			}
-		}
+			if (this->KeyState[sf::Keyboard::Key::A])
+			{
+				(this->WorldObj->Player)->MoveRight();
+			}
+			if (this->KeyState[sf::Keyboard::Key::S])
+			{
+				(this->WorldObj->Player)->MoveBackward();
+			}
+			if (this->KeyState[sf::Keyboard::Key::W])
+			{
+				(this->WorldObj->Player)->MoveForward();
+			}
+			for (int i = 0; i < 9; ++i) {
+				if (this->KeyState[sf::Keyboard::Key::Num1 + i])
+				{
+					(this->WorldObj->Player)->ChangeItemCurrent(i);
+				}
+			}
 
-		if (this->KeyState[sf::Keyboard::Key::LShift])
-		{
-			(this->WorldObj->Player)->SetSpeed(((EntityPlayer*)(WorldObj->Player))->CurrentMaxForce);
+			if (this->KeyState[sf::Keyboard::Key::LShift])
+			{
+				(this->WorldObj->Player)->SetSpeed(((EntityPlayer*)(WorldObj->Player))->CurrentMaxForce);
+			}
+			else
+			{
+				(this->WorldObj->Player)->SetSpeed(((EntityPlayer*)(WorldObj->Player))->CurrentWalkForce);
+			}
+			if (this->MouseState.LeftMouseState == 1)
+			{
+				(this->WorldObj->Player)->UseItemCurrent();
+			}
+			if (this->MouseState.RightMouseState == 2)
+			{
+				(this->WorldObj->Player);
+				std::cout << "X:" << (this->WorldObj->Player->Pos.X + MouseState.MousePosition.X - (WindowSize.X / 2)) << " Y:" << (this->WorldObj->Player->Pos.Y + MouseState.MousePosition.Y - (WindowSize.Y / 2)) << std::endl;
+			}
+			if (this->KeyState[sf::Keyboard::Key::Space])
+			{
+				//Create bond between nearest object and self
+				//((EntityPhysical *)this->WorldObj->EntityList[0])->PhyObject->ApplyForceToCenter(b2Vec2(-Force, 0), true);
+			}
+			WorldObj->CameraLoc = (WindowSize * 0.5) - this->WorldObj->Player->PosOld;
 		}
-		else
-		{
-			(this->WorldObj->Player)->SetSpeed(((EntityPlayer*)(WorldObj->Player))->CurrentWalkForce);
-		}
-		if (this->MouseState.LeftMouseState == 1)
-		{
-			(this->WorldObj->Player)->UseItemCurrent();
-		}
-		if (this->MouseState.RightMouseState == 2)
-		{
-			(this->WorldObj->Player);
-			std::cout << "X:" << (this->WorldObj->Player->Pos.X + MouseState.MousePosition.X - (WindowSize.X / 2)) << " Y:" << (this->WorldObj->Player->Pos.Y + MouseState.MousePosition.Y - (WindowSize.Y / 2)) << std::endl;
-		}
-		if (this->KeyState[sf::Keyboard::Key::Space])
-		{
-			//Create bond between nearest object and self
-			//((EntityPhysical *)this->WorldObj->EntityList[0])->PhyObject->ApplyForceToCenter(b2Vec2(-Force, 0), true);
-		}
-		WorldObj->CameraLoc = (WindowSize * 0.5) - this->WorldObj->Player->PosOld;
 	}
 }
 void GameManager::Delete()
@@ -211,8 +213,8 @@ void GameManager::InitWorld()
 	//Corridor
 	WorldObj->AddEntity(new EntityPlayer(WorldObj));
 	WorldObj->Player = (EntityPlayer*)WorldObj->EntityList[0];
-	//WorldObj->AddEntity(new EntityLiving(WorldObj));
+	WorldObj->AddEntity(new EntityLiving(WorldObj));
 	WorldObj->EntityList[0]->SetPosition(Vector(50, 50));
-	//WorldObj->EntityList[1]->SetPosition(Vector(50, 90));
-	WorldObj->AddEntity(new EntityGuard(WorldObj,Vector(80,80)));
+	WorldObj->EntityList[1]->SetPosition(Vector(50, 90));
+	//WorldObj->AddEntity(new EntityGuard(WorldObj,Vector(80,80)));
 }

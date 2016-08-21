@@ -9,7 +9,7 @@ RenderFlashBang::RenderFlashBang(GameManager * gm)
 	FlashBang.setPosition(0, 0);
 	FlashBang.setFillColor(sf::Color::White);
 	ScreenSize = gm->WindowSize;
-	MaxFlashTime = 5;
+	MaxFlashTime = 12;
 	for (int i = 0; i < MaxFlashes;++i)
 	{
 		PlayerFlashedList[i] = FlashIncident();
@@ -28,7 +28,14 @@ void RenderFlashBang::Update(GameManager * gm)
 	for (int i = 0; i < MaxFlashes;++i)
 	{
 		if (PlayerFlashedList[i].Time != -1) {
-			PlayerFlashedList[i].Time += gm->WorldObj->DeltaTime * 0.05 * (MaxFlashTime / PlayerFlashedList[i].MaxTime);
+			if (PlayerFlashedList[i].MaxTime <= 2)
+			{
+				PlayerFlashedList[i].Time += gm->WorldObj->DeltaTime * 0.03 * (MaxFlashTime);
+			}
+			else
+			{
+				PlayerFlashedList[i].Time += gm->WorldObj->DeltaTime * 0.05 * (MaxFlashTime / PlayerFlashedList[i].MaxTime);
+			}
 			if (PlayerFlashedList[i].Time > MaxFlashTime)
 			{
 				PlayerFlashedList[i].Time = -1;
@@ -36,7 +43,9 @@ void RenderFlashBang::Update(GameManager * gm)
 		}
 		UniformEvents[i] = PlayerFlashedList[i].SFFormat();
 	}
-	gm->ResManager->FlashBangShaderFrag.setParameter("FlashEvent",UniformEvents[0]);
+	gm->ResManager->FlashBangShaderFrag.setParameter("FlashEventA", UniformEvents[0]);
+	gm->ResManager->FlashBangShaderFrag.setParameter("FlashEventB", UniformEvents[1]);
+	gm->ResManager->FlashBangShaderFrag.setParameter("FlashEventC", UniformEvents[2]);
 }
 void RenderFlashBang::Render(GameManager * gm)
 {
@@ -50,7 +59,7 @@ void RenderFlashBang::AddFlashBangEvent(EntityLiving * ent,Vector Position)
 		{
 			PlayerFlashedList[i].Time = 0;
 			PlayerFlashedList[i].MaxTime = ent->FlashTime;
-			PlayerFlashedList[i].Position = ((Position - ent->Pos) / ScreenSize) + Vector(0.5,0.5);
+			PlayerFlashedList[i].Position = ((Position - ent->Pos) * Vector(1,-1)) + (ScreenSize/2);
 			return;
 		}
 	}

@@ -1,2 +1,86 @@
-﻿  LINK : C:\Users\mpfs\Contacts\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe not found or not built by the last incremental link; performing full link
+﻿  GameManager.cpp
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gamemanager.cpp(35): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gamemanager.cpp(36): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gamemanager.cpp(63): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gamemanager.cpp(64): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gamemanager.cpp(136): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\gamemanager.cpp(137): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  EntityGuard.cpp
+  EntityAI.cpp
+  AIAction.cpp
+  Generating Code...
+cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
+  Compiling...
+  AIActionLook.cpp
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\aiactionlook.cpp(19): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\aiactionlook.cpp(20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  AIActionMove.cpp
+  AIActionShoot.cpp
+  CBRCase.cpp
+  CBREnvironment.cpp
+  CBRInstance.cpp
+  Element.cpp
+  ElementButton.cpp
+  ElementLable.cpp
+  ElementTexture.cpp
+  Entity.cpp
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entity.cpp(14): warning C4305: '=': truncation from 'double' to 'float'
+  EntityFlashBang.cpp
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entityflashbang.cpp(8): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entityflashbang.cpp(45): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entityflashbang.cpp(46): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entityflashbang.cpp(47): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  EntityLiving.cpp
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entityliving.cpp(42): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entityliving.cpp(43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  EntityPlayer.cpp
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(36): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(38): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(43): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(64): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(68): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(72): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(76): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(88): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  EntitySwordEffect.cpp
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entityswordeffect.cpp(17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entityswordeffect.cpp(39): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
+  EntityTracerEffect.cpp
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entitytracereffect.cpp(17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entitytracereffect.cpp(34): warning C4305: '-=': truncation from 'double' to 'float'
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\entitytracereffect.cpp(41): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
+  Item.cpp
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(32): warning C4101: 't': unreferenced local variable
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(70): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(107): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(111): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(160): warning C4018: '<': signed/unsigned mismatch
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\item.cpp(190): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  ItemBlinder.cpp
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\itemblinder.cpp(43): warning C4018: '<': signed/unsigned mismatch
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\itemblinder.cpp(78): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  ItemFlashBang.cpp
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\itemflashbang.cpp(33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  ItemSword.cpp
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\itemsword.cpp(34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+  Compiling...
+  MainMenu.cpp
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\mainmenu.cpp(15): warning C4018: '<': signed/unsigned mismatch
+  MenuBase.cpp
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\menubase.cpp(17): warning C4018: '<': signed/unsigned mismatch
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\menubase.cpp(29): warning C4018: '<': signed/unsigned mismatch
+  RenderFlashBang.cpp
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\renderflashbang.cpp(33): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\renderflashbang.cpp(37): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+  World.cpp
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\world.cpp(44): warning C4018: '<': signed/unsigned mismatch
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\world.cpp(110): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\world.cpp(110): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\world.cpp(124): warning C4018: '<': signed/unsigned mismatch
+  main.cpp
+  Generating Code...
+  LINK : C:\Users\mpfs\Contacts\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe not found or not built by the last incremental link; performing full link
   FA.vcxproj -> C:\Users\mpfs\Contacts\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe

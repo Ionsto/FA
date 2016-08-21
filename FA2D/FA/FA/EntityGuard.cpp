@@ -12,7 +12,7 @@ EntityGuard::EntityGuard(World * world, Vector pos) : EntityAI(world,pos)
 	ItemList[0] = new ItemRifle();
 	ItemList[1] = new ItemSMG();
 	ItemCurrent = ItemList[0];
-	AIStack = std::queue<AIAction*>();
+	ClearAIStack();
 	AIStack.push(new AIActionMove(this, Vector(49, 92)));
 	AIStack.push(new AIActionMove(this, Vector(124, 57)));
 	AIStack.push(new AIActionMove(this, Vector(205, 96)));

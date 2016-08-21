@@ -12,5 +12,6 @@ public:
 	EntityAI(World * world, Vector pos = Vector());
 	~EntityAI();
 	void Update() override;
+	void ClearAIStack();
 };
 
