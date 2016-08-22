@@ -1,5 +1,6 @@
 #include "GameManager.h"
 #include "EntityGuard.h"
+#include "EntityFlashTurret.h"
 
 GameManager::GameManager()
 {
@@ -213,8 +214,9 @@ void GameManager::InitWorld()
 	//Corridor
 	WorldObj->AddEntity(new EntityPlayer(WorldObj));
 	WorldObj->Player = (EntityPlayer*)WorldObj->EntityList[0];
-	WorldObj->AddEntity(new EntityLiving(WorldObj));
+	WorldObj->AddEntity(new EntityAI(WorldObj,Vector(200,150)));
 	WorldObj->EntityList[0]->SetPosition(Vector(50, 50));
-	WorldObj->EntityList[1]->SetPosition(Vector(50, 90));
+	//WorldObj->EntityList[1]->SetPosition(Vector(50, 90));
+	WorldObj->AddEntity(new EntityFlashTurret(WorldObj,Vector(100,100)));
 	//WorldObj->AddEntity(new EntityGuard(WorldObj,Vector(80,80)));
 }

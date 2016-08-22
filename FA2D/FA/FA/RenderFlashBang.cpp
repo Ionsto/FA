@@ -1,8 +1,14 @@
 #include "RenderFlashBang.h"
 #include "GameManager.h"
+#include "World.h"
 #include "EntityLiving.h"
 
 
+sf::Vector3f FlashIncident::SFFormat(World * world, Vector ScreenSize)
+{
+	Vector screenpos = ((Position - world->Player->Pos) * Vector(1, -1)) + (ScreenSize / 2);
+	return sf::Vector3f(screenpos.X, screenpos.Y, Time);
+}
 RenderFlashBang::RenderFlashBang(GameManager * gm)
 {
 	FlashBang = sf::RectangleShape(sf::Vector2f(gm->WindowSize.X, gm->WindowSize.Y));
@@ -13,7 +19,7 @@ RenderFlashBang::RenderFlashBang(GameManager * gm)
 	for (int i = 0; i < MaxFlashes;++i)
 	{
 		PlayerFlashedList[i] = FlashIncident();
-		UniformEvents[i] = PlayerFlashedList[i].SFFormat();
+		UniformEvents[i] = sf::Vector3f(0,0,-1);// PlayerFlashedList[i].SFFormat(gm->WorldObj, ScreenSize);
 	}
 }
 
@@ -41,7 +47,7 @@ void RenderFlashBang::Update(GameManager * gm)
 				PlayerFlashedList[i].Time = -1;
 			}
 		}
-		UniformEvents[i] = PlayerFlashedList[i].SFFormat();
+		UniformEvents[i] = PlayerFlashedList[i].SFFormat(gm->WorldObj,ScreenSize);
 	}
 	gm->ResManager->FlashBangShaderFrag.setParameter("FlashEventA", UniformEvents[0]);
 	gm->ResManager->FlashBangShaderFrag.setParameter("FlashEventB", UniformEvents[1]);
@@ -59,7 +65,7 @@ void RenderFlashBang::AddFlashBangEvent(EntityLiving * ent,Vector Position)
 		{
 			PlayerFlashedList[i].Time = 0;
 			PlayerFlashedList[i].MaxTime = ent->FlashTime;
-			PlayerFlashedList[i].Position = ((Position - ent->Pos) * Vector(1,-1)) + (ScreenSize/2);
+			PlayerFlashedList[i].Position = Position;
 			return;
 		}
 	}

@@ -2,13 +2,18 @@
 #include "AIActionMove.h"
 #include "AIActionLook.h"
 #include "AIAction.h"
+#include "CBRInstance.h"
+#include "CBRCase.h"
+#include "CBREnvironment.h"
+#include "World.h"
 
 
 EntityAI::EntityAI(World * world, Vector pos) : EntityLiving(world,pos)
 {
 	AIUpdateCounter = 0;
-	AIUpdateMax = 0;
+	AIUpdateMax = 100;
 	AIStack = std::queue<AIAction*>();
+	AIInstance = world->AIInstance;
 }
 
 
@@ -36,11 +41,34 @@ void EntityAI::Update()
 	{
 		ItemCurrent->Update(worldObj);
 	}
+	//Execute the stack every frame
+	if (AIStack.size() > 0) {
+		AIStack.front()->Execute();
+	}
+	else
+	{
+		UpdateAI();
+		AIUpdateCounter = AIUpdateMax;
+	}
 	if (AIUpdateCounter++ >= AIUpdateMax)
 	{
-		if (AIStack.size() > 0) {
-			AIStack.front()->Execute();
-		}
+		//UpdateAI();
 		AIUpdateCounter = 0;
 	}
+}
+void EntityAI::UpdateAI()
+{		
+	//Get a case with the current events going on around it
+	CBREnvironment CurrentSituation = CBREnvironment();
+	CurrentSituation.Populate(this);
+	this->CurrentCase = AIInstance->GetCase(CurrentSituation);
+}
+
+bool EntityAI::CanSeeEntity(Entity * entity)
+{
+	if (this->FlashTime > 0)
+	{
+		return false;
+	}
+	return true;
 }

@@ -3,16 +3,14 @@
 #include "Vector.h"
 #include <SFML\Window.hpp>
 #include <SFML\Graphics.hpp>
+class World;
 class EntityLiving;
 struct FlashIncident {
 	Vector Position;
 	float Time;
 	float MaxTime;
 	FlashIncident() { Position = Vector(); Time = -1; MaxTime = 5; };
-	sf::Vector3f SFFormat()
-	{
-		return sf::Vector3f(Position.X, Position.Y, Time);
-	}
+	sf::Vector3f SFFormat(World * world, Vector ScreenSize);
 };
 class GameManager;
 class RenderFlashBang

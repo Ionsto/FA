@@ -5,6 +5,8 @@
 
 EntityFlashBang::EntityFlashBang(World * world,Vector pos) : EntityLiving(world,pos)
 {
+	SetSize(0.1);
+	Mass = 50;
 	Friction = 0.998;
 	FlightTimeCurrent = 0;
 	FlightTimeMax = 500;

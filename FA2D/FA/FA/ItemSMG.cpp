@@ -5,8 +5,8 @@
 ItemSMG::ItemSMG() : Item()
 {
 	Damage = 5;
-	CoolDownTime = 30;
-	ResetTime = 33;
+	CoolDownTime = 20;
+	ResetTime = 23;
 	ResetTimer = 0;
 	CoolDownTimer = 0;
 	Ammo = 200;

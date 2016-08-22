@@ -150,6 +150,9 @@
     <ClCompile Include="RenderFlashBang.cpp">
       <Filter>Source Files\Render</Filter>
     </ClCompile>
+    <ClCompile Include="EntityFlashTurret.cpp">
+      <Filter>Source Files\Game\AI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -250,6 +253,9 @@
     </ClInclude>
     <ClInclude Include="RenderFlashBang.h">
       <Filter>Header Files\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityFlashTurret.h">
+      <Filter>Header Files\Game\AI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -39,7 +39,7 @@ bool EntityLiving::UseItemCurrent()
 {
 	if (ItemCurrent != NULL)
 	{
-		float GunSize = Size * 1.5;
+		float GunSize = Size * 2;
 		Vector FireFrom = Pos + Vector(GunSize * cosf(Rot / 180 * 3.14), GunSize * sinf(Rot / 180 * 3.14));
 		return ItemCurrent->FireFrom(worldObj, FireFrom, Rot);
 	}
@@ -48,4 +48,8 @@ bool EntityLiving::UseItemCurrent()
 void EntityLiving::Flash(Vector position)
 {
 	FlashTime = 5;
+}
+void EntityLiving::Update()
+{
+	FlashTime -= worldObj->DeltaTime;
 }
