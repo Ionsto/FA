@@ -24,6 +24,7 @@ float CBRInstance::Distance(CBREnvironment a,CBREnvironment b)
 	float Distance = 0;
 	int WeightIter = 0;
 	Distance += DistanceWeights[WeightIter++] * (a.Self.FlashTime - b.Self.FlashTime);
+	//Distance += DistanceWeights[WeightIter++] * (a.Self.Position.Dot(b.Self.Position));
 	return 0;
 }
 

@@ -12,7 +12,7 @@ public:
 	float CalculatedValueStart;
 	//Enviroment
 	//case should contain the Solution
-	std::queue<AIAction*> Moves;
+	std::vector<AIAction> Moves;
 	//case should contain the Result
 	//This should have the total outcome, and also the calculated outcome of the situation
 	CBREnvironment EnviromentEnd;
@@ -21,5 +21,7 @@ public:
 	int Validity;
 	CBRCase();
 	~CBRCase();
+	void RandomiseMoves();
+	void ApplyActionsToEntity(EntityAI * entity);
 };
 
