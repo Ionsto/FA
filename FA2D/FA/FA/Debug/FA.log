@@ -1,14 +1,21 @@
-﻿Build started 21/08/2016 18:56:49.
+﻿Build started 22/08/2016 16:21:48.
      1>Project "C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\FA\FA.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt GameManager.cpp
-         GameManager.cpp
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\gamemanager.cpp(36): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\gamemanager.cpp(37): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\gamemanager.cpp(64): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\gamemanager.cpp(65): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\gamemanager.cpp(137): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\gamemanager.cpp(138): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt EntityLiving.cpp EntityPlayer.cpp
+         EntityPlayer.cpp
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(36): warning C4305: 'initializing': truncation from 'double' to 'float'
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(38): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(43): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(69): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(73): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(77): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(81): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityplayer.cpp(93): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+         EntityLiving.cpp
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityliving.cpp(43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityliving.cpp(51): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+     1>c:\users\mpfs\documents\github\fa\fa2d\fa\fa\entityliving.cpp(56): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+         Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe" /INCREMENTAL /NOLOGO openal32.lib "sfml-main-d.lib" "sfml-system-d.lib" "sfml-window-d.lib" "sfml-graphics-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\Debug\FA.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\Debug\FA.lib" /MACHINE:X86 Debug\AIActionShoot.obj
          Debug\AIAction.obj
@@ -35,6 +42,7 @@
          Debug\Item.obj
          Debug\ItemBlinder.obj
          Debug\ItemFlashBang.obj
+         Debug\ItemRayCaster.obj
          Debug\ItemRifle.obj
          Debug\ItemSMG.obj
          Debug\ItemSword.obj
@@ -44,9 +52,10 @@
          Debug\RenderFlashBang.obj
          Debug\ResourceManager.obj
          Debug\World.obj
-     1>LINK : fatal error LNK1168: cannot open C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe for writing
-     1>Done Building Project "C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\FA\FA.vcxproj" (Build target(s)) -- FAILED.
+         LINK : C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe not found or not built by the last incremental link; performing full link
+         FA.vcxproj -> C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe
+     1>Done Building Project "C:\Users\mpfs\Documents\GitHub\FA\FA2D\FA\FA\FA.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:02.76
+Time Elapsed 00:00:05.39

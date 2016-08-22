@@ -153,6 +153,9 @@
     <ClCompile Include="EntityFlashTurret.cpp">
       <Filter>Source Files\Game\AI</Filter>
     </ClCompile>
+    <ClCompile Include="ItemRayCaster.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -256,6 +259,9 @@
     </ClInclude>
     <ClInclude Include="EntityFlashTurret.h">
       <Filter>Header Files\Game\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemRayCaster.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

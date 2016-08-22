@@ -34,14 +34,14 @@ void RenderFlashBang::Update(GameManager * gm)
 	for (int i = 0; i < MaxFlashes;++i)
 	{
 		if (PlayerFlashedList[i].Time != -1) {
-			if (PlayerFlashedList[i].MaxTime <= 2)
+			/*if (PlayerFlashedList[i].MaxTime <= 2)
 			{
 				PlayerFlashedList[i].Time += gm->WorldObj->DeltaTime * 0.03 * (MaxFlashTime);
 			}
 			else
-			{
-				PlayerFlashedList[i].Time += gm->WorldObj->DeltaTime * 0.05 * (MaxFlashTime / PlayerFlashedList[i].MaxTime);
-			}
+			{*/
+			PlayerFlashedList[i].Time += gm->WorldObj->DeltaTime * 0.05 * (MaxFlashTime / PlayerFlashedList[i].MaxTime);
+			//}
 			if (PlayerFlashedList[i].Time > MaxFlashTime)
 			{
 				PlayerFlashedList[i].Time = -1;

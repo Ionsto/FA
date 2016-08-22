@@ -93,6 +93,7 @@
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemBlinder.cpp" />
     <ClCompile Include="ItemFlashBang.cpp" />
+    <ClCompile Include="ItemRayCaster.cpp" />
     <ClCompile Include="ItemRifle.cpp" />
     <ClCompile Include="ItemSMG.cpp" />
     <ClCompile Include="ItemSword.cpp" />
@@ -129,6 +130,7 @@
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemBlinder.h" />
     <ClInclude Include="ItemFlashBang.h" />
+    <ClInclude Include="ItemRayCaster.h" />
     <ClInclude Include="ItemRifle.h" />
     <ClInclude Include="ItemSMG.h" />
     <ClInclude Include="ItemSword.h" />

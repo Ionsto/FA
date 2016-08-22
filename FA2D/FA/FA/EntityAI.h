@@ -4,6 +4,7 @@
 class CBRInstance;
 class CBRCase;
 class AIAction;
+#include "ItemRayCaster.h"
 class EntityAI :
 	public EntityLiving
 {
@@ -13,7 +14,7 @@ public:
 	int AIUpdateCounter;
 	int AIUpdateMax;
 	//Technicaly a normal gun, but utilises the funcitons in the item
-	Item RayCaster;
+	ItemRayCaster RayCaster;
 	std::queue<AIAction *> AIStack;
 	EntityAI(World * world, Vector pos = Vector());
 	~EntityAI();

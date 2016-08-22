@@ -14,6 +14,7 @@ EntityAI::EntityAI(World * world, Vector pos) : EntityLiving(world,pos)
 	AIUpdateMax = 100;
 	AIStack = std::queue<AIAction*>();
 	AIInstance = world->AIInstance;
+	RayCaster = ItemRayCaster();
 }
 
 

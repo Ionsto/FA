@@ -45,6 +45,7 @@ void EntityPlayer::UpdatePlayerAngle()
 }
 void EntityPlayer::Update()
 {
+	EntityLiving::Update();
 	UpdatePlayerAngle();
 	ItemCurrent->Update(worldObj);
 	Vector diff = Pos - PosOld;
@@ -87,6 +88,10 @@ void EntityPlayer::Flash(Vector Position)
 	Vector dist = Position - Pos;
 	float Angle = 180 / 3.14 * atan2f(dist.Y, dist.X);
 	FlashTime = worldObj->FlashManager->MaxFlashTime * (1 - (abs(AngleDifference(Rot,Angle))/90));
+	if (FlashTime < 2)
+	{
+		FlashTime = 2;
+	}
 	//Make entire screen white
 	worldObj->FlashManager->AddFlashBangEvent(this,Position);
 }

@@ -150,6 +150,7 @@ HitStructure * Item::RayCasting(World * world, Vector pos, float Rot)
 				{
 					if (hitData->HitDistance < LesserHitData->HitDistance) {
 						HitEntity = world->EntityList[i];
+						delete LesserHitData;
 						LesserHitData = hitData;
 					}
 
@@ -170,6 +171,7 @@ HitStructure * Item::RayCasting(World * world, Vector pos, float Rot)
 			{
 				if (hitData->HitDistance < LesserHitData->HitDistance) {
 					HitEntity = NULL;
+					delete LesserHitData;
 					LesserHitData = hitData;
 				}
 

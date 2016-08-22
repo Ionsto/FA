@@ -47,9 +47,11 @@ bool EntityLiving::UseItemCurrent()
 }
 void EntityLiving::Flash(Vector position)
 {
-	FlashTime = 5;
+	Vector dist = position - Pos;
+	float Angle = 180 / 3.14 * atan2f(dist.Y, dist.X);
+	FlashTime = worldObj->FlashManager->MaxFlashTime * (1 - (abs(AngleDifference(Rot, Angle)) / 90));
 }
 void EntityLiving::Update()
 {
-	FlashTime -= worldObj->DeltaTime;
+	FlashTime -= worldObj->DeltaTime * 0.05;
 }
