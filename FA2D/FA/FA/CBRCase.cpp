@@ -24,7 +24,7 @@ void CBRCase::RandomiseMoves()
 	{
 		//Add random action
 
-		switch (int(rand() % 0))
+		switch (int(rand() % 1))
 		{
 		case 0:
 			Moves.push_back(AIActionLook(NULL, Vector(rand() % MaxMove, rand() % MaxMove)));

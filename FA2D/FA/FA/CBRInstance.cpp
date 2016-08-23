@@ -60,6 +60,7 @@ CBRCase * CBRInstance::GetCase(CBREnvironment sitrep)
 	if (ClosestCase == -1)
 	{
 		//Gen a random case
+		NewCase->RandomiseMoves();
 	}
 	else {
 		if (ClosestDistance > MinDistanceThreshold)
@@ -71,7 +72,7 @@ CBRCase * CBRInstance::GetCase(CBREnvironment sitrep)
 			//Adapt previouse cases for new enviroment
 		}
 	}
-	return NULL;
+	return NewCase;
 }
 float CBRInstance::CalculateValue(CBREnvironment a)
 {

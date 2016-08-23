@@ -9,5 +9,6 @@ public:
 	~AIAction();
 	virtual void Execute();
 	void RemoveSelf();
+	AIAction CopySelf();
 };
 

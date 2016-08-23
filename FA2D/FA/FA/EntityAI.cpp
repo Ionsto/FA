@@ -58,11 +58,16 @@ void EntityAI::Update()
 	}
 }
 void EntityAI::UpdateAI()
-{		
+{
 	//Get a case with the current events going on around it
+	if (CurrentCase != NULL)
+	{
+		//Apply outcome
+	}
 	CBREnvironment CurrentSituation = CBREnvironment();
 	CurrentSituation.Populate(this);
 	this->CurrentCase = AIInstance->GetCase(CurrentSituation);
+	this->CurrentCase->ApplyActionsToEntity(this);
 }
 
 bool EntityAI::CanSeeEntity(Entity * entity)
