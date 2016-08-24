@@ -9,6 +9,7 @@ public:
 	int ShotCounter;
 	AIActionShoot(EntityAI * owner, int Weapon, int Count);
 	~AIActionShoot();
-	virtual void Execute();
+	void Execute() override;
+	AIAction * CopySelf(EntityAI * newowner) override;
 };
 

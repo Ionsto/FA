@@ -49,6 +49,18 @@
     <Filter Include="Source Files\Game\AI\CBR">
       <UniqueIdentifier>{e73de8b4-73bd-4f05-9e73-b52d144b0c0b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Game\Entity">
+      <UniqueIdentifier>{f45681d3-6755-4920-be79-0b49c2e4a232}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\AI\Action">
+      <UniqueIdentifier>{3401c4c5-8282-4a93-85ac-ad088ad3dd23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\AI\Action">
+      <UniqueIdentifier>{85969e80-6988-49a3-95f1-4bd887f1af8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Entity">
+      <UniqueIdentifier>{e911fbe4-3eac-47c1-b529-cc5019903160}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -81,50 +93,17 @@
     <ClCompile Include="ElementButton.cpp">
       <Filter>Source Files\Menu</Filter>
     </ClCompile>
-    <ClCompile Include="EntityTracerEffect.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="EntityGuard.cpp">
-      <Filter>Source Files\Game\AI</Filter>
-    </ClCompile>
-    <ClCompile Include="EntityLiving.cpp">
-      <Filter>Source Files\Game\AI</Filter>
-    </ClCompile>
-    <ClCompile Include="EntityPlayer.cpp">
-      <Filter>Source Files\Game\AI</Filter>
-    </ClCompile>
     <ClCompile Include="Item.cpp">
       <Filter>Source Files\Game\Items</Filter>
     </ClCompile>
     <ClCompile Include="ItemRifle.cpp">
       <Filter>Source Files\Game\Items</Filter>
     </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>Source Files\Game\AI</Filter>
-    </ClCompile>
     <ClCompile Include="ItemSword.cpp">
       <Filter>Source Files\Game\Items</Filter>
     </ClCompile>
-    <ClCompile Include="EntitySwordEffect.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
     <ClCompile Include="ItemSMG.cpp">
       <Filter>Source Files\Game\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="AIAction.cpp">
-      <Filter>Source Files\Game\AI\CBR</Filter>
-    </ClCompile>
-    <ClCompile Include="AIActionMove.cpp">
-      <Filter>Source Files\Game\AI\CBR</Filter>
-    </ClCompile>
-    <ClCompile Include="EntityAI.cpp">
-      <Filter>Source Files\Game\AI</Filter>
-    </ClCompile>
-    <ClCompile Include="AIActionLook.cpp">
-      <Filter>Source Files\Game\AI\CBR</Filter>
-    </ClCompile>
-    <ClCompile Include="AIActionShoot.cpp">
-      <Filter>Source Files\Game\AI\CBR</Filter>
     </ClCompile>
     <ClCompile Include="CBRDiskManager.cpp">
       <Filter>Source Files\Game\AI\CBR</Filter>
@@ -144,17 +123,50 @@
     <ClCompile Include="ItemFlashBang.cpp">
       <Filter>Source Files\Game\Items</Filter>
     </ClCompile>
-    <ClCompile Include="EntityFlashBang.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
     <ClCompile Include="RenderFlashBang.cpp">
       <Filter>Source Files\Render</Filter>
     </ClCompile>
-    <ClCompile Include="EntityFlashTurret.cpp">
-      <Filter>Source Files\Game\AI</Filter>
-    </ClCompile>
     <ClCompile Include="ItemRayCaster.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AIAction.cpp">
+      <Filter>Source Files\Game\AI\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="AIActionLook.cpp">
+      <Filter>Source Files\Game\AI\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="AIActionMove.cpp">
+      <Filter>Source Files\Game\AI\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="AIActionShoot.cpp">
+      <Filter>Source Files\Game\AI\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files\Game\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityAI.cpp">
+      <Filter>Source Files\Game\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityFlashTurret.cpp">
+      <Filter>Source Files\Game\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityGuard.cpp">
+      <Filter>Source Files\Game\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityLiving.cpp">
+      <Filter>Source Files\Game\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityPlayer.cpp">
+      <Filter>Source Files\Game\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityFlashBang.cpp">
+      <Filter>Source Files\Game\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="EntitySwordEffect.cpp">
+      <Filter>Source Files\Game\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityTracerEffect.cpp">
+      <Filter>Source Files\Game\Entity</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -188,50 +200,17 @@
     <ClInclude Include="ElementButton.h">
       <Filter>Header Files\Menu</Filter>
     </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Header Files\Game\AI</Filter>
-    </ClInclude>
-    <ClInclude Include="EntityGuard.h">
-      <Filter>Header Files\Game\AI</Filter>
-    </ClInclude>
-    <ClInclude Include="EntityLiving.h">
-      <Filter>Header Files\Game\AI</Filter>
-    </ClInclude>
-    <ClInclude Include="EntityPlayer.h">
-      <Filter>Header Files\Game\AI</Filter>
-    </ClInclude>
-    <ClInclude Include="EntityTracerEffect.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
     <ClInclude Include="Item.h">
       <Filter>Header Files\Game\Items</Filter>
     </ClInclude>
     <ClInclude Include="ItemSword.h">
       <Filter>Header Files\Game\Items</Filter>
     </ClInclude>
-    <ClInclude Include="EntitySwordEffect.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
     <ClInclude Include="ItemRifle.h">
       <Filter>Header Files\Game\Items</Filter>
     </ClInclude>
     <ClInclude Include="ItemSMG.h">
       <Filter>Header Files\Game\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="AIAction.h">
-      <Filter>Header Files\Game\AI\CBR</Filter>
-    </ClInclude>
-    <ClInclude Include="AIActionMove.h">
-      <Filter>Header Files\Game\AI\CBR</Filter>
-    </ClInclude>
-    <ClInclude Include="EntityAI.h">
-      <Filter>Header Files\Game\AI</Filter>
-    </ClInclude>
-    <ClInclude Include="AIActionLook.h">
-      <Filter>Header Files\Game\AI\CBR</Filter>
-    </ClInclude>
-    <ClInclude Include="AIActionShoot.h">
-      <Filter>Header Files\Game\AI\CBR</Filter>
     </ClInclude>
     <ClInclude Include="CBRDiskManager.h">
       <Filter>Header Files\Game\AI\CBR</Filter>
@@ -251,17 +230,53 @@
     <ClInclude Include="ItemBlinder.h">
       <Filter>Header Files\Game\Items</Filter>
     </ClInclude>
-    <ClInclude Include="EntityFlashBang.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
     <ClInclude Include="RenderFlashBang.h">
       <Filter>Header Files\Render</Filter>
     </ClInclude>
-    <ClInclude Include="EntityFlashTurret.h">
-      <Filter>Header Files\Game\AI</Filter>
-    </ClInclude>
     <ClInclude Include="ItemRayCaster.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files\Game\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityAI.h">
+      <Filter>Header Files\Game\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityFlashTurret.h">
+      <Filter>Header Files\Game\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityGuard.h">
+      <Filter>Header Files\Game\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityLiving.h">
+      <Filter>Header Files\Game\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityPlayer.h">
+      <Filter>Header Files\Game\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityFlashBang.h">
+      <Filter>Header Files\Game\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="EntitySwordEffect.h">
+      <Filter>Header Files\Game\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityTracerEffect.h">
+      <Filter>Header Files\Game\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="AIAction.h">
+      <Filter>Header Files\Game\AI\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="AIActionLook.h">
+      <Filter>Header Files\Game\AI\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="AIActionMove.h">
+      <Filter>Header Files\Game\AI\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="AIActionShoot.h">
+      <Filter>Header Files\Game\AI\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="CBRWeight.h">
+      <Filter>Header Files\Game\AI\CBR</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

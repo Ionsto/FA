@@ -113,6 +113,7 @@
     <ClInclude Include="CBRCase.h" />
     <ClInclude Include="CBRInstance.h" />
     <ClInclude Include="CBRDiskManager.h" />
+    <ClInclude Include="CBRWeight.h" />
     <ClInclude Include="Element.h" />
     <ClInclude Include="ElementButton.h" />
     <ClInclude Include="ElementLable.h" />

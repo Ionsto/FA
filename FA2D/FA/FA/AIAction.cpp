@@ -21,3 +21,8 @@ void AIAction::RemoveSelf()
 	Owner->AIStack.pop();
 	delete this;
 }
+AIAction * AIAction::CopySelf(EntityAI * newowner)
+{
+	AIAction * NewVer = new AIAction(newowner);
+	return NewVer;
+}

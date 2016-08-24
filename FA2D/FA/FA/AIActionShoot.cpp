@@ -30,3 +30,8 @@ void AIActionShoot::Execute()
 		std::cout << "shot" << std::endl;
 	}
 }
+AIAction * AIActionShoot::CopySelf(EntityAI * newowner)
+{
+	AIAction * NewVer = new AIActionShoot(newowner, Weapon,ShotCount);
+	return NewVer;
+}

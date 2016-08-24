@@ -29,8 +29,8 @@ public:
 	void SetPosition(Vector Pos);
 	void Intergrate();
 	void NormaliseRots();
-	float NormaliseAngle(float x);
-	float AngleDifference(float a,float b);
+	static float NormaliseAngle(float x);
+	static float AngleDifference(float a,float b);
 	void ApplyForce(Vector v);
 	void Kill();
 	void DoDamage(int hp);

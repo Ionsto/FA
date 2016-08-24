@@ -11,4 +11,5 @@ public:
 	AIActionMove(EntityAI * owner,Vector pos);
 	~AIActionMove();
 	void Execute() override;
+	AIAction * CopySelf(EntityAI * newowner) override;
 };

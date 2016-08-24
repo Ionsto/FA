@@ -42,3 +42,8 @@ void AIActionMove::Execute()
 		RemoveSelf();
 	}
 }
+AIAction * AIActionMove::CopySelf(EntityAI * newowner)
+{
+	AIAction * NewVer = new AIActionMove(newowner, this->Position);
+	return NewVer;
+}

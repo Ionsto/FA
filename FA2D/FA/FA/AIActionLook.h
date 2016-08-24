@@ -7,6 +7,7 @@ public:
 	Vector ShotLocation;
 	AIActionLook(EntityAI * owner,Vector ShotLoc);
 	~AIActionLook();
-	virtual void Execute();
+	void Execute() override;
+	AIAction * CopySelf(EntityAI * newowner) override;
 };
 

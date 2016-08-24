@@ -63,6 +63,10 @@ void EntityAI::UpdateAI()
 	if (CurrentCase != NULL)
 	{
 		//Apply outcome
+		CBREnvironment CurrentSituation = CBREnvironment();
+		CurrentSituation.Populate(this);
+		CurrentCase->CalculatedValueEnd = AIInstance->CalculateValue(CurrentSituation);
+		AIInstance->FeedBackCase(CurrentCase);
 	}
 	CBREnvironment CurrentSituation = CBREnvironment();
 	CurrentSituation.Populate(this);

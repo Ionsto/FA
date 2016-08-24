@@ -13,6 +13,11 @@ CBRCase::CBRCase()
 
 CBRCase::~CBRCase()
 {
+	while (Moves.size() > 0)
+	{
+		delete Moves.back();
+		Moves.pop_back();
+	}
 }
 
 void CBRCase::RandomiseMoves()
@@ -27,10 +32,10 @@ void CBRCase::RandomiseMoves()
 		switch (int(rand() % 1))
 		{
 		case 0:
-			Moves.push_back(AIActionLook(NULL, Vector(rand() % MaxMove, rand() % MaxMove)));
+			Moves.push_back(new AIActionLook(NULL, Vector(rand() % MaxMove, rand() % MaxMove)));
 			break;
 		case 1:
-			Moves.push_back(AIActionMove(NULL, Vector((rand() % MaxMove) - 10, (rand() % MaxMove) - 10)));
+			Moves.push_back(new AIActionMove(NULL, Vector((rand() % MaxMove) - 10, (rand() % MaxMove) - 10)));
 			break;
 		}
 	}
@@ -40,6 +45,6 @@ void CBRCase::ApplyActionsToEntity(EntityAI * entity)
 	entity->ClearAIStack();
 	for (int i = 0; i < Moves.size(); ++i)
 	{
-
+		entity->AIStack.push(Moves.at(i)->CopySelf(entity));
 	}
 }

@@ -9,6 +9,6 @@ public:
 	~AIAction();
 	virtual void Execute();
 	void RemoveSelf();
-	AIAction CopySelf();
+	virtual AIAction * CopySelf(EntityAI * newowner);
 };
 
