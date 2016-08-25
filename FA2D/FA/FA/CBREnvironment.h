@@ -22,7 +22,11 @@ public:
 	EntityInfo Self;
 	//Exterier
 	EntityInfo Player;
-	std::vector<EntityInfo> OtherFactors;
+	//Nearby simtype count
+	int SameEntitiesNearby;
+	EntityInfo NearbyFlashbang;
+	//This would be good to have, but it turns out this is a super complex problem
+	//std::vector<EntityInfo> OtherFactors;
 	CBREnvironment();
 	~CBREnvironment();
 	void Populate(EntityAI * entity);

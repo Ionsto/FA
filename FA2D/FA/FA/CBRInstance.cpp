@@ -20,12 +20,21 @@ CBRInstance::~CBRInstance()
 
 float CBRInstance::DistanceInfo(EntityInfo a, EntityInfo b)
 {
+	float DistanceTemp = 0;
 	float Distance = 0;
 	int WeightIter = 0;
-	Distance += DistanceWeights.FlashTime * abs(a.FlashTime - b.FlashTime);
-	Distance += DistanceWeights.Position * sqrt(a.Position.Dot(b.Position));
-	Distance += DistanceWeights.Rotation * abs(Entity::AngleDifference(a.Rot,b.Rot));
-	return Distance;
+	DistanceTemp = DistanceWeights.FlashTime * abs(a.FlashTime - b.FlashTime);
+	Distance += DistanceTemp * DistanceTemp;
+	Vector dist = a.Position - b.Position;
+	DistanceTemp = DistanceWeights.Position * sqrt(dist.Dot(dist));
+	Distance += DistanceTemp * DistanceTemp;
+	DistanceTemp = DistanceWeights.Rotation * abs(Entity::AngleDifference(a.Rot,b.Rot));
+	Distance += DistanceTemp * DistanceTemp;
+	return sqrt(Distance);
+}
+bool CBRInstance::AllPairsComp(float * a, float * b)
+{
+	return a[1] < b[1];
 }
 float CBRInstance::Distance(CBREnvironment a, CBREnvironment b)
 {
@@ -38,12 +47,12 @@ float CBRInstance::Distance(CBREnvironment a, CBREnvironment b)
 	an entity can only be claimed if they are the same type
 	*/
 	//0 is distance,1 is claiment in a
-	std::vector<std::vector<float*>> DistanceFromEachA;
-	std::vector<std::vector<float*>> DistanceFromEachB;
+	/*std::vector<std::vector<float*>> DistanceFromEachA;
+	std::vector<std::vector<int>> ClosestToB;
 	for (int i = 0; i < a.OtherFactors.size(); ++i)
 	{
 		std::vector<float*> TempDistances;
-		for (int j = 0; j < b.OtherFactors.size(); ++i)
+		for (int j = 0; j < b.OtherFactors.size(); ++j)
 		{
 			float NewDistance;
 			int Claiment = -1;
@@ -64,11 +73,10 @@ float CBRInstance::Distance(CBREnvironment a, CBREnvironment b)
 	}
 	for (int i = 0; i < b.OtherFactors.size(); ++i)
 	{
-		std::vector<float*> TempDistances;
-		for (int j = 0; j < a.OtherFactors.size(); ++i)
+		float ClosestDistance;
+		int ClosestClaiment = -1;
+		for (int j = 0; j < a.OtherFactors.size(); ++j)
 		{
-			float NewDistance;
-			int Claiment = -1;
 			EntityInfo bOtherInfo = b.OtherFactors.at(i);
 			EntityInfo aOtherInfo = a.OtherFactors.at(j);
 			if (bOtherInfo.Type != aOtherInfo.Type)
@@ -76,16 +84,33 @@ float CBRInstance::Distance(CBREnvironment a, CBREnvironment b)
 				float Distance = DistanceInfo(bOtherInfo, aOtherInfo);
 				if (Distance < MaxArrayClaimentThreshold)
 				{
-					NewDistance = Distance;
-					Claiment = j;
+					if (ClosestClaiment == -1)
+					{
+						ClosestDistance = Distance;
+						ClosestClaiment = j;
+					}else if (Distance < ClosestDistance)
+					{
+						ClosestDistance = Distance;
+						ClosestClaiment = j;
+					}
 				}
 			}
-			TempDistances.push_back(new float[2]{ NewDistance,(float)Claiment });
 		}
-		DistanceFromEachB.push_back(TempDistances);
+		ClosestToB.at(i).push_back(ClosestClaiment);
 	}
+	//Sort Distance to a
+	std::sort(DistanceFromEachA.front(), DistanceFromEachA.back(),CBRInstance::AllPairsComp);
 	//For each entity on A, find the closest B, if the closest A from that B is the first ent -> Remove both pairs
-	return 0;
+	int i = 0;
+	while (i++ < DistanceFromEachA.size())
+	{
+		for (int j = 0; j < DistanceFromEachA.at(i).size(); ++j)
+		{
+			if(ClosestToB.at(j) == Distance)
+		}
+	}*/
+
+	return Distance;
 }
 
 void CBRInstance::Load(std::string loc)
@@ -121,17 +146,20 @@ CBRCase * CBRInstance::GetCase(CBREnvironment sitrep)
 	{
 		//Gen a random case
 		NewCase->RandomiseMoves();
+		std::cout << "Random moves" << std::endl;
 	}
 	else {
 		if (ClosestDistance > SearchDistanceThreshold)
 		{
 			//Gen a partialy random case
 			NewCase->Moves = CaseBase.at(ClosestCase)->Moves;
+			std::cout << "Previouse case" << std::endl;
 		}
 		else
 		{
 			//Adapt previouse cases for new enviroment
 			NewCase->RandomiseMoves();
+			std::cout << "Partialy random case" << std::endl;
 		}
 	}
 	return NewCase;

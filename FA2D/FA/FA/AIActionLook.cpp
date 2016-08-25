@@ -22,7 +22,7 @@ void AIActionLook::Execute()
 	Owner->RotOld += copysignf(RotSpeed,diff);
 	if (abs(Owner->AngleDifference(Owner->Rot, Angle)) < 5)
 	{
-		std::cout << "Looked" << std::endl;
+		//std::cout << "Looked" << std::endl;
 		RemoveSelf();
 	}
 }
@@ -30,4 +30,10 @@ AIAction * AIActionLook::CopySelf(EntityAI * newowner)
 {
 	AIAction * NewVer = new AIActionLook(newowner,this->ShotLocation);
 	return NewVer;
+}
+void AIActionLook::Mutate(float Factor)
+{
+	Vector Delta = Vector(1, 1);
+	Delta = Delta * ((rand() % 2) - 1);
+	ShotLocation += Delta;
 }

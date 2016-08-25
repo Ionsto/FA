@@ -47,3 +47,9 @@ AIAction * AIActionMove::CopySelf(EntityAI * newowner)
 	AIAction * NewVer = new AIActionMove(newowner, this->Position);
 	return NewVer;
 }
+void AIActionMove::Mutate(float Factor)
+{
+	Vector Delta = Vector(1, 1);
+	Delta = Delta * ((rand() % 2) - 1);
+	Position += Delta;
+}

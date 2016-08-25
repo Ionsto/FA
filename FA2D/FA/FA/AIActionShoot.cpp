@@ -18,6 +18,7 @@ void AIActionShoot::Execute()
 {
 	//Get angle to look at
 	if (ShotCounter < this->ShotCount) {
+		Owner->Weapon
 		Owner->ItemCurrent = Owner->ItemList[Weapon];
 		if (Owner->ItemCurrent->CoolDownTimer == 0) {
 			Owner->UseItemCurrent();
@@ -27,11 +28,27 @@ void AIActionShoot::Execute()
 	else
 	{
 		RemoveSelf();
-		std::cout << "shot" << std::endl;
+		//std::cout << "shot" << std::endl;
 	}
 }
 AIAction * AIActionShoot::CopySelf(EntityAI * newowner)
 {
 	AIAction * NewVer = new AIActionShoot(newowner, Weapon,ShotCount);
 	return NewVer;
+}
+void AIActionShoot::Mutate(float Factor)
+{
+	float RandFloat = rand() % 40;
+	if (RandFloat > 30)
+	{
+		++ShotCount;
+	}
+	else if (RandFloat < 10)
+	{
+		--RandFloat;
+	}
+	if (rand() % 50)
+	{
+		Weapon = (int(rand() % 3))
+	}
 }

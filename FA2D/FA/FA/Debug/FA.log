@@ -1,7 +1,2 @@
-﻿  EntityAI.cpp
-  CBRCase.cpp
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\cbrcase.cpp(35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\cbrcase.cpp(38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\mpfs\contacts\documents\github\fa\fa2d\fa\fa\cbrcase.cpp(46): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
+﻿  LINK : C:\Users\mpfs\Contacts\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe not found or not built by the last incremental link; performing full link
   FA.vcxproj -> C:\Users\mpfs\Contacts\Documents\GitHub\FA\FA2D\FA\Debug\FA.exe

@@ -33,5 +33,6 @@ public:
 	void FeedBackCase(CBRCase * Case);
 	CBRCase * GetCase(CBREnvironment sitrep);
 	float CalculateValue(CBREnvironment siterep);
+	static bool AllPairsComp(float * a, float * b);
 };
 

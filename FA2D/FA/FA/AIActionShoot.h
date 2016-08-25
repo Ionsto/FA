@@ -11,5 +11,6 @@ public:
 	~AIActionShoot();
 	void Execute() override;
 	AIAction * CopySelf(EntityAI * newowner) override;
+	void Mutate(float Factor) override;
 };
 

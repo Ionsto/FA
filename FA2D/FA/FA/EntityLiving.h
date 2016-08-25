@@ -17,6 +17,7 @@ public:
 	void Render(GameManager * gm);
 	void SetSize(float size);
 	bool UseItemCurrent();
+	void ChangeWeapon(int newweapon);
 	void Update();
 	virtual void Flash(Vector Position);
 };

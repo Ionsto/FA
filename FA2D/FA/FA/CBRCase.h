@@ -22,6 +22,7 @@ public:
 	CBRCase();
 	~CBRCase();
 	void RandomiseMoves();
-	void ApplyActionsToEntity(EntityAI * entity);
+	void ApplyActionsToEntity(EntityAI * entity); 
+	void MutateCases();
 };
 

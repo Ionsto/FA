@@ -26,3 +26,7 @@ AIAction * AIAction::CopySelf(EntityAI * newowner)
 	AIAction * NewVer = new AIAction(newowner);
 	return NewVer;
 }
+void AIAction::Mutate(float Factor)
+{
+
+}
