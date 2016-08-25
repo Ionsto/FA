@@ -38,13 +38,37 @@ float CBRInstance::Distance(CBREnvironment a, CBREnvironment b)
 	an entity can only be claimed if they are the same type
 	*/
 	//0 is distance,1 is claiment in a
-	std::vector<std::vector<float[]>> ClaimsToB;
+	std::vector<std::vector<float*>> DistanceFromEachA;
+	std::vector<std::vector<float*>> DistanceFromEachB;
+	for (int i = 0; i < a.OtherFactors.size(); ++i)
+	{
+		std::vector<float*> TempDistances;
+		for (int j = 0; j < b.OtherFactors.size(); ++i)
+		{
+			float NewDistance;
+			int Claiment = -1;
+			EntityInfo bOtherInfo = b.OtherFactors.at(i);
+			EntityInfo aOtherInfo = a.OtherFactors.at(j);
+			if (bOtherInfo.Type != aOtherInfo.Type)
+			{
+				float Distance = DistanceInfo(aOtherInfo, bOtherInfo);
+				if (Distance < MaxArrayClaimentThreshold)
+				{
+					NewDistance = Distance;
+					Claiment = j;
+				}
+			}
+			TempDistances.push_back(new float[2]{ NewDistance,(float)Claiment });
+		}
+		DistanceFromEachA.push_back(TempDistances);
+	}
 	for (int i = 0; i < b.OtherFactors.size(); ++i)
 	{
-		float NewDistance;
-		int Claiment = -1;
-		for (int j = 0; j < a.OtherFactors.size();++i)
+		std::vector<float*> TempDistances;
+		for (int j = 0; j < a.OtherFactors.size(); ++i)
 		{
+			float NewDistance;
+			int Claiment = -1;
 			EntityInfo bOtherInfo = b.OtherFactors.at(i);
 			EntityInfo aOtherInfo = a.OtherFactors.at(j);
 			if (bOtherInfo.Type != aOtherInfo.Type)
@@ -52,33 +76,15 @@ float CBRInstance::Distance(CBREnvironment a, CBREnvironment b)
 				float Distance = DistanceInfo(bOtherInfo, aOtherInfo);
 				if (Distance < MaxArrayClaimentThreshold)
 				{
-					if (Claiment == -1)
-					{
-						NewDistance = Distance;
-						Claiment = j;
-					}
-					else
-					{
-						if (Distance < NewDistance)
-						{
-							NewDistance = Distance;
-							Claiment = j;
-						}
-					}
+					NewDistance = Distance;
+					Claiment = j;
 				}
 			}
+			TempDistances.push_back(new float[2]{ NewDistance,(float)Claiment });
 		}
-		ClaimsToB.push_back(new float[2]{NewDistance,(float)Claiment});
+		DistanceFromEachB.push_back(TempDistances);
 	}
-	int UnclaimedB = 0;
-	int UnclaimedA = 0;
-	for (int i = 0; i < ClaimsToB.size(); ++i)
-	{
-		if (ClaimsToB.at(i)[1] == -1) {
-			++UnclaimedB;
-		}
-		if(ClaimsToA)
-	}
+	//For each entity on A, find the closest B, if the closest A from that B is the first ent -> Remove both pairs
 	return 0;
 }
 
