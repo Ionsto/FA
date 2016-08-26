@@ -11,5 +11,6 @@ public:
 	void RemoveSelf();
 	virtual AIAction * CopySelf(EntityAI * newowner);
 	virtual void Mutate(float Factor);
+	virtual std::string Description();
 };
 

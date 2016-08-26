@@ -1,11 +1,10 @@
 #pragma once
 #include "Vector.h"
 #include <vector>
+#include "Entity.h"
 struct EntityInfo
 {
-	enum Type {
-
-	} Type;
+	Entity::EntityType Type;
 	float FlashTime;
 	float Health;
 	float Rot;

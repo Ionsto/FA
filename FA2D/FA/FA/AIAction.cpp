@@ -30,3 +30,7 @@ void AIAction::Mutate(float Factor)
 {
 
 }
+std::string AIAction::Description()
+{
+	return "Null action";
+}

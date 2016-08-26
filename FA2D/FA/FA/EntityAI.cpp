@@ -66,6 +66,7 @@ void EntityAI::UpdateAI()
 		CBREnvironment CurrentSituation = CBREnvironment();
 		CurrentSituation.Populate(this);
 		CurrentCase->CalculatedValueEnd = AIInstance->CalculateValue(CurrentSituation);
+		CurrentCase->EnviromentEnd = CurrentSituation;
 		AIInstance->FeedBackCase(CurrentCase);
 	}
 	CBREnvironment CurrentSituation = CBREnvironment();

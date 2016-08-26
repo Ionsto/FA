@@ -53,3 +53,7 @@ void AIActionMove::Mutate(float Factor)
 	Delta = Delta * ((rand() % 2) - 1);
 	Position += Delta;
 }
+std::string AIActionMove::Description()
+{
+	return "Move to vector, " + std::to_string(Position.X) + ":" + std::to_string(Position.Y);
+}

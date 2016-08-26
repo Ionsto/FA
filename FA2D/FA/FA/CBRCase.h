@@ -23,6 +23,6 @@ public:
 	~CBRCase();
 	void RandomiseMoves();
 	void ApplyActionsToEntity(EntityAI * entity); 
-	void MutateCases();
+	void MutateCases(float subfactor);
 };
 

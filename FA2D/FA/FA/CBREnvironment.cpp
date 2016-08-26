@@ -13,11 +13,20 @@ CBREnvironment::~CBREnvironment()
 }
 void CBREnvironment::Populate(EntityAI * ent)
 {
-	//this->Player.FlashTime = ent->FlashTime;
-	this->Player.Position = ent->Pos;
-	//this->Player.Rot = ent->Rot;
-	//this->Player.Type = ;
-	this->Player.InfoKnown = true;
+	this->Self.FlashTime = ent->FlashTime;
+	this->Self.Position = ent->Pos;
+	this->Self.Rot = ent->Rot;
+	this->Self.Type = ent->Type;
+	this->Self.InfoKnown = true;
+	this->Player.InfoKnown = ent->RayCaster.CanSeeEntity(ent, ent->worldObj->Player);
+	if (this->Player.InfoKnown)
+	{
+		this->Player.FlashTime = ent->worldObj->Player->FlashTime;
+		this->Player.Position = ent->worldObj->Player->Pos;
+		this->Player.Rot = ent->worldObj->Player->Rot;
+		this->Player.Type = ent->worldObj->Player->Type;
+	}
+
 	int SimilarEntityCloseCount = 0;
 	float DistanceToClosestFlashbang = -1;
 	EntityInfo info = EntityInfo();

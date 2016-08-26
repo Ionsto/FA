@@ -37,3 +37,7 @@ void AIActionLook::Mutate(float Factor)
 	Delta = Delta * ((rand() % 2) - 1);
 	ShotLocation += Delta;
 }
+std::string AIActionLook::Description()
+{
+	return "Look at vector, " + std::to_string(ShotLocation.X) + ":" + std::to_string(ShotLocation.Y);
+}

@@ -2,6 +2,7 @@
 #include "AIActionLook.h"
 #include "AIActionMove.h"
 #include "AIActionShoot.h"
+#include <iostream>
 
 CBRCase::CBRCase()
 {
@@ -29,22 +30,24 @@ void CBRCase::RandomiseMoves()
 	for (int i = 0; i < actions; ++i)
 	{
 		//Add random action
-		switch (int(rand() % 1))
+		switch ((rand() % 2))
 		{
 		case 0:
 			Moves.push_back(new AIActionLook(NULL, Vector(MaxMove / 2,MaxMove / 2)));
-			Moves.back()->Mutate(Factor);
 			break;
 		case 1:
 			Moves.push_back(new AIActionMove(NULL, Vector(MaxMove / 2, MaxMove / 2)));
-			Moves.back()->Mutate(Factor);
+			break;
+		case 2:
+			Moves.push_back(new AIActionMove(NULL, Vector(MaxMove / 2, MaxMove / 2)));
 			break;
 		}
+		Moves.back()->Mutate(Factor);
 	}
 }
-void CBRCase::MutateCases()
+void CBRCase::MutateCases(float subfactor)
 {
-	float Factor = 0.1 * ((rand() % 2)-1);
+	float Factor = subfactor * ((rand() % 2)-1);
 	for (int i = 0; i < Moves.size(); ++i)
 	{
 		(Moves.front() + i)->Mutate(Factor);
@@ -53,8 +56,10 @@ void CBRCase::MutateCases()
 void CBRCase::ApplyActionsToEntity(EntityAI * entity)
 {
 	entity->ClearAIStack();
+	std::cout << "Starting ai routine" << std::endl;
 	for (int i = 0; i < Moves.size(); ++i)
 	{
 		entity->AIStack.push(Moves.at(i)->CopySelf(entity));
+		std::cout << (Moves.at(i))->Description() << std::endl;
 	}
 }

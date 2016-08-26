@@ -18,8 +18,7 @@ void AIActionShoot::Execute()
 {
 	//Get angle to look at
 	if (ShotCounter < this->ShotCount) {
-		Owner->Weapon
-		Owner->ItemCurrent = Owner->ItemList[Weapon];
+		Owner->ChangeWeapon(Weapon);
 		if (Owner->ItemCurrent->CoolDownTimer == 0) {
 			Owner->UseItemCurrent();
 			++ShotCounter;
@@ -49,6 +48,10 @@ void AIActionShoot::Mutate(float Factor)
 	}
 	if (rand() % 50)
 	{
-		Weapon = (int(rand() % 3))
+		Weapon = (roundf(rand() % 3));
 	}
+}
+std::string AIActionShoot::Description()
+{
+	return "Shoot, " + std::to_string(ShotCount) + " times, with item " + std::to_string(Weapon);
 }

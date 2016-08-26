@@ -158,7 +158,11 @@ CBRCase * CBRInstance::GetCase(CBREnvironment sitrep)
 		else
 		{
 			//Adapt previouse cases for new enviroment
-			NewCase->RandomiseMoves();
+			NewCase->MutateCases(0.5);
+			if (rand() % 10 == 0)
+			{
+				NewCase->RandomiseMoves();
+			}
 			std::cout << "Partialy random case" << std::endl;
 		}
 	}
@@ -166,7 +170,12 @@ CBRCase * CBRInstance::GetCase(CBREnvironment sitrep)
 }
 float CBRInstance::CalculateValue(CBREnvironment a)
 {
-	return 0;
+	float Value = 0;
+	float ValueTemp = 0;
+	ValueTemp = ValueWeights.FlashTime * abs(a.Self.FlashTime);
+	Value += ValueTemp * ValueTemp;
+	//ValueTemp = ValueWeights.Health * (
+	return sqrt(Value);
 }
 void CBRInstance::FeedBackCase(CBRCase * feedback)
 {
@@ -176,6 +185,7 @@ void CBRInstance::FeedBackCase(CBRCase * feedback)
 	float ClosestDistance = 0;
 	int ClosestCase = -1;
 	float NewDist;
+	bool Feedbackneeded = false;
 	for (int i = 0; i < CaseBase.size(); ++i)
 	{
 		if (ClosestCase == -1)
@@ -197,17 +207,20 @@ void CBRInstance::FeedBackCase(CBRCase * feedback)
 	{
 		//Gen a random case
 		this->CaseBase.push_back(feedback);
+		Feedbackneeded = true;
 	}
 	else {
 		if (ClosestDistance > SearchDistanceThreshold)
 		{
 			//Gen a partialy random case
 			this->CaseBase.push_back(feedback);
+			Feedbackneeded = true;
 		}
 		else
 		{
-			//Adapt previouse cases for new enviroment			
-			if (Distance(feedback->EnviromentEnd, CaseBase.at(ClosestCase)->EnviromentEnd) < ValidityDistanceThreshold)
+			//Adapt previouse cases for new enviroment		
+			float Dist = Distance(feedback->EnviromentEnd, CaseBase.at(ClosestCase)->EnviromentEnd);
+			if (Dist < ValidityDistanceThreshold)
 			{
 				++this->CaseBase.at(ClosestCase)->Validity;
 			}
@@ -216,10 +229,16 @@ void CBRInstance::FeedBackCase(CBRCase * feedback)
 				--this->CaseBase.at(ClosestCase)->Validity;
 				if (this->CaseBase.at(ClosestCase)->CalculatedValueEnd > feedback->CalculatedValueEnd)
 				{
-
+					std::cout << "Found Better case" << std::endl;
+					delete this->CaseBase.at(ClosestCase);
+					this->CaseBase.at(ClosestCase) = feedback;
+					Feedbackneeded = true;
 				}
 			}
-			delete feedback;
 		}
+	}
+	if (!Feedbackneeded)
+	{
+		delete feedback;
 	}
 }

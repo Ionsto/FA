@@ -53,5 +53,21 @@ void EntityLiving::Flash(Vector position)
 }
 void EntityLiving::Update()
 {
-	FlashTime -= worldObj->DeltaTime * 0.05;
+	if (FlashTime > 0) {
+		FlashTime -= worldObj->DeltaTime * 0.05;
+	}
+	else if (FlashTime < 0)
+	{
+		FlashTime = 0;
+	}
+}
+void EntityLiving::ChangeWeapon(int wep)
+{
+	if (wep >= 0 && wep < 4)
+	{
+		if (ItemList[wep] != NULL)
+		{
+			ItemCurrent = ItemList[wep];
+		}
+	}
 }
